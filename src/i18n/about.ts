@@ -21,7 +21,7 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
         h2: 'How I got here',
         paras: [
           'I started learning to code around 2021 with no plan beyond curiosity. For a while it was small tools and experiments that never left my laptop.',
-          'In 2024 the first apps reached the App Store. Some of them were AI tools for making pictures, videos and music. Later came the utilities: a sleep timer for the Mac, a cut list optimizer for woodworkers, a home inventory app, an envelope budget.',
+          'In 2024 the first apps reached the App Store: a sleep timer for the Mac in May, then AI tools for making pictures, videos and music. In 2026 came more utilities: a cut list optimizer for woodworkers, a home inventory app, an envelope budget.',
         ],
       },
       {
@@ -51,7 +51,7 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
         h2: 'Wie es dazu kam',
         paras: [
           'Um 2021 habe ich angefangen, mir das Programmieren beizubringen, aus Neugier, ohne Plan. Eine Weile waren es kleine Werkzeuge und Experimente, die meinen Laptop nie verlassen haben.',
-          '2024 kamen die ersten Apps in den App Store. Ein Teil davon waren KI-Werkzeuge für Bilder, Videos und Musik. Später kamen die Utilities: ein Sleep Timer für den Mac, ein Zuschnittoptimierer für Holzwerker, ein Hausinventar, ein Umschlag-Budget.',
+          '2024 kamen die ersten Apps in den App Store: im Mai ein Sleep Timer für den Mac, danach KI-Werkzeuge für Bilder, Videos und Musik. 2026 folgten weitere Utilities: ein Zuschnittoptimierer für Holzwerker, ein Hausinventar, ein Umschlag-Budget.',
         ],
       },
       {

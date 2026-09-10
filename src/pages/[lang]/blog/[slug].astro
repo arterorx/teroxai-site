@@ -1,20 +1,25 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import PostLayout from '../../../layouts/PostLayout.astro';
 import { localePath, OTHER_LOCALES, type Alternate } from '../../../i18n/config';
+import { slugOf } from '../../../lib/posts';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', (p) => p.data.lang !== 'en');
   return posts
     .filter((post) => (OTHER_LOCALES as readonly string[]).includes(post.data.lang))
-    .map((post) => ({ params: { lang: post.data.lang, slug: post.id.split('/').pop()! }, props: { post } }));
+    .map((post) => ({ params: { lang: post.data.lang, slug: slugOf(post.id) }, props: { post } }));
 }
 const { post } = Astro.props;
 const lang = post.data.lang;
-const slug = post.id.split('/').pop()!;
+const slug = slugOf(post.id);
 const { Content } = await render(post);
 const alternates: Alternate[] = [];
-if (post.data.translationOf) alternates.push({ lang: 'en', path: localePath('en', `blog/${post.data.translationOf}`) });
+if (post.data.translationOf) {
+  const pair = await getEntry('blog', `en/${post.data.translationOf}`);
+  if (!pair) throw new Error(`${post.id}: translationOf "${post.data.translationOf}" has no en/ post`);
+  alternates.push({ lang: 'en', path: localePath('en', `blog/${post.data.translationOf}`) });
+}
 alternates.push({ lang, path: localePath(lang, `blog/${slug}`) });
 ---
 

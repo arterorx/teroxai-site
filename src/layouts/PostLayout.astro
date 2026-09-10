@@ -24,6 +24,8 @@ const jsonLd = [
     datePublished: iso,
     inLanguage: lang,
     url: `${SITE_URL}${localePath(lang, `blog/${slug}`)}`,
+    mainEntityOfPage: `${SITE_URL}${localePath(lang, `blog/${slug}`)}`,
+    image: `${SITE_URL}/og/default.png`,
     author: { '@id': `${SITE_URL}/#person` },
     publisher: { '@id': `${SITE_URL}/#org` },
   },

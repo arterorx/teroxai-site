@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { localePath, type Locale } from '../i18n/config';
 import { formatDate } from '../lib/site';
+import { slugOf } from '../lib/posts';
 
 interface Props {
   lang: Locale;
@@ -12,8 +13,6 @@ const all = (await getCollection('blog', (p) => p.data.lang === lang)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 const posts = limit ? all.slice(0, limit) : all;
-/** Content id is "<lang>/<slug>"; the URL uses only the slug. */
-const slugOf = (id: string) => id.split('/').pop()!;
 ---
 
 <ul class="pl">
@@ -22,7 +21,7 @@ const slugOf = (id: string) => id.split('/').pop()!;
       <li>
         <a href={localePath(lang, `blog/${slugOf(p.id)}`)}>{p.data.title}</a>
         <p class="muted">
-          <time datetime={p.data.date.toISOString().slice(0, 10)}>{formatDate(p.data.date.toISOString().slice(0, 10), lang)}</time>
+          <time datetime={p.data.date.toISOString().slice(0, 10)}>{formatDate(p.data.date.toISOString().slice(0, 10), lang)}</time>{' '}
           · {p.data.description}
         </p>
       </li>

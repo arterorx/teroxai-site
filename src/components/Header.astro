@@ -1,0 +1,68 @@
+---
+import { localePath, type Alternate, type Locale } from '../i18n/config';
+import { SITE_NAME } from '../lib/site';
+import { t } from '../i18n/ui';
+import LangSwitcher from './LangSwitcher.astro';
+
+interface Props {
+  lang: Locale;
+  alternates: Alternate[];
+}
+const { lang, alternates }: Props = Astro.props;
+const ui = t(lang);
+const nav = [
+  { href: localePath(lang, 'apps'), label: ui.navApps },
+  { href: localePath(lang, 'blog'), label: ui.navBlog },
+  { href: localePath(lang, 'about'), label: ui.navAbout },
+];
+---
+
+<header class="hd">
+  <div class="wrap hd__in">
+    <a class="hd__brand" href={localePath(lang)}>{SITE_NAME}</a>
+    <nav class="hd__nav" aria-label="Main">
+      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+    </nav>
+    <LangSwitcher lang={lang} alternates={alternates} />
+  </div>
+</header>
+
+<style>
+  .hd {
+    border-bottom: 1px solid var(--rule);
+  }
+  .hd__in {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: 60px;
+  }
+  .hd__brand {
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 1.125rem;
+    margin-right: auto;
+  }
+  .hd__nav {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .hd__nav a {
+    color: var(--ink-2);
+    text-decoration: none;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .hd__nav a:hover {
+    color: var(--ink);
+  }
+  @media (max-width: 480px) {
+    .hd__nav {
+      gap: 0.9rem;
+      font-size: 0.95rem;
+    }
+  }
+</style>

@@ -1,0 +1,92 @@
+---
+import Seo from '../components/Seo.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { DEFAULT_LOCALE, LOCALE_TAGS, type Alternate, type Locale } from '../i18n/config';
+import { SITE_NAME, SITE_URL, OWNER, SAME_AS } from '../lib/site';
+import { t } from '../i18n/ui';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  suffix?: boolean;
+  noindex?: boolean;
+  type?: 'website' | 'article' | 'profile';
+  jsonLd?: object[];
+  lang?: Locale;
+  alternates?: Alternate[];
+}
+const {
+  title,
+  description,
+  ogImage,
+  suffix = true,
+  noindex = false,
+  type = 'website',
+  jsonLd = [],
+  lang = DEFAULT_LOCALE,
+  alternates = [],
+}: Props = Astro.props;
+
+/* Person and Organization on every page so the graph assembles no matter
+   which page Google lands on first. */
+const globalLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#person`,
+    name: OWNER,
+    url: `${SITE_URL}/about/`,
+    image: `${SITE_URL}/og/armen.jpg`,
+    jobTitle: 'Indie app developer',
+    address: { '@type': 'PostalAddress', addressLocality: 'Hamburg', addressCountry: 'DE' },
+    sameAs: SAME_AS,
+    worksFor: { '@id': `${SITE_URL}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#org`,
+    name: SITE_NAME,
+    url: `${SITE_URL}/`,
+    logo: `${SITE_URL}/icons/icon-512.png`,
+    founder: { '@id': `${SITE_URL}/#person` },
+    sameAs: SAME_AS,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: `${SITE_URL}/`,
+    inLanguage: lang,
+    publisher: { '@id': `${SITE_URL}/#org` },
+  },
+];
+---
+
+<!doctype html>
+<html lang={LOCALE_TAGS[lang]}>
+  <head>
+    <Seo
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      suffix={suffix}
+      noindex={noindex}
+      type={type}
+      lang={lang}
+      alternates={alternates}
+      jsonLd={[...globalLd, ...jsonLd]}
+    />
+  </head>
+  <body>
+    <a class="skip" href="#main">{t(lang).skip}</a>
+    <Header lang={lang} alternates={alternates} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

@@ -1,0 +1,76 @@
+---
+/* The only place head meta lives. Canonical is absolute with a trailing slash
+   (trailingSlash: 'always'), the OG image must exist on disk, JSON-LD escapes
+   angle brackets so a closing script tag in data cannot break the page. */
+import { DEFAULT_LOCALE, LOCALE_TAGS, OG_LOCALES, type Alternate, type Locale } from '../i18n/config';
+import { SITE_NAME } from '../lib/site';
+import { t } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  suffix?: boolean;
+  type?: 'website' | 'article' | 'profile';
+  jsonLd?: object[];
+  noindex?: boolean;
+  lang?: Locale;
+  alternates?: Alternate[];
+}
+
+const {
+  title,
+  description,
+  ogImage = '/og/default.png',
+  suffix = true,
+  type = 'website',
+  jsonLd = [],
+  noindex = false,
+  lang = DEFAULT_LOCALE,
+  alternates = [],
+}: Props = Astro.props;
+
+const fullTitle = suffix ? title + t(lang).titleSuffix : title;
+const showAlternates = !noindex && alternates.length > 1;
+const xDefault = showAlternates ? alternates.find((a) => a.lang === DEFAULT_LOCALE) : undefined;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL(ogImage, Astro.site);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+{
+  showAlternates &&
+    alternates.map((a) => (
+      <link rel="alternate" hreflang={LOCALE_TAGS[a.lang]} href={new URL(a.path, Astro.site)} />
+    ))
+}
+{xDefault && <link rel="alternate" hreflang="x-default" href={new URL(xDefault.path, Astro.site)} />}
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:locale" content={OG_LOCALES[lang]} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{!noindex && <meta property="og:url" content={canonical} />}
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="generator" content={Astro.generator} />
+{
+  jsonLd.map((block) => (
+    <script type="application/ld+json" set:html={JSON.stringify(block).replace(/</g, '\\u003c')} />
+  ))
+}

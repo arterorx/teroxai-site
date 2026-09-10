@@ -1,0 +1,53 @@
+---
+import { localePath, type Locale } from '../i18n/config';
+import { CONTACT_EMAIL, OWNER, GITHUB_URL, LINKEDIN_URL, TIKTOK_URL } from '../lib/site';
+import { t } from '../i18n/ui';
+
+interface Props {
+  lang: Locale;
+}
+const { lang }: Props = Astro.props;
+const ui = t(lang);
+const socials = [
+  { href: GITHUB_URL, label: 'GitHub' },
+  { href: LINKEDIN_URL, label: 'LinkedIn' },
+  { href: TIKTOK_URL, label: 'TikTok' },
+].filter((s) => s.href);
+const year = new Date().getFullYear();
+---
+
+<footer class="ft">
+  <div class="wrap ft__in">
+    <p class="ft__open">
+      {ui.openTo} {ui.writeMe} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+    </p>
+    <nav class="ft__links" aria-label="Footer">
+      {socials.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}
+      <a href={localePath(lang, 'privacy')}>{ui.privacy}</a>
+    </nav>
+    <p class="muted ft__copy">© {year} {OWNER}</p>
+  </div>
+</footer>
+
+<style>
+  .ft {
+    border-top: 1px solid var(--rule);
+    padding-block: 2.5rem;
+    font-size: 0.9375rem;
+  }
+  .ft__in {
+    display: grid;
+    gap: 1rem;
+  }
+  .ft__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+  .ft__links a {
+    color: var(--ink-2);
+  }
+  .ft__copy {
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,314 @@
+[
+  {
+    "slug": "sawkit",
+    "appId": "6796480019",
+    "bundleId": "app.sawkit.SawKit",
+    "order": 1,
+    "status": "live",
+    "platforms": ["ios", "ipados", "macos"],
+    "priceModel": "one-time",
+    "site": "https://sawkit.app",
+    "privacy": "https://sawkit.app/privacy/",
+    "support": "https://sawkit.app/support/",
+    "store": { "rating": null, "ratingCount": 0, "version": "1.0", "fetchedAt": "2026-09-10" },
+    "en": {
+      "name": "SawKit: Cut List Optimizer",
+      "subtitle": "",
+      "tagline": "Cut lists with the least waste",
+      "priceLabel": "Free to try, Pro unlock $24.99 once",
+      "intro": "SawKit works out how to cut your parts from full sheets of plywood, MDF or melamine with the least waste, then tells you the order to make the cuts in. Type the list the way you would say it, in inches, fractions or millimetres.",
+      "features": [
+        { "title": "Twelve packing strategies", "text": "SawKit lays parts out across as many sheets as it takes and picks the best of twelve strategies for your list." },
+        { "title": "Respects the grain", "text": "Say which way the grain runs on the sheet and on the part. Parts that must follow it are turned to match." },
+        { "title": "Kerf and trim included", "text": "Blade width and edge trim are part of the calculation, not an afterthought." },
+        { "title": "Cut order you can follow", "text": "Every pass runs edge to edge, so the plan works on a table saw or a panel saw." },
+        { "title": "No account, no server", "text": "Everything stays on your device. One purchase covers iPhone, iPad and Mac." }
+      ]
+    },
+    "de": {
+      "name": "SawKit: Cut List Optimizer",
+      "subtitle": "",
+      "tagline": "Zuschnittpläne mit dem geringsten Verschnitt",
+      "priceLabel": "Kostenlos testen, Pro einmalig 24,99 $",
+      "intro": "SawKit berechnet, wie du deine Teile aus ganzen Platten Sperrholz, MDF oder Melamine mit dem geringsten Verschnitt schneidest, und sagt dir die Reihenfolge der Schnitte. Die Liste tippst du so ein, wie du sie sagen würdest: in Zoll, Brüchen oder Millimetern.",
+      "features": [
+        { "title": "Zwölf Packstrategien", "text": "SawKit verteilt die Teile auf so viele Platten wie nötig und wählt für deine Liste die beste von zwölf Strategien." },
+        { "title": "Achtet auf die Maserung", "text": "Du gibst an, wie die Maserung auf Platte und Teil läuft. Teile, die ihr folgen müssen, werden passend gedreht." },
+        { "title": "Sägeblatt und Besäumen eingerechnet", "text": "Schnittbreite und Randbeschnitt gehören zur Berechnung, nicht zum Nachtrag." },
+        { "title": "Schnittfolge zum Nacharbeiten", "text": "Jeder Schnitt läuft von Kante zu Kante, damit der Plan an Tischsäge und Plattensäge funktioniert." },
+        { "title": "Kein Konto, kein Server", "text": "Alles bleibt auf deinem Gerät. Ein Kauf gilt für iPhone, iPad und Mac." }
+      ]
+    }
+  },
+  {
+    "slug": "camdial",
+    "appId": "6806860547",
+    "bundleId": "app.camdial.CamDial",
+    "order": 2,
+    "status": "review",
+    "platforms": ["macos"],
+    "priceModel": "free-pro",
+    "site": "https://camdial.app",
+    "privacy": "https://camdial.app/privacy/",
+    "support": "https://camdial.app/support/",
+    "store": { "rating": null, "ratingCount": 0, "version": "1.0", "fetchedAt": "2026-09-10" },
+    "en": {
+      "name": "CamDial: USB Webcam Settings",
+      "subtitle": "",
+      "tagline": "Webcam settings that stay put",
+      "priceLabel": "Free, one-time Pro unlock",
+      "intro": "CamDial is a menu bar app for USB webcam settings on the Mac. Exposure, white balance, focus and zoom are set on the camera itself and saved as presets that come back by themselves after every reconnect.",
+      "features": [
+        { "title": "Presets that survive a reconnect", "text": "Sleep the Mac, switch a hub, touch the cable. CamDial notices the camera return and puts your look back on it." },
+        { "title": "Real units", "text": "Kelvins and fractions of a second, read from the camera's own range, not percentages." },
+        { "title": "Lives in the menu bar", "text": "A popover with the rows you need and nothing else. macOS 14 or later, any UVC webcam." }
+      ]
+    },
+    "de": {
+      "name": "CamDial: USB Webcam Settings",
+      "subtitle": "",
+      "tagline": "Webcam-Einstellungen, die bleiben",
+      "priceLabel": "Kostenlos, Pro einmalig freischalten",
+      "intro": "CamDial ist eine Menüleisten-App für USB-Webcam-Einstellungen am Mac. Belichtung, Weißabgleich, Fokus und Zoom werden auf der Kamera selbst gesetzt und als Presets gespeichert, die nach jedem Neuanschluss von allein zurückkommen.",
+      "features": [
+        { "title": "Presets überleben den Neuanschluss", "text": "Mac in den Ruhezustand, Hub gewechselt, Kabel berührt. CamDial merkt, dass die Kamera zurück ist, und stellt deinen Look wieder her." },
+        { "title": "Echte Einheiten", "text": "Kelvin und Bruchteile einer Sekunde, aus dem Bereich der Kamera gelesen, keine Prozentwerte." },
+        { "title": "Wohnt in der Menüleiste", "text": "Ein Popover mit den Zeilen, die du brauchst, und sonst nichts. macOS 14 oder neuer, jede UVC-Webcam." }
+      ]
+    }
+  },
+  {
+    "slug": "sleep-timer",
+    "appId": "6502469655",
+    "bundleId": "com.web54.sleeptimer.countdown",
+    "order": 3,
+    "status": "live",
+    "platforms": ["macos"],
+    "priceModel": "paid",
+    "site": "https://sleep-timer.app",
+    "privacy": "https://sleep-timer.app/privacy/",
+    "support": "https://sleep-timer.app/support/",
+    "store": { "rating": null, "ratingCount": 0, "version": "4.3", "fetchedAt": "2026-09-10" },
+    "en": {
+      "name": "Sleep Timer: Menu Bar & Widget",
+      "subtitle": "",
+      "tagline": "Your Mac goes to sleep when you do",
+      "priceLabel": "$2.99, paid once",
+      "intro": "Sleep Timer puts your Mac to sleep, or just dims the screen, after a countdown, at an exact time, or on a daily bedtime schedule. It lives in the menu bar with a live countdown, and a minute before sleep it asks: extend, sleep now, or cancel?",
+      "features": [
+        { "title": "Timer your way", "text": "One-click presets from 3 minutes to 3 hours, any custom duration, or an exact time like 23:30." },
+        { "title": "Daily bedtime schedule", "text": "The sleep schedule Apple removed from macOS, back in the menu bar." },
+        { "title": "Widget, Siri and Shortcuts", "text": "Desktop widget with quick actions, Control Center toggle on macOS 26, and a Siri phrase to start it." },
+        { "title": "Gentle warning", "text": "A minute before sleep you get one click to extend, sleep now, or cancel." }
+      ]
+    },
+    "de": {
+      "name": "Sleep Timer: Menu Bar & Widget",
+      "subtitle": "",
+      "tagline": "Dein Mac schläft ein, wenn du es tust",
+      "priceLabel": "2,99 $, einmalig",
+      "intro": "Sleep Timer schickt deinen Mac in den Ruhezustand oder dimmt nur den Bildschirm: nach einem Countdown, zu einer festen Uhrzeit oder nach einem täglichen Schlafplan. Die App sitzt mit laufendem Countdown in der Menüleiste und fragt eine Minute vorher: verlängern, jetzt schlafen oder abbrechen?",
+      "features": [
+        { "title": "Timer nach deinem Geschmack", "text": "Presets von 3 Minuten bis 3 Stunden mit einem Klick, jede eigene Dauer oder eine feste Uhrzeit wie 23:30." },
+        { "title": "Täglicher Schlafplan", "text": "Der Schlafplan, den Apple aus macOS entfernt hat, zurück in der Menüleiste." },
+        { "title": "Widget, Siri und Kurzbefehle", "text": "Desktop-Widget mit Schnellaktionen, Schalter im Kontrollzentrum ab macOS 26 und ein Siri-Befehl zum Starten." },
+        { "title": "Sanfte Vorwarnung", "text": "Eine Minute vor dem Ruhezustand reicht ein Klick: verlängern, jetzt schlafen oder abbrechen." }
+      ]
+    }
+  },
+  {
+    "slug": "fundkeep",
+    "appId": "6801904284",
+    "bundleId": "app.fundkeep.Fundkeep",
+    "order": 4,
+    "status": "live",
+    "platforms": ["ios", "ipados", "macos"],
+    "priceModel": "one-time",
+    "site": "https://fundkeep.app",
+    "privacy": "https://fundkeep.app/privacy/",
+    "support": "https://fundkeep.app/support/",
+    "store": { "rating": null, "ratingCount": 0, "version": "1.2", "fetchedAt": "2026-09-10" },
+    "en": {
+      "name": "Envelope Budgeting: Fundkeep",
+      "subtitle": "",
+      "tagline": "Give every dollar a job",
+      "priceLabel": "Free to try, one-time unlock",
+      "intro": "Fundkeep is envelope budgeting, the zero-based method, for iPhone, iPad and Mac. You decide what every dollar is for before you spend it, and the board tells you what is actually left. Bought once. No subscription, no account, no bank login.",
+      "features": [
+        { "title": "Envelopes that tell the truth", "text": "Money arrives, you assign it, each envelope shows what remains. Overspend one and the app says so plainly." },
+        { "title": "Credit cards done right", "text": "A card purchase moves money into that card's payment envelope the moment you spend it." },
+        { "title": "Your bank's CSV, read on device", "text": "Export a statement and Fundkeep works out the columns itself. Import the same file twice and nothing is duplicated." },
+        { "title": "No server", "text": "Your budget never leaves your devices." }
+      ]
+    },
+    "de": {
+      "name": "Envelope Budgeting: Fundkeep",
+      "subtitle": "",
+      "tagline": "Jeder Euro bekommt eine Aufgabe",
+      "priceLabel": "Kostenlos testen, einmalig freischalten",
+      "intro": "Fundkeep ist Umschlag-Budgetierung, die Null-Summen-Methode, für iPhone, iPad und Mac. Du legst fest, wofür jeder Betrag da ist, bevor du ihn ausgibst, und die Übersicht zeigt, was wirklich übrig ist. Einmal gekauft. Kein Abo, kein Konto, kein Bank-Login.",
+      "features": [
+        { "title": "Umschläge, die ehrlich sind", "text": "Geld kommt rein, du verteilst es, jeder Umschlag zeigt den Rest. Gibst du zu viel aus, sagt die App es klar." },
+        { "title": "Kreditkarten richtig gebucht", "text": "Ein Kartenkauf schiebt das Geld sofort in den Zahlungsumschlag dieser Karte." },
+        { "title": "CSV deiner Bank, auf dem Gerät gelesen", "text": "Kontoauszug exportieren, Fundkeep erkennt die Spalten selbst. Zweimal importiert, nichts doppelt." },
+        { "title": "Kein Server", "text": "Dein Budget verlässt deine Geräte nie." }
+      ]
+    }
+  },
+  {
+    "slug": "roomkeep",
+    "appId": "6797268499",
+    "bundleId": "app.roomkeep.Roomkeep",
+    "order": 5,
+    "status": "live",
+    "platforms": ["ios", "ipados"],
+    "priceModel": "one-time",
+    "site": "https://roomkeep.app",
+    "privacy": "https://roomkeep.app/privacy/",
+    "support": "https://roomkeep.app/support/",
+    "store": { "rating": null, "ratingCount": 0, "version": "1.0", "fetchedAt": "2026-09-10" },
+    "en": {
+      "name": "Roomkeep: Home Inventory Claim",
+      "subtitle": "",
+      "tagline": "The home record an insurance claim needs",
+      "priceLabel": "Free to try, one-time unlock",
+      "intro": "Roomkeep builds the record of your home that an insurance claim actually needs: what you own, what it is worth, and the photos, receipts and serial numbers that back it up. Documented in an evening, kept on your own devices.",
+      "features": [
+        { "title": "Photograph what matters", "text": "Electronics, jewelry, tools. Each gets a photo, price and room, and the camera stays open between shots." },
+        { "title": "Receipts and serial numbers", "text": "Photograph a receipt and Roomkeep suggests store, date and total off the paper. Serial numbers come off the nameplate with a live scanner." },
+        { "title": "Know what is missing", "text": "A readiness dashboard shows how much of your catalog has photos, prices and proof." },
+        { "title": "On your device", "text": "No server, no account, no network requests. Your inventory is yours." }
+      ]
+    },
+    "de": {
+      "name": "Roomkeep: Home Inventory Claim",
+      "subtitle": "",
+      "tagline": "Das Hausinventar, das eine Versicherung braucht",
+      "priceLabel": "Kostenlos testen, einmalig freischalten",
+      "intro": "Roomkeep baut die Aufstellung deines Zuhauses, die ein Versicherungsfall wirklich braucht: was du besitzt, was es wert ist, und die Fotos, Belege und Seriennummern als Nachweis. An einem Abend erfasst, auf deinen eigenen Geräten gespeichert.",
+      "features": [
+        { "title": "Fotografiere, was zählt", "text": "Elektronik, Schmuck, Werkzeug. Jedes Teil bekommt Foto, Preis und Raum, und die Kamera bleibt zwischen den Aufnahmen offen." },
+        { "title": "Belege und Seriennummern", "text": "Beleg fotografieren, Roomkeep schlägt Laden, Datum und Betrag vom Papier vor. Seriennummern liest ein Live-Scanner vom Typenschild." },
+        { "title": "Sehen, was fehlt", "text": "Eine Übersicht zeigt, wie viel deines Katalogs Fotos, Preise und Nachweise hat." },
+        { "title": "Auf deinem Gerät", "text": "Kein Server, kein Konto, keine Netzwerkanfragen. Dein Inventar gehört dir." }
+      ]
+    }
+  },
+  {
+    "slug": "ai-photo-generator",
+    "appId": "6503450897",
+    "bundleId": "com.web54.images.generatorai",
+    "order": 6,
+    "status": "live",
+    "platforms": ["ios", "ipados"],
+    "priceModel": "coins",
+    "site": null,
+    "privacy": null,
+    "support": null,
+    "store": { "rating": 4.4, "ratingCount": 74, "version": "5.1.0", "fetchedAt": "2026-09-10" },
+    "en": {
+      "name": "AI Photo Generator: TeroxAI",
+      "subtitle": "Image Editor, Avatar Maker",
+      "tagline": "Type anything, watch it become art",
+      "priceLabel": "Free with coins, subscriptions for more",
+      "intro": "Type a prompt and get a picture in seconds. Turn selfies into stylized avatars, restyle any photo with a tap, pick a speed from Fast to Max, and save HD images to your gallery. No design skills needed.",
+      "features": [
+        { "title": "Text to image", "text": "Describe it and get a high quality picture. Anime, realistic, cartoon, fantasy, oil painting, 3D and more." },
+        { "title": "AI avatars", "text": "Turn your selfies into profile pictures in the style you choose." },
+        { "title": "Photo editing", "text": "Restyle, enhance and reimagine any photo from your library." },
+        { "title": "Fast, Pro and Max", "text": "Quick previews or maximum detail, your choice per image." }
+      ]
+    },
+    "de": {
+      "name": "AI Photo Generator: TeroxAI",
+      "subtitle": "",
+      "tagline": "Tipp etwas ein und sieh zu, wie es Kunst wird",
+      "priceLabel": "Kostenlos mit Coins, Abos für mehr",
+      "intro": "Prompt eintippen, in Sekunden ein Bild bekommen. Selfies in stilisierte Avatare verwandeln, jedes Foto mit einem Tipp neu gestalten, Tempo von Fast bis Max wählen und HD-Bilder in der Galerie speichern. Ohne Designkenntnisse.",
+      "features": [
+        { "title": "Text zu Bild", "text": "Beschreib es und bekomm ein hochwertiges Bild. Anime, realistisch, Cartoon, Fantasy, Ölgemälde, 3D und mehr." },
+        { "title": "KI-Avatare", "text": "Deine Selfies werden zu Profilbildern im Stil deiner Wahl." },
+        { "title": "Fotobearbeitung", "text": "Jedes Foto aus deiner Mediathek neu gestalten, verbessern oder neu erfinden." },
+        { "title": "Fast, Pro und Max", "text": "Schnelle Vorschau oder maximales Detail, pro Bild deine Wahl." }
+      ]
+    }
+  },
+  {
+    "slug": "ai-video-generator",
+    "appId": "6504455552",
+    "bundleId": "com.aivideogenerator.texttovideo.aivideomaker",
+    "order": 7,
+    "status": "live",
+    "platforms": ["ios", "ipados"],
+    "priceModel": "coins",
+    "site": null,
+    "privacy": null,
+    "support": null,
+    "store": { "rating": null, "ratingCount": 0, "version": "1.6.2", "fetchedAt": "2026-09-10" },
+    "en": {
+      "name": "AI Video Generator: TeroxAI",
+      "subtitle": "",
+      "tagline": "Words and photos into short videos",
+      "priceLabel": "Free with coins, subscriptions for more",
+      "intro": "Describe a scene, pick a style, and get a short video. Anime, 3D animation, clay, comic, cyberpunk and more, in vertical, square or landscape. Runs on Pixverse, Kling and Veo through their official APIs.",
+      "features": [
+        { "title": "Text to video", "text": "Any scene from a prompt, with fast previews in under a minute or maximum quality with sound." },
+        { "title": "Trending formats", "text": "The clips people share: ASMR, dance, memes, for Reels, Shorts, TikTok and ads." },
+        { "title": "Photo to video", "text": "Start from a photo and let it move." },
+        { "title": "Start free", "text": "Welcome coins to begin, more every day, Pro for the best models." }
+      ]
+    },
+    "de": {
+      "name": "AI Video Generator: TeroxAI",
+      "subtitle": "",
+      "tagline": "Aus Worten und Fotos werden kurze Videos",
+      "priceLabel": "Kostenlos mit Coins, Abos für mehr",
+      "intro": "Szene beschreiben, Stil wählen, kurzes Video bekommen. Anime, 3D-Animation, Knete, Comic, Cyberpunk und mehr, hochkant, quadratisch oder quer. Läuft über die offiziellen APIs von Pixverse, Kling und Veo.",
+      "features": [
+        { "title": "Text zu Video", "text": "Jede Szene aus einem Prompt, schnelle Vorschau in unter einer Minute oder volle Qualität mit Ton." },
+        { "title": "Formate, die gerade laufen", "text": "Die Clips, die geteilt werden: ASMR, Tanz, Memes, für Reels, Shorts, TikTok und Anzeigen." },
+        { "title": "Foto zu Video", "text": "Mit einem Foto starten und es sich bewegen lassen." },
+        { "title": "Kostenlos starten", "text": "Willkommens-Coins zum Anfang, jeden Tag mehr, Pro für die besten Modelle." }
+      ]
+    }
+  },
+  {
+    "slug": "text-to-music",
+    "appId": "6740177765",
+    "bundleId": "com.musicai.musicgenerator.suno.ai",
+    "order": 8,
+    "status": "live",
+    "platforms": ["ios", "ipados"],
+    "priceModel": "coins",
+    "site": null,
+    "privacy": null,
+    "support": null,
+    "store": { "rating": null, "ratingCount": 0, "version": "2.0.2", "fetchedAt": "2026-09-10" },
+    "en": {
+      "name": "Text to Music AI Generator",
+      "subtitle": "",
+      "tagline": "Describe a song, hear it in half a minute",
+      "priceLabel": "Free with coins, subscriptions for more",
+      "intro": "Type a line like \"a dreamy lo-fi track about the ocean at night\", choose a genre and mood, and tap Create. The finished song appears at the top, ready to play, save or share. No instruments, no studio.",
+      "features": [
+        { "title": "Three ways to create", "text": "Fast for a full song with vocals in seconds, Standard to write original lyrics from your idea, Max for full three minute tracks." },
+        { "title": "Your own lyrics", "text": "Add your verses and chorus, or turn vocals off for an instrumental." },
+        { "title": "Library on your device", "text": "Every track is saved locally. Play offline, share anywhere." },
+        { "title": "Coins every day", "text": "Daily rewards and quests keep you creating without paying." }
+      ]
+    },
+    "de": {
+      "name": "Text to Music AI Generator",
+      "subtitle": "",
+      "tagline": "Beschreib einen Song, hör ihn in einer halben Minute",
+      "priceLabel": "Kostenlos mit Coins, Abos für mehr",
+      "intro": "Tipp eine Zeile wie \"ein verträumter Lo-Fi-Track über das Meer bei Nacht\", wähl Genre und Stimmung und tipp auf Erstellen. Der fertige Song erscheint oben, bereit zum Abspielen, Speichern oder Teilen. Ohne Instrumente, ohne Studio.",
+      "features": [
+        { "title": "Drei Wege zum Song", "text": "Fast für einen ganzen Song mit Gesang in Sekunden, Standard schreibt eigene Lyrics aus deiner Idee, Max für volle drei Minuten." },
+        { "title": "Eigene Lyrics", "text": "Strophen und Refrain selbst schreiben oder den Gesang für ein Instrumental abschalten." },
+        { "title": "Bibliothek auf dem Gerät", "text": "Jeder Track wird lokal gespeichert. Offline abspielen, überall teilen." },
+        { "title": "Jeden Tag Coins", "text": "Tägliche Belohnungen und Aufgaben, damit du ohne Bezahlung weitermachen kannst." }
+      ]
+    }
+  }
+]

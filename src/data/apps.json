@@ -22,7 +22,7 @@
     },
     "en": {
       "name": "SawKit: Cut List Optimizer",
-      "subtitle": "",
+      "subtitle": "Plywood & Board Cut Planner",
       "tagline": "Cut lists with the least waste",
       "priceLabel": "Free to try, Pro unlock $24.99 once",
       "intro": "SawKit works out how to cut your parts from full sheets of plywood, MDF or melamine with the least waste, then tells you the order to make the cuts in. Type the list the way you would say it, in inches, fractions or millimetres.",
@@ -100,7 +100,7 @@
     },
     "en": {
       "name": "CamDial: USB Webcam Settings",
-      "subtitle": "",
+      "subtitle": "Camera controls & presets",
       "tagline": "Webcam settings that stay put",
       "priceLabel": "Free, one-time Pro unlock",
       "intro": "CamDial is a menu bar app for USB webcam settings on the Mac. Exposure, white balance, focus and zoom are set on the camera itself and saved as presets that come back by themselves after every reconnect.",
@@ -121,7 +121,7 @@
     },
     "de": {
       "name": "CamDial: USB Webcam Settings",
-      "subtitle": "",
+      "subtitle": "Kamera-Steuerung & Presets",
       "tagline": "Webcam-Einstellungen, die bleiben",
       "priceLabel": "Kostenlos, Pro einmalig freischalten",
       "intro": "CamDial ist eine Menüleisten-App für USB-Webcam-Einstellungen am Mac. Belichtung, Weißabgleich, Fokus und Zoom werden auf der Kamera selbst gesetzt und als Presets gespeichert, die nach jedem Neuanschluss von allein zurückkommen.",
@@ -162,7 +162,7 @@
     },
     "en": {
       "name": "Sleep Timer: Menu Bar & Widget",
-      "subtitle": "",
+      "subtitle": "Bedtime schedule & screen off",
       "tagline": "Your Mac goes to sleep when you do",
       "priceLabel": "$2.99, paid once",
       "intro": "Sleep Timer puts your Mac to sleep, or just dims the screen, after a countdown, at an exact time, or on a daily bedtime schedule. It lives in the menu bar with a live countdown, and a minute before sleep it asks: extend, sleep now, or cancel?",
@@ -187,7 +187,7 @@
     },
     "de": {
       "name": "Sleep Timer: Menu Bar & Widget",
-      "subtitle": "",
+      "subtitle": "Zeitschaltuhr & Bildschirm aus",
       "tagline": "Dein Mac schläft ein, wenn du es tust",
       "priceLabel": "2,99 $, einmalig",
       "intro": "Sleep Timer schickt deinen Mac in den Ruhezustand oder dimmt nur den Bildschirm: nach einem Countdown, zu einer festen Uhrzeit oder nach einem täglichen Schlafplan. Die App sitzt mit laufendem Countdown in der Menüleiste und fragt eine Minute vorher: verlängern, jetzt schlafen oder abbrechen?",
@@ -239,7 +239,7 @@
     ],
     "en": {
       "name": "Envelope Budgeting: Fundkeep",
-      "subtitle": "",
+      "subtitle": "Cash Stuffing, No Subscription",
       "tagline": "Give every dollar a job",
       "priceLabel": "Free to try, one-time unlock",
       "intro": "Fundkeep is envelope budgeting, the zero-based method, for iPhone, iPad and Mac. You decide what every dollar is for before you spend it, and the board tells you what is actually left. Bought once. No subscription, no account, no bank login.",
@@ -264,7 +264,7 @@
     },
     "de": {
       "name": "Envelope Budgeting: Fundkeep",
-      "subtitle": "",
+      "subtitle": "Ohne Abo, ohne Bankzugang",
       "tagline": "Jeder Euro bekommt eine Aufgabe",
       "priceLabel": "Kostenlos testen, einmalig freischalten",
       "intro": "Fundkeep ist Umschlag-Budgetierung, die Null-Summen-Methode, für iPhone, iPad und Mac. Du legst fest, wofür jeder Betrag da ist, bevor du ihn ausgibst, und die Übersicht zeigt, was wirklich übrig ist. Einmal gekauft. Kein Abo, kein Konto, kein Bank-Login.",
@@ -315,7 +315,7 @@
     ],
     "en": {
       "name": "Roomkeep: Home Inventory Claim",
-      "subtitle": "",
+      "subtitle": "Insurance-Ready Home Records",
       "tagline": "The home record an insurance claim needs",
       "priceLabel": "Free to try, one-time unlock",
       "intro": "Roomkeep builds the record of your home that an insurance claim actually needs: what you own, what it is worth, and the photos, receipts and serial numbers that back it up. Documented in an evening, kept on your own devices.",
@@ -411,7 +411,7 @@
     },
     "de": {
       "name": "AI Photo Generator: TeroxAI",
-      "subtitle": "",
+      "subtitle": "Foto Editor, Avatar Erstellen",
       "tagline": "Tipp etwas ein und sieh zu, wie es Kunst wird",
       "priceLabel": "Kostenlos mit Coins, Abos für mehr",
       "intro": "Prompt eintippen, in Sekunden ein Bild bekommen. Selfies in stilisierte Avatare verwandeln, jedes Foto mit einem Tipp neu gestalten, Tempo von Fast bis Max wählen und HD-Bilder in der Galerie speichern. Ohne Designkenntnisse.",
@@ -457,7 +457,7 @@
     },
     "en": {
       "name": "AI Video Generator: TeroxAI",
-      "subtitle": "",
+      "subtitle": "Text & Photo to Video Maker",
       "tagline": "Words and photos into short videos",
       "priceLabel": "Free with coins, subscriptions for more",
       "intro": "Describe a scene, pick a style, and get a short video. Anime, 3D animation, clay, comic, cyberpunk and more, in vertical, square or landscape. Runs on Pixverse, Kling and Veo through their official APIs.",
@@ -482,7 +482,7 @@
     },
     "de": {
       "name": "AI Video Generator: TeroxAI",
-      "subtitle": "",
+      "subtitle": "Video aus Text & Foto",
       "tagline": "Aus Worten und Fotos werden kurze Videos",
       "priceLabel": "Kostenlos mit Coins, Abos für mehr",
       "intro": "Szene beschreiben, Stil wählen, kurzes Video bekommen. Anime, 3D-Animation, Knete, Comic, Cyberpunk und mehr, hochkant, quadratisch oder quer. Läuft über die offiziellen APIs von Pixverse, Kling und Veo.",
@@ -533,7 +533,7 @@
     ],
     "en": {
       "name": "Text to Music AI Generator",
-      "subtitle": "",
+      "subtitle": "Create song from lyric with AI",
       "tagline": "Describe a song, hear it in half a minute",
       "priceLabel": "Free with coins, subscriptions for more",
       "intro": "Type a line like \"a dreamy lo-fi track about the ocean at night\", choose a genre and mood, and tap Create. The finished song appears at the top, ready to play, save or share. No instruments, no studio.",
@@ -558,7 +558,7 @@
     },
     "de": {
       "name": "Text to Music AI Generator",
-      "subtitle": "",
+      "subtitle": "Lied mit AI aus Text erstellen",
       "tagline": "Beschreib einen Song, hör ihn in einer halben Minute",
       "priceLabel": "Kostenlos mit Coins, Abos für mehr",
       "intro": "Tipp eine Zeile wie \"ein verträumter Lo-Fi-Track über das Meer bei Nacht\", wähl Genre und Stimmung und tipp auf Erstellen. Der fertige Song erscheint oben, bereit zum Abspielen, Speichern oder Teilen. Ohne Instrumente, ohne Studio.",

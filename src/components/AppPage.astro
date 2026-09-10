@@ -18,7 +18,7 @@ const ui = t(lang);
 const c = app[lang];
 const pk = platformKey(app.platforms);
 const icons = import.meta.glob<{ default: ImageMetadata }>('../assets/apps/*/icon.png', { eager: true });
-const shots = import.meta.glob('../assets/apps/*/shot-*.png');
+const shots = import.meta.glob('../assets/apps/*/shot-*.png', { eager: true });
 const hasMoreShots = [2, 3].some((n) => `../assets/apps/${app.slug}/shot-${n}.png` in shots);
 
 /* Meta description: the intro, cut at a word boundary if it runs past 155. */
@@ -46,6 +46,9 @@ const jsonLd = [
     image: `${SITE_URL}/og/${app.slug}.png`,
     author: { '@id': `${SITE_URL}/#person` },
     ...(isLive ? { installUrl: storeUrl(app) } : {}),
+    ...(isLive && app.store.price !== undefined
+      ? { offers: { '@type': 'Offer', price: app.store.price, priceCurrency: app.store.currency ?? 'USD', url: storeUrl(app) } }
+      : {}),
     ...(rating
       ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: rating.rating, ratingCount: rating.ratingCount } }
       : {}),

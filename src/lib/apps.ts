@@ -28,7 +28,7 @@ export interface App {
   site: string | null;
   privacy: string | null;
   support: string | null;
-  store: { rating: number | null; ratingCount: number; version: string; fetchedAt: string };
+  store: { rating: number | null; ratingCount: number; version: string; price?: number; currency?: string; fetchedAt: string };
   /** Which store screenshot becomes shot-1, shot-2, shot-3 (1-based). Absent = store order. */
   shotOrder?: number[];
   en: AppCopy;

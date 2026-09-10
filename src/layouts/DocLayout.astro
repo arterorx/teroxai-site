@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { formatDate } from '../lib/site';
+import { SITE_URL, formatDate } from '../lib/site';
 import { t } from '../i18n/ui';
 
 interface Props {
@@ -10,10 +10,20 @@ interface Props {
 }
 const { title, description, updated }: Props = Astro.props;
 const iso = updated.toISOString().slice(0, 10);
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: t('en').home, item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: title },
+    ],
+  },
+];
 ---
 
 {/* Legal texts exist in English only, so there is no language cluster and the header hides the switcher. */}
-<BaseLayout title={title} description={description} lang="en" alternates={[]}>
+<BaseLayout title={title} description={description} lang="en" alternates={[]} jsonLd={jsonLd}>
   <article class="wrap section prose">
     <h1>{title}</h1>
     <p class="muted">{t('en').updated}: <time datetime={iso}>{formatDate(iso, 'en')}</time></p>

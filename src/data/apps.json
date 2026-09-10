@@ -18,6 +18,8 @@
       "rating": null,
       "ratingCount": 0,
       "version": "1.0",
+      "price": 0,
+      "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
     "en": {
@@ -158,6 +160,8 @@
       "rating": null,
       "ratingCount": 0,
       "version": "4.3",
+      "price": 2.99,
+      "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
     "en": {
@@ -230,6 +234,8 @@
       "rating": null,
       "ratingCount": 0,
       "version": "1.2",
+      "price": 0,
+      "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
     "shotOrder": [
@@ -306,6 +312,8 @@
       "rating": null,
       "ratingCount": 0,
       "version": "1.0",
+      "price": 0,
+      "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
     "shotOrder": [
@@ -382,6 +390,8 @@
       "rating": 4.4,
       "ratingCount": 74,
       "version": "5.1.0",
+      "price": 0,
+      "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
     "en": {
@@ -453,6 +463,8 @@
       "rating": null,
       "ratingCount": 0,
       "version": "1.6.2",
+      "price": 0,
+      "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
     "en": {
@@ -524,6 +536,8 @@
       "rating": null,
       "ratingCount": 0,
       "version": "2.0.2",
+      "price": 0,
+      "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
     "shotOrder": [

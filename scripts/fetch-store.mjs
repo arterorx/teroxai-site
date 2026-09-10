@@ -1,5 +1,5 @@
 /* Refreshes the `store` block of every app from the public iTunes Lookup API:
-   rating, rating count, version. Nothing else in apps.json is touched.
+   rating, rating count, version, download price. Nothing else in apps.json is touched.
    Run: npm run data:store */
 import { readFile, writeFile } from 'node:fs/promises';
 
@@ -21,6 +21,9 @@ for (const app of apps) {
     rating: count > 0 ? Math.round(r.averageUserRating * 10) / 10 : null,
     ratingCount: count,
     version: r.version,
+    /* Download price of the app itself (0 for free apps with in-app purchases). */
+    price: r.price ?? 0,
+    currency: r.currency ?? 'USD',
     fetchedAt: today,
   };
   if (app.status === 'review') {

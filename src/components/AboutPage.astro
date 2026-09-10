@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { clusterFor, type Locale } from '../i18n/config';
+import { aboutCopy } from '../i18n/about';
+import { CONTACT_EMAIL, SOCIALS } from '../lib/site';
+import armen from '../assets/armen.jpg';
+
+interface Props {
+  lang: Locale;
+}
+const { lang }: Props = Astro.props;
+const c = aboutCopy[lang];
+---
+
+<BaseLayout title={c.title} description={c.description} type="profile" lang={lang} alternates={clusterFor('about')}>
+  <article class="wrap section prose">
+    <Image src={armen} alt="Armen Ter-Oganezov" width={200} height={200} densities={[1, 2]} class="photo" />
+    <h1>{c.h1}</h1>
+    <p class="lede">{c.lede}</p>
+    {
+      c.sections.map((s) => (
+        <>
+          <h2>{s.h2}</h2>
+          {s.paras.map((p) => <p>{p}</p>)}
+        </>
+      ))
+    }
+    <h2>{c.contactH2}</h2>
+    <p>
+      {c.contactText} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+    </p>
+    <p class="links">{SOCIALS.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+  }
+  .lede {
+    font-size: 1.25rem;
+    color: var(--ink-2);
+  }
+  .links {
+    display: flex;
+    gap: 1.25rem;
+  }
+</style>

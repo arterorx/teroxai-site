@@ -15,3 +15,11 @@ test('a cluster has one entry per locale, english first', () => {
   assert.equal(c[0].lang, DEFAULT_LOCALE);
   assert.deepEqual(c.map((a) => a.path), ['/about/', '/de/about/']);
 });
+
+test('english and german ui strings share the same keys', async () => {
+  const { t } = await import('../src/i18n/ui.ts');
+  const en = Object.keys(t('en')).sort();
+  const de = Object.keys(t('de')).sort();
+  assert.deepEqual(de, en);
+  assert.deepEqual(Object.keys(t('de').platforms).sort(), Object.keys(t('en').platforms).sort());
+});

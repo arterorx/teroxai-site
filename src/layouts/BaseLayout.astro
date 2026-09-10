@@ -2,7 +2,7 @@
 import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { DEFAULT_LOCALE, LOCALE_TAGS, type Alternate, type Locale } from '../i18n/config';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_TAGS, type Alternate, type Locale } from '../i18n/config';
 import { SITE_NAME, SITE_URL, OWNER, SAME_AS } from '../lib/site';
 import { t } from '../i18n/ui';
 import '../styles/global.css';
@@ -61,6 +61,7 @@ const globalLd = [
     '@id': `${SITE_URL}/#website`,
     name: SITE_NAME,
     url: `${SITE_URL}/`,
+    inLanguage: [...LOCALES],
     publisher: { '@id': `${SITE_URL}/#org` },
   },
 ];

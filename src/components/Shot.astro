@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  slug: string;
+  n: number;
+  alt: string;
+  width?: number;
+  class?: string;
+}
+const { slug, n, alt, width = 360, class: cls }: Props = Astro.props;
+const shots = import.meta.glob<{ default: ImageMetadata }>('../assets/apps/*/shot-*.png', { eager: true });
+const img = shots[`../assets/apps/${slug}/shot-${n}.png`]?.default;
+---
+
+{img && <Image src={img} alt={alt} width={width} densities={[1, 2]} class:list={['shot', cls]} />}
+
+<style>
+  .shot {
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    height: auto;
+  }
+</style>

@@ -1,0 +1,12 @@
+---
+import AppPage from '../../../components/AppPage.astro';
+import { APPS } from '../../../lib/apps';
+import { OTHER_LOCALES } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return OTHER_LOCALES.flatMap((lang) => APPS.map((app) => ({ params: { lang, slug: app.slug }, props: { app, lang } })));
+}
+const { app, lang } = Astro.props;
+---
+
+<AppPage app={app} lang={lang} />

@@ -1,0 +1,28 @@
+{
+  "name": "teroxai-site",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "test": "node --test tests/",
+    "data:store": "node scripts/fetch-store.mjs",
+    "assets:shots": "node scripts/fetch-shots.mjs",
+    "assets:icons": "node scripts/icons.mjs",
+    "assets:og": "node scripts/og.mjs",
+    "check:links": "node scripts/check-links.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "7.1.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "png-to-ico": "^3.0.2",
+    "sharp": "^0.35.3",
+    "typescript": "^6.0.3"
+  }
+}

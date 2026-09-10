@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { APPS, liveApps, appBySlug, storeUrl, platformKey } from '../src/lib/apps.ts';
+import { APPS, liveApps, appBySlug, storeUrl, platformKey, hostedApps, subtitleOf, privacyUrl, supportUrl } from '../src/lib/apps.ts';
 
 test('eight apps, unique slugs and ids, ordered by the order field', () => {
   assert.equal(APPS.length, 8);
@@ -34,4 +34,24 @@ test('every app has english and german copy with at least three features', () =>
       assert.ok(a[lang].features.length >= 3, `${a.slug} ${lang} features`);
     }
   }
+});
+
+test('hosted apps are the three without a site of their own', () => {
+  assert.deepEqual(
+    hostedApps().map((a) => a.slug).sort(),
+    ['ai-photo-generator', 'ai-video-generator', 'text-to-music'],
+  );
+});
+
+test('subtitle falls back to the tagline when ASC has none', () => {
+  const sawkit = appBySlug('sawkit')!;
+  assert.equal(subtitleOf(sawkit, 'de'), sawkit.de.tagline);
+  const photo = appBySlug('ai-photo-generator')!;
+  assert.equal(subtitleOf(photo, 'en'), 'Image Editor, Avatar Maker');
+});
+
+test('privacy and support hrefs are external for apps with a site, hosted otherwise', () => {
+  assert.equal(privacyUrl(appBySlug('sawkit')!), 'https://sawkit.app/privacy/');
+  assert.equal(supportUrl(appBySlug('text-to-music')!), '/apps/text-to-music/support/');
+  assert.equal(privacyUrl(appBySlug('ai-video-generator')!), '/apps/ai-video-generator/privacy/');
 });

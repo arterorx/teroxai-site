@@ -33,6 +33,10 @@ export interface App {
   de: AppCopy;
 }
 
+const STATUSES: App['status'][] = ['live', 'review'];
+const PRICE_MODELS: PriceModel[] = ['paid', 'one-time', 'free-pro', 'coins'];
+const PLATFORMS: Platform[] = ['ios', 'ipados', 'macos'];
+
 const validate = (list: unknown): App[] => {
   if (!Array.isArray(list)) throw new Error('apps.json must be an array');
   for (const a of list as App[]) {
@@ -40,11 +44,19 @@ const validate = (list: unknown): App[] => {
       if (typeof a[key] !== 'string' || !a[key]) throw new Error(`${a.slug ?? '?'}: missing ${key}`);
     }
     if (!/^\d+$/.test(a.appId)) throw new Error(`${a.slug}: appId must be digits`);
+    if (!STATUSES.includes(a.status)) throw new Error(`${a.slug}: status must be one of ${STATUSES.join(', ')}`);
+    if (!PRICE_MODELS.includes(a.priceModel)) throw new Error(`${a.slug}: priceModel must be one of ${PRICE_MODELS.join(', ')}`);
     if (!Array.isArray(a.platforms) || a.platforms.length === 0) throw new Error(`${a.slug}: platforms`);
+    for (const p of a.platforms) {
+      if (!PLATFORMS.includes(p)) throw new Error(`${a.slug}: unknown platform ${p}`);
+    }
     for (const lang of ['en', 'de'] as const) {
       const c = a[lang];
       if (!c || !c.name || !c.tagline || !c.intro || !Array.isArray(c.features) || c.features.length < 3) {
         throw new Error(`${a.slug}: incomplete ${lang} copy`);
+      }
+      for (const f of c.features) {
+        if (!f.title || !f.text) throw new Error(`${a.slug}: ${lang} feature without title or text`);
       }
     }
   }
@@ -71,6 +83,7 @@ export const copy = (app: App, lang: Locale): AppCopy => app[lang];
 /** Subtitle from ASC when present, tagline otherwise. */
 export const subtitleOf = (app: App, lang: Locale): string => app[lang].subtitle || app[lang].tagline;
 
-/** Privacy and support URLs: external site when it exists, hosted pages otherwise. */
-export const privacyPath = (app: App): string => app.privacy ?? `/apps/${app.slug}/privacy/`;
-export const supportPath = (app: App): string => app.support ?? `/apps/${app.slug}/support/`;
+/** Ready-to-use href: an absolute URL on the app's own site when it has one,
+    otherwise a site-relative path to the page hosted here. Never prefix it. */
+export const privacyUrl = (app: App): string => app.privacy ?? `/apps/${app.slug}/privacy/`;
+export const supportUrl = (app: App): string => app.support ?? `/apps/${app.slug}/support/`;

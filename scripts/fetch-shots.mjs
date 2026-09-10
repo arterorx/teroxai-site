@@ -7,7 +7,10 @@ const apps = JSON.parse(readFileSync(new URL('../src/data/apps.json', import.met
 const MAX = 3;
 
 for (const app of apps) {
-  if (app.status !== 'live') continue;
+  if (app.status !== 'live') {
+    console.log(`${app.slug}: status "${app.status}", not fetched`);
+    continue;
+  }
   const res = await fetch(`https://itunes.apple.com/lookup?id=${app.appId}&country=us`);
   const { results } = await res.json();
   const r = results[0];

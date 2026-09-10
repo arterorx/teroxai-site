@@ -8,6 +8,12 @@ export const LINKEDIN_URL = 'https://www.linkedin.com/in/armen-ter-oganezov/';
 /** Set when the TikTok account exists. Empty string hides the link everywhere. */
 export const TIKTOK_URL = '';
 export const SAME_AS = [GITHUB_URL, LINKEDIN_URL, TIKTOK_URL].filter(Boolean);
+/** Social links for the footer, home and about pages. Empty URLs drop out. */
+export const SOCIALS: { href: string; label: string }[] = [
+  { href: GITHUB_URL, label: 'GitHub' },
+  { href: LINKEDIN_URL, label: 'LinkedIn' },
+  { href: TIKTOK_URL, label: 'TikTok' },
+].filter((s) => s.href);
 /** Last review date of the legal pages. */
 export const LEGAL_UPDATED = '2026-09-10';
 

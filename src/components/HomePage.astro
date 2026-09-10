@@ -6,7 +6,7 @@ import { clusterFor, localePath, type Locale } from '../i18n/config';
 import { APPS, liveApps } from '../lib/apps';
 import { homeCopy } from '../i18n/home';
 import { t } from '../i18n/ui';
-import { GITHUB_URL, LINKEDIN_URL, TIKTOK_URL } from '../lib/site';
+import { SOCIALS } from '../lib/site';
 import armen from '../assets/armen.jpg';
 
 interface Props {
@@ -16,11 +16,6 @@ const { lang }: Props = Astro.props;
 const n = liveApps().length;
 const c = homeCopy(lang, n);
 const ui = t(lang);
-const socials = [
-  { href: GITHUB_URL, label: 'GitHub' },
-  { href: LINKEDIN_URL, label: 'LinkedIn' },
-  { href: TIKTOK_URL, label: 'TikTok' },
-].filter((s) => s.href);
 ---
 
 <BaseLayout title={c.title} description={c.description} suffix={false} lang={lang} alternates={clusterFor()}>
@@ -37,13 +32,13 @@ const socials = [
   </section>
 
   <section class="wrap section about">
-    <Image src={armen} alt="Armen Ter-Oganezov" width={160} height={160} class="about__photo" />
+    <Image src={armen} alt="Armen Ter-Oganezov" width={160} height={160} densities={[1, 2]} class="about__photo" />
     <div>
       <p class="eyebrow">{c.aboutEyebrow}</p>
       <h2>{c.aboutH2}</h2>
       {c.aboutText.map((p) => <p class="measure">{p}</p>)}
       <p class="about__links">
-        {socials.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}
+        {SOCIALS.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}
         <a href={localePath(lang, 'about')}>{ui.moreAbout}</a>
       </p>
     </div>

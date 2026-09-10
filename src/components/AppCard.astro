@@ -12,12 +12,14 @@ interface Props {
 const { app, lang }: Props = Astro.props;
 const ui = t(lang);
 const icons = import.meta.glob<{ default: ImageMetadata }>('../assets/apps/*/icon.png', { eager: true });
-const icon = icons[`../assets/apps/${app.slug}/icon.png`].default;
+const iconModule = icons[`../assets/apps/${app.slug}/icon.png`];
+if (!iconModule) throw new Error(`AppCard: no icon.png for app "${app.slug}" in src/assets/apps/`);
+const icon = iconModule.default;
 const c = app[lang];
 ---
 
 <a class="ac" href={localePath(lang, `apps/${app.slug}`)}>
-  <Image src={icon} alt="" width={96} height={96} class="ac__icon" />
+  <Image src={icon} alt="" width={96} height={96} densities={[1, 2]} class="ac__icon" />
   <span class="ac__name">{c.name}</span>
   <span class="ac__tag">{c.tagline}</span>
   <span class="ac__meta">
@@ -39,6 +41,11 @@ const c = app[lang];
   }
   .ac:hover {
     transform: translateY(-2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ac {
+      transition: none;
+    }
   }
   .ac__icon {
     width: 56px;

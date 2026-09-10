@@ -1,0 +1,11 @@
+---
+import AppsPage from '../../../components/AppsPage.astro';
+import { OTHER_LOCALES } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return OTHER_LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+const { lang } = Astro.props;
+---
+
+<AppsPage lang={lang} />

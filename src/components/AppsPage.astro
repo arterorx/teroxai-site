@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppGrid from './AppGrid.astro';
+import { clusterFor, type Locale } from '../i18n/config';
+import { APPS, platformKey, type PlatformKey } from '../lib/apps';
+import { t } from '../i18n/ui';
+
+interface Props {
+  lang: Locale;
+}
+const { lang }: Props = Astro.props;
+const ui = t(lang);
+const groups: { key: PlatformKey; title: string }[] = [
+  { key: 'both', title: ui.platforms.both },
+  { key: 'macos', title: ui.platforms.macos },
+  { key: 'ios', title: ui.platforms.ios },
+];
+const copy = {
+  en: { title: 'All apps', description: 'Every app by TeroxAI for Mac, iPhone and iPad, grouped by platform.' },
+  de: { title: 'Alle Apps', description: 'Alle Apps von TeroxAI für Mac, iPhone und iPad, nach Plattform sortiert.' },
+}[lang];
+---
+
+<BaseLayout title={copy.title} description={copy.description} lang={lang} alternates={clusterFor('apps')}>
+  <section class="wrap section">
+    <h1>{copy.title}</h1>
+    {
+      groups.map((g) => {
+        const apps = APPS.filter((a) => platformKey(a.platforms) === g.key);
+        return (
+          apps.length > 0 && (
+            <div class="group">
+              <h2>{g.title}</h2>
+              <AppGrid apps={apps} lang={lang} />
+            </div>
+          )
+        );
+      })
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .group {
+    margin-top: 2.5rem;
+  }
+</style>

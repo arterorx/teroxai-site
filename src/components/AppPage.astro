@@ -18,6 +18,15 @@ const ui = t(lang);
 const c = app[lang];
 const pk = platformKey(app.platforms);
 const icons = import.meta.glob<{ default: ImageMetadata }>('../assets/apps/*/icon.png', { eager: true });
+const shots = import.meta.glob('../assets/apps/*/shot-*.png');
+const hasMoreShots = [2, 3].some((n) => `../assets/apps/${app.slug}/shot-${n}.png` in shots);
+
+/* Meta description: the intro, cut at a word boundary if it runs past 155. */
+const clip = (text: string, max = 155) => {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, text.lastIndexOf(' ', max));
+  return cut.replace(/[,;:]$/, '');
+};
 const iconModule = icons[`../assets/apps/${app.slug}/icon.png`];
 if (!iconModule) throw new Error(`No icon for app "${app.slug}" at src/assets/apps/${app.slug}/icon.png`);
 const icon = iconModule.default;
@@ -55,7 +64,7 @@ const jsonLd = [
 
 <BaseLayout
   title={c.name}
-  description={`${c.tagline}. ${c.intro}`.slice(0, 155)}
+  description={clip(c.intro)}
   ogImage={`/og/${app.slug}.png`}
   lang={lang}
   alternates={clusterFor(`apps/${app.slug}`)}
@@ -69,7 +78,7 @@ const jsonLd = [
       <p class="measure">{c.intro}</p>
       <div class="hero__cta">
         {isLive ? <StoreBadge href={storeUrl(app)} mac={pk === 'macos'} lang={lang} /> : <span class="badge">{ui.inReview}</span>}
-        {app.site && <a class="hero__site" href={app.site} rel="noopener">{ui.appSite}: {app.site.replace('https://', '')}</a>}
+        {app.site && <a href={app.site} rel="noopener">{ui.appSite}: {app.site.replace('https://', '')}</a>}
       </div>
       {!isLive && <p class="muted">{ui.inReviewLong}</p>}
       <dl class="facts">
@@ -80,7 +89,7 @@ const jsonLd = [
         )}
       </dl>
     </div>
-    <Shot slug={app.slug} n={1} alt={`${c.name} screenshot`} width={pk === 'macos' ? 640 : 320} class="hero__shot" />
+    <Shot slug={app.slug} n={1} alt={`${c.name} screenshot`} portrait={320} landscape={640} class="hero__shot" />
   </section>
 
   <section class="wrap section">
@@ -95,13 +104,17 @@ const jsonLd = [
     </div>
   </section>
 
-  <section class="wrap section shots">
-    <h2>{ui.moreShots}</h2>
-    <div class="shots__row">
-      <Shot slug={app.slug} n={2} alt={`${c.name} screenshot 2`} width={pk === 'macos' ? 560 : 280} />
-      <Shot slug={app.slug} n={3} alt={`${c.name} screenshot 3`} width={pk === 'macos' ? 560 : 280} />
-    </div>
-  </section>
+  {
+    hasMoreShots && (
+      <section class="wrap section shots">
+        <h2>{ui.moreShots}</h2>
+        <div class="shots__row">
+          <Shot slug={app.slug} n={2} alt={`${c.name} screenshot 2`} portrait={280} landscape={560} />
+          <Shot slug={app.slug} n={3} alt={`${c.name} screenshot 3`} portrait={280} landscape={560} />
+        </div>
+      </section>
+    )
+  }
 
   <section class="wrap section">
     <p class="muted">

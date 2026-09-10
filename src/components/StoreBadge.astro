@@ -1,6 +1,14 @@
 ---
+/* Apple's official badge artwork, fetched from Apple's marketing toolbox
+   (toolbox.marketingtools.apple.com) and kept as local files so the page makes
+   no external request. The files are not modified; Apple's guidelines ask for
+   at least 40 px of height and clear space around the badge. */
 import type { Locale } from '../i18n/config';
 import { t } from '../i18n/ui';
+import appStoreEn from '../assets/badges/app-store-en.svg';
+import appStoreDe from '../assets/badges/app-store-de.svg';
+import macAppStoreEn from '../assets/badges/mac-app-store-en.svg';
+import macAppStoreDe from '../assets/badges/mac-app-store-de.svg';
 
 interface Props {
   href: string;
@@ -9,37 +17,26 @@ interface Props {
 }
 const { href, mac = false, lang }: Props = Astro.props;
 const label = mac ? t(lang).macAppStore : t(lang).appStore;
-const small = lang === 'de' ? 'Laden im' : 'Download on the';
-const big = mac ? 'Mac App Store' : 'App Store';
+const badges = {
+  en: { app: appStoreEn, mac: macAppStoreEn },
+  de: { app: appStoreDe, mac: macAppStoreDe },
+};
+const badge = badges[lang][mac ? 'mac' : 'app'];
+const height = 44;
+const width = Math.round((badge.width / badge.height) * height);
 ---
 
 <a class="sb" href={href} rel="noopener" target="_blank" aria-label={label}>
-  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-    <path d="M16.37 12.7c0-2.5 2.05-3.7 2.14-3.76-1.17-1.7-2.98-1.94-3.62-1.97-1.54-.16-3 .9-3.78.9-.78 0-1.98-.88-3.26-.86-1.68.03-3.22.98-4.09 2.48-1.74 3.02-.44 7.5 1.25 9.95.83 1.2 1.82 2.55 3.12 2.5 1.25-.05 1.73-.81 3.24-.81 1.51 0 1.94.81 3.27.79 1.35-.03 2.2-1.23 3.03-2.43.95-1.4 1.34-2.75 1.37-2.82-.03-.01-2.63-1.01-2.67-3.97zM13.9 5.4c.69-.83 1.15-1.99 1.02-3.14-.99.04-2.19.66-2.9 1.49-.64.74-1.2 1.92-1.05 3.05 1.1.09 2.24-.56 2.93-1.4z" />
-  </svg>
-  <span class="sb__text"><small>{small}</small>{big}</span>
+  <img src={badge.src} alt={label} width={width} height={height} loading="lazy" decoding="async" />
 </a>
 
 <style>
   .sb {
     display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #000;
-    color: #fff;
-    border-radius: 8px;
-    padding: 0.4rem 0.9rem 0.4rem 0.7rem;
-    text-decoration: none;
-    min-height: 44px;
-    line-height: 1.05;
+    line-height: 0;
   }
-  .sb__text {
-    display: grid;
-    font-weight: 600;
-    font-size: 1.05rem;
-  }
-  .sb__text small {
-    font-size: 0.65rem;
-    font-weight: 400;
+  .sb img {
+    height: 44px;
+    width: auto;
   }
 </style>

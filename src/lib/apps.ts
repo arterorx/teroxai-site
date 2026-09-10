@@ -29,6 +29,8 @@ export interface App {
   privacy: string | null;
   support: string | null;
   store: { rating: number | null; ratingCount: number; version: string; fetchedAt: string };
+  /** Which store screenshot becomes shot-1, shot-2, shot-3 (1-based). Absent = store order. */
+  shotOrder?: number[];
   en: AppCopy;
   de: AppCopy;
 }
@@ -49,6 +51,10 @@ const validate = (list: unknown): App[] => {
     if (!Array.isArray(a.platforms) || a.platforms.length === 0) throw new Error(`${a.slug}: platforms`);
     for (const p of a.platforms) {
       if (!PLATFORMS.includes(p)) throw new Error(`${a.slug}: unknown platform ${p}`);
+    }
+    if (a.shotOrder !== undefined) {
+      const sorted = [...a.shotOrder].sort();
+      if (sorted.some((v, i) => v !== i + 1)) throw new Error(`${a.slug}: shotOrder must be a permutation of 1..${a.shotOrder.length}`);
     }
     for (const lang of ['en', 'de'] as const) {
       const c = a[lang];

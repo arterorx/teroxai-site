@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import PostLayout from '../../../layouts/PostLayout.astro';
+import { localePath, OTHER_LOCALES, type Alternate } from '../../../i18n/config';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', (p) => p.data.lang !== 'en');
+  return posts
+    .filter((post) => (OTHER_LOCALES as readonly string[]).includes(post.data.lang))
+    .map((post) => ({ params: { lang: post.data.lang, slug: post.id.split('/').pop()! }, props: { post } }));
+}
+const { post } = Astro.props;
+const lang = post.data.lang;
+const slug = post.id.split('/').pop()!;
+const { Content } = await render(post);
+const alternates: Alternate[] = [];
+if (post.data.translationOf) alternates.push({ lang: 'en', path: localePath('en', `blog/${post.data.translationOf}`) });
+alternates.push({ lang, path: localePath(lang, `blog/${slug}`) });
+---
+
+<PostLayout title={post.data.title} description={post.data.description} date={post.data.date} lang={lang} slug={slug} alternates={alternates}>
+  <Content />
+</PostLayout>

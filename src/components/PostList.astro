@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import { localePath, type Locale } from '../i18n/config';
+import { formatDate } from '../lib/site';
+
+interface Props {
+  lang: Locale;
+  limit?: number;
+}
+const { lang, limit }: Props = Astro.props;
+const all = (await getCollection('blog', (p) => p.data.lang === lang)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const posts = limit ? all.slice(0, limit) : all;
+/** Content id is "<lang>/<slug>"; the URL uses only the slug. */
+const slugOf = (id: string) => id.split('/').pop()!;
+---
+
+<ul class="pl">
+  {
+    posts.map((p) => (
+      <li>
+        <a href={localePath(lang, `blog/${slugOf(p.id)}`)}>{p.data.title}</a>
+        <p class="muted">
+          <time datetime={p.data.date.toISOString().slice(0, 10)}>{formatDate(p.data.date.toISOString().slice(0, 10), lang)}</time>
+          · {p.data.description}
+        </p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .pl {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+  .pl a {
+    font-weight: 650;
+    font-size: 1.125rem;
+    color: var(--ink);
+  }
+  .pl p {
+    margin: 0.25rem 0 0;
+  }
+</style>

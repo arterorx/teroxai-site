@@ -1,0 +1,40 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { localePath, type Alternate, type Locale } from '../i18n/config';
+import { SITE_URL, OWNER, formatDate } from '../lib/site';
+import { t } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  lang: Locale;
+  slug: string;
+  alternates: Alternate[];
+}
+const { title, description, date, lang, slug, alternates }: Props = Astro.props;
+const ui = t(lang);
+const iso = date.toISOString().slice(0, 10);
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    datePublished: iso,
+    inLanguage: lang,
+    url: `${SITE_URL}${localePath(lang, `blog/${slug}`)}`,
+    author: { '@id': `${SITE_URL}/#person` },
+    publisher: { '@id': `${SITE_URL}/#org` },
+  },
+];
+---
+
+<BaseLayout title={title} description={description} type="article" lang={lang} alternates={alternates} jsonLd={jsonLd}>
+  <article class="wrap section prose">
+    <p class="muted"><time datetime={iso}>{formatDate(iso, lang)}</time> · {OWNER}</p>
+    <h1>{title}</h1>
+    <slot />
+    <p><a href={localePath(lang, 'blog')}>{ui.backToBlog}</a></p>
+  </article>
+</BaseLayout>

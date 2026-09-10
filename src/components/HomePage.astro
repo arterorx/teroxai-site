@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppGrid from './AppGrid.astro';
+import PostList from './PostList.astro';
 import { clusterFor, localePath, type Locale } from '../i18n/config';
 import { APPS, liveApps } from '../lib/apps';
 import { homeCopy } from '../i18n/home';
@@ -29,6 +30,13 @@ const ui = t(lang);
     <p class="eyebrow">{c.appsEyebrow}</p>
     <h2>{c.appsH2}</h2>
     <AppGrid apps={APPS} lang={lang} />
+  </section>
+
+  <section class="wrap section">
+    <p class="eyebrow">{ui.latestPosts}</p>
+    <h2>Blog</h2>
+    <PostList lang={lang} limit={3} />
+    <p><a href={localePath(lang, 'blog')}>{ui.allPosts}</a></p>
   </section>
 
   <section class="wrap section about">

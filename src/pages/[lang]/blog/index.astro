@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostList from '../../../components/PostList.astro';
+import { clusterFor, OTHER_LOCALES } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return OTHER_LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+const { lang } = Astro.props;
+---
+
+<BaseLayout title="Blog" description="Notizen übers Bauen und Verkaufen von Apps, allein, mit KI-Agenten, die das meiste tippen." lang={lang} alternates={clusterFor('blog')}>
+  <section class="wrap section">
+    <h1>Blog</h1>
+    <PostList lang={lang} />
+  </section>
+</BaseLayout>

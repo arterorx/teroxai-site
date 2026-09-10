@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { clusterFor } from '../../i18n/config';
+---
+
+<BaseLayout title="Blog" description="Notes on building and selling apps solo, with AI agents doing most of the typing." lang="en" alternates={clusterFor('blog')}>
+  <section class="wrap section">
+    <h1>Blog</h1>
+    <PostList lang="en" />
+  </section>
+</BaseLayout>

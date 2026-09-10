@@ -1,8 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { clusterFor } from '../i18n/config';
+import HomePage from '../components/HomePage.astro';
 ---
 
-<BaseLayout title="Indie developer" description="Apps for Mac and iPhone by Armen Ter-Oganezov." lang="en" alternates={clusterFor()}>
-  <section class="wrap section"><h1>TeroxAI</h1></section>
-</BaseLayout>
+<HomePage lang="en" />

@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { localePath, type Locale } from '../i18n/config';
+import { platformKey, type App } from '../lib/apps';
+import { t } from '../i18n/ui';
+
+interface Props {
+  app: App;
+  lang: Locale;
+}
+const { app, lang }: Props = Astro.props;
+const ui = t(lang);
+const icons = import.meta.glob<{ default: ImageMetadata }>('../assets/apps/*/icon.png', { eager: true });
+const icon = icons[`../assets/apps/${app.slug}/icon.png`].default;
+const c = app[lang];
+---
+
+<a class="ac" href={localePath(lang, `apps/${app.slug}`)}>
+  <Image src={icon} alt="" width={96} height={96} class="ac__icon" />
+  <span class="ac__name">{c.name}</span>
+  <span class="ac__tag">{c.tagline}</span>
+  <span class="ac__meta">
+    {ui.platforms[platformKey(app.platforms)]}
+    {app.status === 'review' && <span class="ac__badge">{ui.inReview}</span>}
+  </span>
+</a>
+
+<style>
+  .ac {
+    display: grid;
+    gap: 0.35rem;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    color: var(--ink);
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+  .ac:hover {
+    transform: translateY(-2px);
+  }
+  .ac__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 13px;
+    margin-bottom: 0.5rem;
+  }
+  .ac__name {
+    font-weight: 650;
+    line-height: 1.25;
+  }
+  .ac__tag {
+    color: var(--ink-2);
+    font-size: 0.95rem;
+  }
+  .ac__meta {
+    color: var(--ink-3);
+    font-size: 0.8125rem;
+    margin-top: 0.35rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .ac__badge {
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.1rem 0.5rem;
+  }
+</style>

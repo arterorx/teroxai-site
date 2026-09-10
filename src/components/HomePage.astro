@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppGrid from './AppGrid.astro';
+import { clusterFor, localePath, type Locale } from '../i18n/config';
+import { APPS, liveApps } from '../lib/apps';
+import { homeCopy } from '../i18n/home';
+import { t } from '../i18n/ui';
+import { GITHUB_URL, LINKEDIN_URL, TIKTOK_URL } from '../lib/site';
+import armen from '../assets/armen.jpg';
+
+interface Props {
+  lang: Locale;
+}
+const { lang }: Props = Astro.props;
+const n = liveApps().length;
+const c = homeCopy(lang, n);
+const ui = t(lang);
+const socials = [
+  { href: GITHUB_URL, label: 'GitHub' },
+  { href: LINKEDIN_URL, label: 'LinkedIn' },
+  { href: TIKTOK_URL, label: 'TikTok' },
+].filter((s) => s.href);
+---
+
+<BaseLayout title={c.title} description={c.description} suffix={false} lang={lang} alternates={clusterFor()}>
+  <section class="wrap section hero">
+    <h1 class="measure">{c.h1}</h1>
+    <p class="hero__lede measure">{c.lede}</p>
+    <a class="btn" href="#apps">{c.cta}</a>
+  </section>
+
+  <section class="wrap section" id="apps">
+    <p class="eyebrow">{c.appsEyebrow}</p>
+    <h2>{c.appsH2}</h2>
+    <AppGrid apps={APPS} lang={lang} />
+  </section>
+
+  <section class="wrap section about">
+    <Image src={armen} alt="Armen Ter-Oganezov" width={160} height={160} class="about__photo" />
+    <div>
+      <p class="eyebrow">{c.aboutEyebrow}</p>
+      <h2>{c.aboutH2}</h2>
+      {c.aboutText.map((p) => <p class="measure">{p}</p>)}
+      <p class="about__links">
+        {socials.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}
+        <a href={localePath(lang, 'about')}>{ui.moreAbout}</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__lede {
+    font-size: 1.25rem;
+    color: var(--ink-2);
+    margin-bottom: 1.5rem;
+  }
+  .about {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  .about__photo {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+  }
+  .about__links {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 640px) {
+    .about {
+      grid-template-columns: 1fr;
+    }
+    .about__photo {
+      width: 112px;
+      height: 112px;
+    }
+  }
+</style>

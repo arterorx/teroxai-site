@@ -1,0 +1,19 @@
+---
+import { OTHER_LOCALES } from '../../i18n/config';
+
+export function getStaticPaths() {
+  return OTHER_LOCALES.map((lang) => ({ params: { lang } }));
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content="0; url=/privacy/" />
+    <link rel="canonical" href="https://teroxai.com/privacy/" />
+    <title>Privacy policy</title>
+  </head>
+  <body><a href="/privacy/">Privacy policy</a></body>
+</html>

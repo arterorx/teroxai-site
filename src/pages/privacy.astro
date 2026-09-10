@@ -1,0 +1,12 @@
+---
+import { getEntry, render } from 'astro:content';
+import DocLayout from '../layouts/DocLayout.astro';
+
+const doc = await getEntry('legal', 'site-privacy');
+if (!doc) throw new Error('legal/site-privacy.md missing');
+const { Content } = await render(doc);
+---
+
+<DocLayout title={doc.data.title} description="What teroxai.com collects (nothing personal), how traffic is measured, and how to reach the owner." updated={doc.data.updated}>
+  <Content />
+</DocLayout>

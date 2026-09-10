@@ -1,0 +1,17 @@
+---
+import { getEntry, render } from 'astro:content';
+import DocLayout from '../../../layouts/DocLayout.astro';
+import { hostedApps } from '../../../lib/apps';
+
+export function getStaticPaths() {
+  return hostedApps().map((app) => ({ params: { slug: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+const doc = await getEntry('legal', app.slug);
+if (!doc) throw new Error(`legal/${app.slug}.md missing`);
+const { Content } = await render(doc);
+---
+
+<DocLayout title={doc.data.title} description={`Privacy policy for ${app.en.name}: what the app collects and how to contact the developer.`} updated={doc.data.updated}>
+  <Content />
+</DocLayout>

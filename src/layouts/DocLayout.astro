@@ -1,0 +1,21 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { formatDate } from '../lib/site';
+import { t } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  description: string;
+  updated: Date;
+}
+const { title, description, updated }: Props = Astro.props;
+const iso = updated.toISOString().slice(0, 10);
+---
+
+<BaseLayout title={title} description={description} lang="en" alternates={[]}>
+  <article class="wrap section prose">
+    <h1>{title}</h1>
+    <p class="muted">{t('en').updated}: <time datetime={iso}>{formatDate(iso, 'en')}</time></p>
+    <slot />
+  </article>
+</BaseLayout>

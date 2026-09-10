@@ -1,0 +1,26 @@
+---
+import DocLayout from '../../../layouts/DocLayout.astro';
+import { hostedApps, storeUrl } from '../../../lib/apps';
+import { CONTACT_EMAIL } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return hostedApps().map((app) => ({ params: { slug: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+const name = app.en.name;
+---
+
+<DocLayout title={`Support for ${name}`} description={`How to get help with ${name}: what to include in your message and where to send it.`} updated={new Date('2026-09-10')}>
+  <p>{name} is made by Armen Ter-Oganezov. If something does not work, write to <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(name)}`}>{CONTACT_EMAIL}</a>.</p>
+  <h2>What helps me answer fast</h2>
+  <ul>
+    <li>Your device and iOS version (Settings, General, About).</li>
+    <li>The app version, shown on the App Store page under Version History.</li>
+    <li>What you did, what you expected, and what happened instead. A screenshot is worth a paragraph.</li>
+  </ul>
+  <h2>Purchases and subscriptions</h2>
+  <p>Coins, subscriptions and refunds are handled by Apple. To cancel a subscription, open Settings on your iPhone, tap your name, then Subscriptions. For a refund, use <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>. If a purchase did not arrive in the app, write to me with the receipt and I will sort it out.</p>
+  <h2>Deleting your data</h2>
+  <p>Write to the address above from the email you use with the app and ask for deletion. The policy at <a href={`/apps/${app.slug}/privacy/`}>/apps/{app.slug}/privacy/</a> says what the app stores.</p>
+  <p><a href={storeUrl(app)} rel="noopener">{name} on the App Store</a></p>
+</DocLayout>

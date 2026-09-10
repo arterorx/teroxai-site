@@ -2,9 +2,6 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-/* Blog posts: src/content/blog/<lang>/<slug>.md → /blog/<slug>/ or /de/blog/<slug>/.
-   `translationOf` names the slug of the same post in the other language so
-   hreflang can pair them. */
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
@@ -16,4 +13,14 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+/* Legal texts. `app` is the app slug for app policies, absent for the site. */
+const legal = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/legal' }),
+  schema: z.object({
+    title: z.string(),
+    updated: z.coerce.date(),
+    app: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, legal };

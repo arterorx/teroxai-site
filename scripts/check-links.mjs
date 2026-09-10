@@ -20,13 +20,18 @@ for (const f of files) {
 }
 
 let bad = 0;
-for (const url of urls) {
-  if (url.startsWith('https://teroxai.com')) continue;
+const check = async (url) => {
   try {
-    const res = await fetch(url, { method: 'GET', redirect: 'manual', headers: { 'user-agent': 'Mozilla/5.0 teroxai-linkcheck' } });
+    const res = await fetch(url, {
+      method: 'GET',
+      redirect: 'manual',
+      headers: { 'user-agent': 'Mozilla/5.0 teroxai-linkcheck' },
+      signal: AbortSignal.timeout(15000),
+    });
+    /* LinkedIn answers 999 to anything that is not a browser. */
     if (res.status === 999) {
-      console.log('ok? 999 (LinkedIn bot wall) ' + url);
-      continue;
+      console.log(`ok? 999 (LinkedIn bot wall) ${url}`);
+      return;
     }
     const ok = res.status < 400;
     console.log(`${ok ? 'ok ' : 'BAD'} ${res.status} ${url}`);
@@ -35,6 +40,12 @@ for (const url of urls) {
     console.log(`BAD err ${url} ${e.message}`);
     bad += 1;
   }
+};
+
+/* Eight at a time: fast enough, polite enough. */
+const external = [...urls].filter((u) => !u.startsWith('https://teroxai.com'));
+for (let i = 0; i < external.length; i += 8) {
+  await Promise.all(external.slice(i, i + 8).map(check));
 }
-console.log(`${urls.size} links, ${bad} bad`);
+console.log(`${external.length} external links, ${bad} bad`);
 process.exit(bad ? 1 : 0);

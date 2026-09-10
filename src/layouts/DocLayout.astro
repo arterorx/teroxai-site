@@ -12,6 +12,7 @@ const { title, description, updated }: Props = Astro.props;
 const iso = updated.toISOString().slice(0, 10);
 ---
 
+{/* Legal texts exist in English only, so there is no language cluster and the header hides the switcher. */}
 <BaseLayout title={title} description={description} lang="en" alternates={[]}>
   <article class="wrap section prose">
     <h1>{title}</h1>

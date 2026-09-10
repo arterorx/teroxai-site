@@ -4,6 +4,8 @@ updated: 2024-07-10
 app: ai-photo-generator
 ---
 
+This policy covers the app listed on the App Store as AI Photo Generator: TeroxAI. The text below still uses the app's earlier name.
+
 This privacy policy applies to the Text to Image AI Generator Art app (hereby referred to as "Application") for mobile devices that was created by Armen Ter-Oganezov (hereby referred to as "Service Provider") as an Ad Supported service. This service is intended for use "AS IS".
 
 ## Information Collection and Use

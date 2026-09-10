@@ -3,6 +3,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Cross-Origin-Opener-Policy: same-origin
+  # TEMPORARY: keeps the pages.dev preview out of search until teroxai.com is attached. Remove this line and redeploy (README, owner step 6).
   X-Robots-Tag: noindex
 
 /_astro/*

@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n/ui';
+const ui = t('en');
+---
+
+<BaseLayout title={ui.notFound} description={ui.notFoundText} noindex lang="en">
+  <section class="wrap section">
+    <h1>{ui.notFound}</h1>
+    <p>{ui.notFoundText} <a href="/">{ui.home}</a></p>
+  </section>
+</BaseLayout>

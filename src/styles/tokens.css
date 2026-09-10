@@ -1,16 +1,18 @@
 :root {
+  color-scheme: light;
   --bg: #ffffff;
   --card: #f5f5f7;
   --rule: #e5e5ea;
   --ink: #111111;
   --ink-2: #3a3a3c;
-  --ink-3: #6e6e73;
+  --ink-3: #5c5c61;
   --accent: #111111;
   --accent-ink: #ffffff;
   --link: #0a58ca;
 
   --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --serif: 'New York', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  /* ui-serif is how Safari reaches New York; the name itself never matches. */
+  --serif: ui-serif, 'Iowan Old Style', Georgia, 'Times New Roman', serif;
 
   --measure: 64ch;
   --wrap: 1120px;

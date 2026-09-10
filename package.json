@@ -8,7 +8,7 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "test": "node --test tests/",
+    "test": "node --test \"tests/**/*.test.ts\"",
     "data:store": "node scripts/fetch-store.mjs",
     "assets:shots": "node scripts/fetch-shots.mjs",
     "assets:icons": "node scripts/icons.mjs",

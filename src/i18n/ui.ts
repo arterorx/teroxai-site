@@ -36,6 +36,8 @@ const en = {
   home: 'Home',
   updated: 'Updated',
   backToBlog: 'Back to the blog',
+  showcaseLabel: 'Featured apps',
+  showcaseGoTo: 'Show',
 };
 
 export type Ui = typeof en;
@@ -74,6 +76,8 @@ const de: Ui = {
   home: 'Start',
   updated: 'Aktualisiert',
   backToBlog: 'Zurück zum Blog',
+  showcaseLabel: 'Ausgewählte Apps',
+  showcaseGoTo: 'Zeigen',
 };
 
 const ui: Record<Locale, Ui> = { en, de };

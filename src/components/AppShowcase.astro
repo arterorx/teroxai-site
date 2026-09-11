@@ -1,0 +1,149 @@
+---
+/* The hero's live showcase: one live app at a time in a device frame, a glow
+   in that app's accent behind it, name and tagline under it, dots to jump.
+   The first slide is server-rendered visible, so the page works without JS. */
+import DeviceFrame from './DeviceFrame.astro';
+import { localePath, type Locale } from '../i18n/config';
+import { liveApps } from '../lib/apps';
+import { t } from '../i18n/ui';
+
+interface Props {
+  lang: Locale;
+}
+const { lang }: Props = Astro.props;
+const ui = t(lang);
+const apps = liveApps();
+---
+
+<div class="sc" data-showcase style={`--accent:${apps[0].accent}`} tabindex="0" aria-roledescription="carousel" aria-label={ui.showcaseLabel}>
+  <span class="sc__glow" aria-hidden="true"></span>
+  <div class="sc__stage">
+    {
+      apps.map((a, i) => (
+        <figure class:list={['sc__slide', i === 0 && 'is-active']} data-slide={i} data-accent={a.accent} aria-hidden={i !== 0}>
+          <DeviceFrame slug={a.slug} n={1} alt={`${a[lang].name} screenshot`} portrait={230} landscape={480} eager={i === 0} priority={i === 0} />
+          <figcaption>
+            <a href={localePath(lang, `apps/${a.slug}`)} tabindex={i === 0 ? 0 : -1}>
+              <b>{a[lang].name}</b>
+              <span>{a[lang].tagline}</span>
+            </a>
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+  <div class="sc__dots" role="tablist" aria-label={ui.showcaseLabel}>
+    {
+      apps.map((a, i) => (
+        <button type="button" role="tab" data-dot={i} class:list={[i === 0 && 'is-active']} aria-selected={i === 0} aria-label={`${ui.showcaseGoTo}: ${a[lang].name}`} />
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  import '../scripts/showcase.ts';
+</script>
+
+<style>
+  .sc {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    gap: 0.75rem;
+    justify-items: center;
+    outline: none;
+  }
+  .sc:focus-visible {
+    box-shadow: 0 0 0 3px var(--accent);
+    border-radius: var(--radius);
+  }
+  .sc__glow {
+    position: absolute;
+    inset: 8% 14%;
+    border-radius: 50%;
+    background: var(--accent);
+    filter: blur(70px);
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+    transition: background 0.8s ease;
+  }
+  .sc__stage {
+    position: relative;
+    width: 100%;
+    min-height: 560px;
+    overflow: hidden;
+  }
+  .sc__slide {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    align-content: center;
+    gap: 0.9rem;
+    opacity: 0;
+    transform: translateX(36px) rotate(2deg);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    pointer-events: none;
+  }
+  .sc__slide.is-active {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    z-index: 1;
+  }
+  .sc__slide figcaption a {
+    display: grid;
+    text-align: center;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .sc__slide figcaption b {
+    font-weight: 650;
+  }
+  .sc__slide figcaption span {
+    color: var(--ink-3);
+    font-size: 0.9rem;
+  }
+  .sc__dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .sc__dots button {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: var(--rule);
+    cursor: pointer;
+    transition:
+      width 0.25s ease,
+      background 0.25s ease;
+  }
+  .sc__dots button.is-active {
+    width: 24px;
+    background: var(--ink);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sc__slide,
+    .sc__glow,
+    .sc__dots button {
+      transition: none;
+    }
+  }
+  @media (max-width: 800px) {
+    .sc__stage {
+      min-height: 480px;
+    }
+    .sc__glow {
+      inset: 18% 22%;
+      filter: blur(48px);
+    }
+  }
+</style>

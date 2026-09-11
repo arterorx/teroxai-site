@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppGrid from './AppGrid.astro';
+import AppShowcase from './AppShowcase.astro';
 import PostList from './PostList.astro';
 import Reveal from './Reveal.astro';
 import { clusterFor, localePath, type Locale } from '../i18n/config';
@@ -22,41 +23,59 @@ const ui = t(lang);
 
 <BaseLayout title={c.title} description={c.description} suffix={false} lang={lang} alternates={clusterFor()}>
   <section class="wrap section hero">
-    <h1 class="measure">{c.h1}</h1>
-    <p class="hero__lede measure">{c.lede}</p>
-    <a class="btn" href="#apps">{c.cta}</a>
+    <div class="hero__text">
+      <h1 class="measure">{c.h1}</h1>
+      <p class="hero__lede measure">{c.lede}</p>
+      <a class="btn" href="#apps">{c.cta}</a>
+    </div>
+    <AppShowcase lang={lang} />
   </section>
 
   <section class="wrap section" id="apps">
-    <p class="eyebrow">{c.appsEyebrow}</p>
-    <h2>{c.appsH2}</h2>
+    <Reveal>
+      <p class="eyebrow">{c.appsEyebrow}</p>
+      <h2>{c.appsH2}</h2>
+    </Reveal>
     <AppGrid apps={APPS} lang={lang} />
   </section>
 
-  <section class="wrap section">
-    <p class="eyebrow">{ui.latestPosts}</p>
-    <h2>Blog</h2>
-    <PostList lang={lang} limit={3} />
-    <p><a href={localePath(lang, 'blog')}>{ui.allPosts}</a></p>
-  </section>
+  <Reveal>
+    <section class="wrap section">
+      <p class="eyebrow">{ui.latestPosts}</p>
+      <h2>Blog</h2>
+      <PostList lang={lang} limit={3} />
+      <p><a href={localePath(lang, 'blog')}>{ui.allPosts}</a></p>
+    </section>
+  </Reveal>
 
   <Reveal>
-  <section class="wrap section about">
-    <Image src={armen} alt="Armen Ter-Oganezov" width={160} height={160} densities={[1, 2]} class="about__photo" />
-    <div>
-      <p class="eyebrow">{c.aboutEyebrow}</p>
-      <h2>{c.aboutH2}</h2>
-      {c.aboutText.map((p) => <p class="measure">{p}</p>)}
-      <p class="about__links">
-        {SOCIALS.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}
-        <a href={localePath(lang, 'about')}>{ui.moreAbout}</a>
-      </p>
-    </div>
-  </section>
+    <section class="wrap section about">
+      <Image src={armen} alt="Armen Ter-Oganezov" width={160} height={160} densities={[1, 2]} class="about__photo" />
+      <div>
+        <p class="eyebrow">{c.aboutEyebrow}</p>
+        <h2>{c.aboutH2}</h2>
+        {c.aboutText.map((p) => <p class="measure">{p}</p>)}
+        <p class="about__links">
+          {SOCIALS.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}
+          <a href={localePath(lang, 'about')}>{ui.moreAbout}</a>
+        </p>
+      </div>
+    </section>
   </Reveal>
 </BaseLayout>
 
 <style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    min-height: min(82vh, 760px);
+  }
+  .hero__text,
+  .hero > :global(.sc) {
+    min-width: 0;
+  }
   .hero__lede {
     font-size: 1.25rem;
     color: var(--ink-2);
@@ -73,11 +92,18 @@ const ui = t(lang);
     width: 160px;
     height: 160px;
     object-fit: cover;
+    box-shadow: 0 0 0 3px var(--rule);
   }
   .about__links {
     display: flex;
     gap: 1.25rem;
     flex-wrap: wrap;
+  }
+  @media (max-width: 800px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
   }
   @media (max-width: 640px) {
     .about {

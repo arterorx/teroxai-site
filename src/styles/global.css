@@ -73,6 +73,11 @@ p {
 .section + .section {
   border-top: 1px solid var(--rule);
 }
+.reveal + .reveal > .section,
+.section + .reveal > .section,
+.reveal + .section {
+  border-top: 1px solid var(--rule);
+}
 .eyebrow {
   font-size: 0.8125rem;
   text-transform: uppercase;

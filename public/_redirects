@@ -1,0 +1,3 @@
+# www and the pages.dev preview both point at the apex domain.
+https://www.teroxai.com/* https://teroxai.com/:splat 301
+https://teroxai.pages.dev/* https://teroxai.com/:splat 301

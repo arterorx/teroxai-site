@@ -38,6 +38,7 @@ const en = {
   backToBlog: 'Back to the blog',
   showcaseLabel: 'Featured apps',
   showcaseGoTo: 'Show',
+  websitesBy: 'Websites by',
 };
 
 export type Ui = typeof en;
@@ -78,6 +79,7 @@ const de: Ui = {
   backToBlog: 'Zurück zum Blog',
   showcaseLabel: 'Ausgewählte Apps',
   showcaseGoTo: 'Zeigen',
+  websitesBy: 'Websites von',
 };
 
 const ui: Record<Locale, Ui> = { en, de };

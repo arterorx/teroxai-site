@@ -86,6 +86,10 @@ const globalLd = [
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>
+    {/* Cloudflare's email obfuscation only decodes on a full page load; with
+        ClientRouter navigations the addresses would stay "[email protected]".
+        These markers tell Cloudflare to leave the page alone. */}
+    <Fragment set:html="<!--email_off-->" />
     <a class="skip" href="#main">{t(lang).skip}</a>
     <Header lang={lang} alternates={alternates} />
     <main id="main">
@@ -95,5 +99,6 @@ const globalLd = [
     <script>
       import '../scripts/reveal.ts';
     </script>
+    <Fragment set:html="<!--/email_off-->" />
   </body>
 </html>

@@ -14,6 +14,8 @@ export const SOCIALS: { href: string; label: string }[] = [
   { href: LINKEDIN_URL, label: 'LinkedIn' },
   { href: TIKTOK_URL, label: 'TikTok' },
 ].filter((s) => s.href);
+/** Credit in the footer for the studio that builds the sites. */
+export const CREDIT = { name: 'MariaWeb', url: 'https://mariaweb.dev/' };
 /** Last review date of the legal pages. */
 export const LEGAL_UPDATED = '2026-09-10';
 

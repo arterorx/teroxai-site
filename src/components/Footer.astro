@@ -1,6 +1,6 @@
 ---
 import { localePath, type Locale } from '../i18n/config';
-import { CONTACT_EMAIL, OWNER, SOCIALS } from '../lib/site';
+import { CONTACT_EMAIL, OWNER, SOCIALS, CREDIT } from '../lib/site';
 import { t } from '../i18n/ui';
 
 interface Props {
@@ -20,7 +20,12 @@ const year = new Date().getFullYear();
       {SOCIALS.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}
       <a href={localePath(lang, 'privacy')}>{ui.privacy}</a>
     </nav>
-    <p class="muted ft__copy">© {year} {OWNER}</p>
+    <div class="ft__bottom">
+      <p class="muted ft__copy">© {year} {OWNER}</p>
+      <p class="muted ft__credit">
+        {ui.websitesBy} <a href={CREDIT.url} rel="noopener" target="_blank">{CREDIT.name}</a>
+      </p>
+    </div>
   </div>
 </footer>
 
@@ -42,7 +47,26 @@ const year = new Date().getFullYear();
   .ft__links a {
     color: var(--ink-2);
   }
-  .ft__copy {
+  .ft__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .ft__copy,
+  .ft__credit {
     margin: 0;
+  }
+  .ft__credit a {
+    color: var(--ink-2);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.2s ease;
+  }
+  .ft__credit a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
   }
 </style>

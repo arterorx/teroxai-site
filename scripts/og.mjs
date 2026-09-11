@@ -29,6 +29,15 @@ const wrap = (text, size, maxWidth) => {
   return lines;
 };
 
+const MARK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44">
+  <defs><linearGradient id="spark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C8894F"/><stop offset="1" stop-color="#7C5CFF"/></linearGradient></defs>
+  <rect width="64" height="64" rx="15" fill="#111111"/>
+  <rect x="15" y="17" width="30" height="8" rx="3" fill="#ffffff"/>
+  <rect x="26" y="17" width="12" height="30" rx="3" fill="#ffffff"/>
+  <path d="M49 10 L51.2 16.8 L58 19 L51.2 21.2 L49 28 L46.8 21.2 L40 19 L46.8 16.8 Z" fill="url(#spark)"/>
+</svg>`;
+const markPng = await sharp(Buffer.from(MARK)).png().toBuffer();
+
 const card = ({ title, sub, iconPng, accent = '#111111' }) => {
   const size = 64;
   /* Cards with an icon reserve the right-hand 320px for it; the icon-less
@@ -44,11 +53,11 @@ const card = ({ title, sub, iconPng, accent = '#111111' }) => {
     <rect width="${W}" height="${H}" fill="#ffffff"/>
     ${wash}
     <rect x="0" y="${H - 8}" width="${W}" height="8" fill="${accent}"/>
-    <text x="80" y="120" font-family="${FONT}" font-weight="700" font-size="34" fill="#111">TeroxAI</text>
+    <text x="136" y="120" font-family="${FONT}" font-weight="700" font-size="34" fill="#111">TeroxAI</text>
     ${text}
     <text x="80" y="${H - 80}" font-family="${FONT}" font-size="30" fill="#6e6e73">${esc(sub)}</text>
   </svg>`;
-  const layers = [];
+  const layers = [{ input: markPng, left: 80, top: 84 }];
   if (iconPng) layers.push({ input: iconPng, left: W - 80 - 240, top: 195 });
   return sharp(Buffer.from(svg)).composite(layers).png();
 };

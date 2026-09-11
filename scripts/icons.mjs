@@ -1,4 +1,5 @@
-/* Favicon and home screen icons from one SVG mark. Run: npm run assets:icons */
+/* Favicon and home screen icons from the TeroxAI mark (same shapes as
+   src/components/Logo.astro). Run: npm run assets:icons */
 import sharp from 'sharp';
 import pngToIco from 'png-to-ico';
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -7,8 +8,16 @@ const PUB = new URL('../public/', import.meta.url).pathname;
 await mkdir(`${PUB}icons`, { recursive: true });
 
 const mark = (size) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="${size}" height="${size}">
-  <rect width="64" height="64" rx="14" fill="#111111"/>
-  <text x="32" y="45" text-anchor="middle" font-family="-apple-system, Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="40" fill="#ffffff">T</text>
+  <defs>
+    <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C8894F"/>
+      <stop offset="1" stop-color="#7C5CFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#111111"/>
+  <rect x="15" y="17" width="30" height="8" rx="3" fill="#ffffff"/>
+  <rect x="26" y="17" width="12" height="30" rx="3" fill="#ffffff"/>
+  <path d="M49 10 L51.2 16.8 L58 19 L51.2 21.2 L49 28 L46.8 21.2 L40 19 L46.8 16.8 Z" fill="url(#spark)"/>
 </svg>`;
 
 await writeFile(`${PUB}favicon.svg`, mark(64));

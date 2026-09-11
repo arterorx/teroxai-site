@@ -24,16 +24,16 @@ npm run check:links    # every external link answers
 npm run build && npx wrangler pages deploy dist --project-name=teroxai --branch=main
 ```
 
-Preview: https://teroxai.pages.dev (noindex until the domain is attached, see step 6 below).
+Live: https://teroxai.com (domain attached and noindex removed on 2026-09-11). Preview alias: https://teroxai.pages.dev.
 
 ## Owner steps (once)
 
 1. **Cloudflare zone.** Dashboard → Add a domain → `teroxai.com` → Free. Copy the two nameservers.
 2. **Namecheap.** Domain List → teroxai.com → Nameservers → Custom DNS → paste both → save. Wait until Cloudflare says the zone is active (minutes to a few hours).
 3. **Attach the domain to Pages.** Workers & Pages → teroxai → Custom domains → Add `teroxai.com`, then add `www.teroxai.com`. Cloudflare creates the DNS records itself.
-4. **www → apex.** Rules → Redirect Rules → template "Redirect from WWW to root". Either that or a Bulk Redirect is fine.
+4. **www → apex.** Rules → Redirect Rules → template "Redirect from WWW to root". A `_redirects` file cannot do this on Pages (host-based sources are ignored), so it has to be a dashboard rule. Until it exists, www serves the same pages with canonical tags pointing at the apex, which is harmless.
 5. **Email.** Email → Email Routing → enable → add address `hello@teroxai.com` → destination your Gmail → verify the destination. If Namecheap left MX records, Email Routing will refuse; delete them in DNS first (this happened with sawkit.app).
-6. **Tell the site it is live.** Remove the `X-Robots-Tag: noindex` line (and its comment) from `public/_headers`, then build and deploy again.
+6. **Tell the site it is live.** Done on 2026-09-11: the `X-Robots-Tag: noindex` line is gone from `public/_headers`. If a preview ever needs hiding again, add it back and redeploy.
 7. **Search Console.** Add property `sc-domain:teroxai.com`, verify with the TXT record Cloudflare offers, submit `https://teroxai.com/sitemap-index.xml`.
 8. **App Store Connect.** For the three AI apps, set Support URL and Marketing URL to the app's page here, and Privacy Policy URL to `/apps/<slug>/privacy/`:
    - AI Photo Generator (6503450897): `https://teroxai.com/apps/ai-photo-generator/`, support `https://teroxai.com/apps/ai-photo-generator/support/`, privacy `https://teroxai.com/apps/ai-photo-generator/privacy/`

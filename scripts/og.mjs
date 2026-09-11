@@ -29,7 +29,7 @@ const wrap = (text, size, maxWidth) => {
   return lines;
 };
 
-const card = ({ title, sub, iconPng }) => {
+const card = ({ title, sub, iconPng, accent = '#111111' }) => {
   const size = 64;
   /* Cards with an icon reserve the right-hand 320px for it; the icon-less
      default card has the full width to work with, so its wrap limit is wider. */
@@ -38,9 +38,12 @@ const card = ({ title, sub, iconPng }) => {
   const text = lines
     .map((l, i) => `<text x="80" y="${y0 + i * size * 1.15}" font-family="${FONT}" font-weight="600" font-size="${size}" fill="#111">${esc(l)}</text>`)
     .join('');
+  /* Only tint when a real accent is given; the plain black default keeps a pure white ground. */
+  const wash = accent === '#111111' ? '' : `<rect width="${W}" height="${H}" fill="${accent}" fill-opacity="0.08"/>`;
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
     <rect width="${W}" height="${H}" fill="#ffffff"/>
-    <rect x="0" y="${H - 8}" width="${W}" height="8" fill="#111"/>
+    ${wash}
+    <rect x="0" y="${H - 8}" width="${W}" height="8" fill="${accent}"/>
     <text x="80" y="120" font-family="${FONT}" font-weight="700" font-size="34" fill="#111">TeroxAI</text>
     ${text}
     <text x="80" y="${H - 80}" font-family="${FONT}" font-size="30" fill="#6e6e73">${esc(sub)}</text>
@@ -58,7 +61,7 @@ for (const app of apps) {
     .composite([{ input: Buffer.from('<svg><rect x="0" y="0" width="240" height="240" rx="52" fill="#fff"/></svg>'), blend: 'dest-in' }])
     .png()
     .toBuffer();
-  await card({ title: app.en.name, sub: app.en.tagline, iconPng: rounded }).toFile(`${OUT}${app.slug}.png`);
+  await card({ title: app.en.name, sub: app.en.tagline, iconPng: rounded, accent: app.accent }).toFile(`${OUT}${app.slug}.png`);
 }
 
 /* Photo for the Person JSON-LD, 600 px square. */

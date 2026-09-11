@@ -15,9 +15,11 @@ interface Props {
   landscape?: number;
   /** Load without lazy loading (hero image). */
   eager?: boolean;
+  /** Hint the browser to fetch this image first (hero LCP). */
+  priority?: boolean;
   class?: string;
 }
-const { slug, n, alt, portrait = 320, landscape = 640, eager = false, class: cls }: Props = Astro.props;
+const { slug, n, alt, portrait = 320, landscape = 640, eager = false, priority = false, class: cls }: Props = Astro.props;
 const shots = import.meta.glob<{ default: ImageMetadata }>('../assets/apps/*/shot-*.png', { eager: true });
 const img = shots[`../assets/apps/${slug}/shot-${n}.png`]?.default;
 const wide = !!img && img.width > img.height;
@@ -34,7 +36,16 @@ const width = wide ? landscape : portrait;
           <i />
         </span>
       )}
-      <Image src={img} alt={alt} width={width} densities={[1, 2]} loading={eager ? 'eager' : 'lazy'} decoding="async" class="df__img" />
+      <Image
+        src={img}
+        alt={alt}
+        width={width}
+        densities={[1, 2]}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        fetchpriority={priority ? 'high' : undefined}
+        class="df__img"
+      />
     </figure>
   )
 }

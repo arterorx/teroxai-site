@@ -24,7 +24,9 @@ const start = (root: HTMLElement) => {
       if (k === i) d.setAttribute('aria-current', 'true');
       else d.removeAttribute('aria-current');
     });
-    root.style.setProperty('--accent', slides[i].dataset.accent ?? '');
+    const accent = slides[i].dataset.accent ?? '';
+    root.style.setProperty('--accent', accent);
+    root.closest<HTMLElement>('[data-accent-host]')?.style.setProperty('--hero-accent', accent);
   };
   const stop = () => window.clearInterval(timer);
   const play = () => {

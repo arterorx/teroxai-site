@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppGrid from './AppGrid.astro';
 import AppShowcase from './AppShowcase.astro';
+import HeroParticles from './HeroParticles.astro';
 import PostList from './PostList.astro';
 import Reveal from './Reveal.astro';
 import { clusterFor, localePath, type Locale } from '../i18n/config';
@@ -19,10 +20,12 @@ const { lang }: Props = Astro.props;
 const n = liveApps().length;
 const c = homeCopy(lang, n);
 const ui = t(lang);
+const firstAccent = liveApps()[0].accent;
 ---
 
 <BaseLayout title={c.title} description={c.description} suffix={false} lang={lang} alternates={clusterFor()}>
-  <section class="wrap section hero">
+  <section class="wrap section hero" data-accent-host style={`--hero-accent:${firstAccent}`}>
+    <HeroParticles />
     <div class="hero__text">
       <h1 class="measure">{c.h1}</h1>
       <p class="hero__lede measure">{c.lede}</p>
@@ -66,6 +69,7 @@ const ui = t(lang);
 
 <style>
   .hero {
+    position: relative;
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     gap: 2rem;
@@ -74,6 +78,8 @@ const ui = t(lang);
   }
   .hero__text,
   .hero > :global(.sc) {
+    position: relative;
+    z-index: 1;
     min-width: 0;
   }
   .hero__lede {

@@ -1,0 +1,70 @@
+---
+/* Slow drifting dots behind the home hero, coloured by the showcase's current
+   accent (the carousel script updates --hero-accent on the hero; the global
+   --accent token stays neutral so buttons keep their colour). Positions come
+   from a fixed seed so every build renders the same field. Pure CSS motion;
+   hidden entirely under prefers-reduced-motion. */
+interface Props {
+  count?: number;
+}
+const { count = 28 }: Props = Astro.props;
+
+let seed = 20260911;
+const rnd = () => {
+  seed = (seed * 1664525 + 1013904223) % 4294967296;
+  return seed / 4294967296;
+};
+const dots = Array.from({ length: count }, () => ({
+  x: Math.round(rnd() * 100),
+  y: 35 + Math.round(rnd() * 65),
+  size: 3 + Math.round(rnd() * 3),
+  duration: 8 + Math.round(rnd() * 8),
+  delay: -Math.round(rnd() * 16),
+}));
+---
+
+<div class="hp" aria-hidden="true">
+  {dots.map((d) => <i style={`left:${d.x}%;top:${d.y}%;width:${d.size}px;height:${d.size}px;--dur:${d.duration}s;--delay:${d.delay}s`} />)}
+</div>
+
+<style>
+  .hp {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hp i {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background: var(--hero-accent, #111);
+    opacity: 0;
+    animation: hp-drift var(--dur) linear infinite;
+    animation-delay: var(--delay);
+    transition: background 0.8s ease;
+    will-change: transform, opacity;
+  }
+  @keyframes hp-drift {
+    0% {
+      transform: translateY(40px) scale(0.6);
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.5;
+    }
+    85% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateY(-160px) scale(1.1);
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hp {
+      display: none;
+    }
+  }
+</style>

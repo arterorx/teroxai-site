@@ -15,13 +15,13 @@ const ui = t(lang);
 const apps = liveApps();
 ---
 
-<div class="sc" data-showcase style={`--accent:${apps[0].accent}`} tabindex="0" aria-roledescription="carousel" aria-label={ui.showcaseLabel}>
+<div class="sc" data-showcase style={`--accent:${apps[0].accent}`} tabindex="0" role="region" aria-roledescription="carousel" aria-label={ui.showcaseLabel}>
   <span class="sc__glow" aria-hidden="true"></span>
   <div class="sc__stage">
     {
       apps.map((a, i) => (
         <figure class:list={['sc__slide', i === 0 && 'is-active']} data-slide={i} data-accent={a.accent} aria-hidden={i !== 0}>
-          <DeviceFrame slug={a.slug} n={1} alt={`${a[lang].name} screenshot`} portrait={230} landscape={480} eager={i === 0} priority={i === 0} />
+          <DeviceFrame slug={a.slug} n={1} alt={`${a[lang].name} screenshot`} portrait={230} landscape={480} eager={i === 0} priority={i === 0 ? true : 'low'} />
           <figcaption>
             <a href={localePath(lang, `apps/${a.slug}`)} tabindex={i === 0 ? 0 : -1}>
               <b>{a[lang].name}</b>
@@ -32,10 +32,10 @@ const apps = liveApps();
       ))
     }
   </div>
-  <div class="sc__dots" role="tablist" aria-label={ui.showcaseLabel}>
+  <div class="sc__dots">
     {
       apps.map((a, i) => (
-        <button type="button" role="tab" data-dot={i} class:list={[i === 0 && 'is-active']} aria-selected={i === 0} aria-label={`${ui.showcaseGoTo}: ${a[lang].name}`} />
+        <button type="button" data-dot={i} class:list={[i === 0 && 'is-active']} aria-current={i === 0 ? 'true' : undefined} aria-label={`${ui.showcaseGoTo}: ${a[lang].name}`} />
       ))
     }
   </div>
@@ -72,7 +72,7 @@ const apps = liveApps();
   .sc__stage {
     position: relative;
     width: 100%;
-    min-height: 560px;
+    min-height: 600px;
     overflow: hidden;
   }
   .sc__slide {
@@ -150,11 +150,16 @@ const apps = liveApps();
   }
   @media (max-width: 800px) {
     .sc__stage {
-      min-height: 480px;
+      min-height: 540px;
     }
     .sc__glow {
       inset: 18% 22%;
       filter: blur(48px);
+    }
+    /* A narrower phone on narrow screens keeps frame plus caption inside the
+       stage. DeviceFrame sets --w inline, so this needs !important to win. */
+    .sc__slide :global(.df--phone) {
+      --w: 200px !important;
     }
   }
 </style>

@@ -21,7 +21,8 @@ const start = (root: HTMLElement) => {
     });
     dots.forEach((d, k) => {
       d.classList.toggle('is-active', k === i);
-      d.setAttribute('aria-selected', String(k === i));
+      if (k === i) d.setAttribute('aria-current', 'true');
+      else d.removeAttribute('aria-current');
     });
     root.style.setProperty('--accent', slides[i].dataset.accent ?? '');
   };

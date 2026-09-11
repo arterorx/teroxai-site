@@ -15,8 +15,8 @@ interface Props {
   landscape?: number;
   /** Load without lazy loading (hero image). */
   eager?: boolean;
-  /** Hint the browser to fetch this image first (hero LCP). */
-  priority?: boolean;
+  /** true: fetch first (hero LCP); 'low': fetch after everything else (hidden slides). */
+  priority?: boolean | 'low';
   class?: string;
 }
 const { slug, n, alt, portrait = 320, landscape = 640, eager = false, priority = false, class: cls }: Props = Astro.props;
@@ -43,7 +43,7 @@ const width = wide ? landscape : portrait;
         densities={[1, 2]}
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
-        fetchpriority={priority ? 'high' : undefined}
+        fetchpriority={priority === true ? 'high' : priority === 'low' ? 'low' : undefined}
         class="df__img"
       />
     </figure>

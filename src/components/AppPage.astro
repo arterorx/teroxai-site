@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StoreBadge from './StoreBadge.astro';
-import Shot from './Shot.astro';
+import DeviceFrame from './DeviceFrame.astro';
 import { clusterFor, localePath, type Locale } from '../i18n/config';
 import { SITE_URL } from '../lib/site';
 import { platformKey, privacyUrl, supportUrl, storeUrl, subtitleOf, type App } from '../lib/apps';
@@ -92,7 +92,7 @@ const jsonLd = [
         )}
       </dl>
     </div>
-    <Shot slug={app.slug} n={1} alt={`${c.name} screenshot`} portrait={320} landscape={640} class="hero__shot" />
+    <DeviceFrame slug={app.slug} n={1} alt={`${c.name} screenshot`} portrait={300} landscape={620} eager class="hero__shot" />
   </section>
 
   <section class="wrap section">
@@ -112,8 +112,8 @@ const jsonLd = [
       <section class="wrap section shots">
         <h2>{ui.moreShots}</h2>
         <div class="shots__row">
-          <Shot slug={app.slug} n={2} alt={`${c.name} screenshot 2`} portrait={280} landscape={560} />
-          <Shot slug={app.slug} n={3} alt={`${c.name} screenshot 3`} portrait={280} landscape={560} />
+          <DeviceFrame slug={app.slug} n={2} alt={`${c.name} screenshot 2`} portrait={260} landscape={540} />
+          <DeviceFrame slug={app.slug} n={3} alt={`${c.name} screenshot 3`} portrait={260} landscape={540} />
         </div>
       </section>
     )

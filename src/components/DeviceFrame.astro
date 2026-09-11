@@ -1,0 +1,82 @@
+---
+/* A store screenshot inside a CSS device frame. Portrait images get a phone,
+   landscape images get a Mac window with three title-bar dots. No frame
+   artwork, only borders and shadows, so it weighs nothing. */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  slug: string;
+  n: number;
+  alt: string;
+  /** Rendered image width for a tall (portrait) screenshot. */
+  portrait?: number;
+  /** Rendered image width for a wide (landscape) screenshot. */
+  landscape?: number;
+  /** Load without lazy loading (hero image). */
+  eager?: boolean;
+  class?: string;
+}
+const { slug, n, alt, portrait = 320, landscape = 640, eager = false, class: cls }: Props = Astro.props;
+const shots = import.meta.glob<{ default: ImageMetadata }>('../assets/apps/*/shot-*.png', { eager: true });
+const img = shots[`../assets/apps/${slug}/shot-${n}.png`]?.default;
+const wide = !!img && img.width > img.height;
+const width = wide ? landscape : portrait;
+---
+
+{
+  img && (
+    <figure class:list={['df', wide ? 'df--mac' : 'df--phone', cls]} style={`--w:${width}px`}>
+      {wide && (
+        <span class="df__bar" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </span>
+      )}
+      <Image src={img} alt={alt} width={width} densities={[1, 2]} loading={eager ? 'eager' : 'lazy'} decoding="async" class="df__img" />
+    </figure>
+  )
+}
+
+<style>
+  .df {
+    margin: 0;
+    width: var(--w);
+    max-width: 100%;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .df__img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .df--phone {
+    border: 6px solid #111;
+    border-radius: 30px;
+    background: #111;
+  }
+  .df--phone .df__img {
+    border-radius: 24px;
+  }
+  .df--mac {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background: #fff;
+  }
+  .df__bar {
+    display: flex;
+    gap: 6px;
+    padding: 7px 10px;
+    background: #ececef;
+    border-bottom: 1px solid var(--rule);
+  }
+  .df__bar i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #c9c9ce;
+    display: block;
+  }
+</style>

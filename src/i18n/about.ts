@@ -13,9 +13,9 @@ export interface AboutCopy {
 export const aboutCopy: Record<Locale, AboutCopy> = {
   en: {
     title: 'About Armen Ter-Oganezov',
-    description: 'Indie developer in Hamburg. Self-taught since 2021, apps on the App Store since 2024, built solo with AI agents. Open to projects.',
+    description: 'Indie developer in Germany. Self-taught since 2021, apps on the App Store since 2024, built solo with AI agents. Open to projects.',
     h1: 'About me',
-    lede: 'I am Armen. I live in Hamburg and make apps for Mac and iPhone on my own.',
+    lede: 'I am Armen. I live in Germany and make apps for Mac and iPhone on my own.',
     sections: [
       {
         h2: 'How I got here',
@@ -43,9 +43,9 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
   },
   de: {
     title: 'Über Armen Ter-Oganezov',
-    description: 'Indie-Entwickler in Hamburg. Seit 2021 selbst beigebracht, seit 2024 Apps im App Store, allein gebaut mit KI-Agenten. Offen für Projekte.',
+    description: 'Indie-Entwickler in Deutschland. Seit 2021 selbst beigebracht, seit 2024 Apps im App Store, allein gebaut mit KI-Agenten. Offen für Projekte.',
     h1: 'Über mich',
-    lede: 'Ich bin Armen. Ich lebe in Hamburg und mache Apps für Mac und iPhone, allein.',
+    lede: 'Ich bin Armen. Ich lebe in Deutschland und mache Apps für Mac und iPhone, allein.',
     sections: [
       {
         h2: 'Wie es dazu kam',

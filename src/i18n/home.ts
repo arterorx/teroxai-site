@@ -26,7 +26,7 @@ const home: Record<Locale, HomeCopy> = {
     aboutEyebrow: 'About',
     aboutH2: 'Armen Ter-Oganezov',
     aboutText: [
-      'I live in Hamburg and build apps on my own. I started around 2021, teaching myself to code, and the first apps went to the App Store in 2024.',
+      'I live in Germany and build apps on my own. I started around 2021, teaching myself to code, and the first apps went to the App Store in 2024.',
       'Today most of the work is done with AI agents: one plans and checks, others write the code. I decide what gets built and what ships. The blog is where I write down what works and what does not.',
     ],
   },
@@ -42,7 +42,7 @@ const home: Record<Locale, HomeCopy> = {
     aboutEyebrow: 'Über mich',
     aboutH2: 'Armen Ter-Oganezov',
     aboutText: [
-      'Ich lebe in Hamburg und baue Apps allein. Angefangen habe ich um 2021, das Programmieren habe ich mir selbst beigebracht. Die ersten Apps kamen 2024 in den App Store.',
+      'Ich lebe in Deutschland und baue Apps allein. Angefangen habe ich um 2021, das Programmieren habe ich mir selbst beigebracht. Die ersten Apps kamen 2024 in den App Store.',
       'Heute läuft der größte Teil der Arbeit mit KI-Agenten: einer plant und prüft, andere schreiben den Code. Ich entscheide, was gebaut wird und was rausgeht. Im Blog halte ich fest, was funktioniert und was nicht.',
     ],
   },

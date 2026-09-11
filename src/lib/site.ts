@@ -2,7 +2,7 @@ export const SITE_NAME = 'TeroxAI';
 export const SITE_URL = 'https://teroxai.com';
 export const CONTACT_EMAIL = 'hello@teroxai.com';
 export const OWNER = 'Armen Ter-Oganezov';
-export const OWNER_CITY = 'Hamburg, Germany';
+export const OWNER_COUNTRY = 'Germany';
 export const GITHUB_URL = 'https://github.com/arterorx';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/armen-ter-oganezov/';
 /** Set when the TikTok account exists. Empty string hides the link everywhere. */

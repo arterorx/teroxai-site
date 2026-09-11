@@ -3,7 +3,7 @@ title: 'Privacy policy for teroxai.com'
 updated: 2026-09-10
 ---
 
-This site is a static website run by Armen Ter-Oganezov, Hamburg, Germany.
+This site is a static website run by Armen Ter-Oganezov, Germany.
 
 ## What is collected
 

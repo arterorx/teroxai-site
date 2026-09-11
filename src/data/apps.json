@@ -22,6 +22,7 @@
       "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
+    "accent": "#C8894F",
     "en": {
       "name": "SawKit: Cut List Optimizer",
       "subtitle": "Plywood & Board Cut Planner",
@@ -100,6 +101,7 @@
       "version": "1.0",
       "fetchedAt": "2026-09-10"
     },
+    "accent": "#F5A847",
     "en": {
       "name": "CamDial: USB Webcam Settings",
       "subtitle": "Camera controls & presets",
@@ -164,6 +166,7 @@
       "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
+    "accent": "#6C4FB8",
     "en": {
       "name": "Sleep Timer: Menu Bar & Widget",
       "subtitle": "Bedtime schedule & screen off",
@@ -238,6 +241,7 @@
       "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
+    "accent": "#1F3A8A",
     "shotOrder": [
       2,
       1,
@@ -316,6 +320,7 @@
       "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
+    "accent": "#D8703A",
     "shotOrder": [
       2,
       1,
@@ -394,6 +399,7 @@
       "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
+    "accent": "#7C5CFF",
     "en": {
       "name": "AI Photo Generator: TeroxAI",
       "subtitle": "Image Editor, Avatar Maker",
@@ -467,6 +473,7 @@
       "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
+    "accent": "#2E6BFF",
     "en": {
       "name": "AI Video Generator: TeroxAI",
       "subtitle": "Text & Photo to Video Maker",
@@ -540,6 +547,7 @@
       "currency": "USD",
       "fetchedAt": "2026-09-10"
     },
+    "accent": "#8A2CA4",
     "shotOrder": [
       2,
       1,

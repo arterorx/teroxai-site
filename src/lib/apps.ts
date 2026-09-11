@@ -29,6 +29,8 @@ export interface App {
   privacy: string | null;
   support: string | null;
   store: { rating: number | null; ratingCount: number; version: string; price?: number; currency?: string; fetchedAt: string };
+  /** Brand colour taken from the icon, #rrggbb. Drives gradients, glows, marks. */
+  accent: string;
   /** Which store screenshot becomes shot-1, shot-2, shot-3 (1-based). Absent = store order. */
   shotOrder?: number[];
   en: AppCopy;
@@ -52,6 +54,7 @@ const validate = (list: unknown): App[] => {
     for (const p of a.platforms) {
       if (!PLATFORMS.includes(p)) throw new Error(`${a.slug}: unknown platform ${p}`);
     }
+    if (typeof a.accent !== 'string' || !/^#[0-9a-f]{6}$/i.test(a.accent)) throw new Error(`${a.slug}: accent must be #rrggbb`);
     if (a.shotOrder !== undefined) {
       const sorted = [...a.shotOrder].sort();
       if (sorted.some((v, i) => v !== i + 1)) throw new Error(`${a.slug}: shotOrder must be a permutation of 1..${a.shotOrder.length}`);

@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { APPS, liveApps, appBySlug, storeUrl, platformKey, hostedApps, subtitleOf, privacyUrl, supportUrl } from '../src/lib/apps.ts';
+import { contrast, linkColor } from '../src/lib/color.ts';
 
 test('eight apps, unique slugs and ids, ordered by the order field', () => {
   assert.equal(APPS.length, 8);
@@ -54,4 +55,11 @@ test('privacy and support hrefs are external for apps with a site, hosted otherw
   assert.equal(privacyUrl(appBySlug('sawkit')!), 'https://sawkit.app/privacy/');
   assert.equal(supportUrl(appBySlug('text-to-music')!), '/apps/text-to-music/support/');
   assert.equal(privacyUrl(appBySlug('ai-video-generator')!), '/apps/ai-video-generator/privacy/');
+});
+
+test('every app has an accent that reads on white after linkColor', () => {
+  for (const a of APPS) {
+    assert.match(a.accent, /^#[0-9a-f]{6}$/i, `${a.slug} accent`);
+    assert.ok(contrast(linkColor(a.accent), '#ffffff') >= 3, `${a.slug} link contrast`);
+  }
 });

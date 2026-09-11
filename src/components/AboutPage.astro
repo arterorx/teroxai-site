@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { clusterFor, type Locale } from '../i18n/config';
 import { aboutCopy } from '../i18n/about';
+import Reveal from './Reveal.astro';
 import { CONTACT_EMAIL, SOCIALS } from '../lib/site';
 import armen from '../assets/armen.jpg';
 
@@ -15,15 +16,15 @@ const c = aboutCopy[lang];
 
 <BaseLayout title={c.title} description={c.description} type="profile" lang={lang} alternates={clusterFor('about')}>
   <article class="wrap section prose">
-    <Image src={armen} alt="Armen Ter-Oganezov" width={140} height={140} densities={[1, 2]} class="photo" />
+    <Image src={armen} alt="Armen Ter-Oganezov" width={180} height={180} densities={[1, 2]} class="photo" />
     <h1>{c.h1}</h1>
     <p class="lede">{c.lede}</p>
     {
-      c.sections.map((s) => (
-        <>
+      c.sections.map((s, i) => (
+        <Reveal delay={i}>
           <h2>{s.h2}</h2>
           {s.paras.map((p) => <p>{p}</p>)}
-        </>
+        </Reveal>
       ))
     }
     <h2>{c.contactH2}</h2>
@@ -36,11 +37,12 @@ const c = aboutCopy[lang];
 
 <style>
   .photo {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1.5rem;
+    box-shadow: 0 0 0 3px var(--rule);
   }
   .lede {
     font-size: 1.25rem;

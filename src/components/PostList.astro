@@ -17,15 +17,16 @@ const posts = limit ? all.slice(0, limit) : all;
 
 <ul class="pl">
   {
-    posts.map((p) => (
-      <li>
-        <a href={localePath(lang, `blog/${slugOf(p.id)}`)}>{p.data.title}</a>
-        <p class="muted">
-          <time datetime={p.data.date.toISOString().slice(0, 10)}>{formatDate(p.data.date.toISOString().slice(0, 10), lang)}</time>{' '}
-          · {p.data.description}
-        </p>
-      </li>
-    ))
+    posts.map((p) => {
+      const iso = p.data.date.toISOString().slice(0, 10);
+      return (
+        <li class="card pl__item">
+          <time class="pl__date" datetime={iso}>{formatDate(iso, lang)}</time>
+          <a class="pl__title" href={localePath(lang, `blog/${slugOf(p.id)}`)}>{p.data.title}</a>
+          <p class="pl__desc">{p.data.description}</p>
+        </li>
+      );
+    })
   }
 </ul>
 
@@ -35,14 +36,36 @@ const posts = limit ? all.slice(0, limit) : all;
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 1.25rem;
+    gap: 1rem;
   }
-  .pl a {
+  .pl__item {
+    display: grid;
+    gap: 0.35rem;
+    transition: transform 0.2s ease;
+  }
+  .pl__item:hover {
+    transform: translateY(-2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pl__item {
+      transition: none;
+    }
+  }
+  .pl__date {
+    color: var(--ink-3);
+    font-size: 0.8125rem;
+  }
+  .pl__title {
     font-weight: 650;
     font-size: 1.125rem;
     color: var(--ink);
+    text-decoration: none;
   }
-  .pl p {
-    margin: 0.25rem 0 0;
+  .pl__title:hover {
+    text-decoration: underline;
+  }
+  .pl__desc {
+    margin: 0;
+    color: var(--ink-2);
   }
 </style>

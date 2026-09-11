@@ -107,33 +107,44 @@ const apps = liveApps();
     font-weight: 650;
   }
   .sc__slide figcaption span {
-    color: var(--ink-3);
+    /* ink-3 sits right at 4.49:1 on the warmest accent glow (needs 4.5); ink-2
+       clears every accent with margin. */
+    color: var(--ink-2);
     font-size: 0.9rem;
   }
   .sc__dots {
     display: flex;
-    gap: 0.5rem;
+    gap: 4px;
   }
   .sc__dots button {
-    width: 8px;
-    height: 8px;
+    /* 24x24 hit target (WCAG 2.5.8) with an 8px visual dot centered inside. */
+    width: 24px;
+    height: 24px;
     padding: 0;
     border: 0;
+    background: none;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+  }
+  .sc__dots button::after {
+    content: '';
+    width: 8px;
+    height: 8px;
     border-radius: 999px;
     background: var(--rule);
-    cursor: pointer;
     transition:
       width 0.25s ease,
       background 0.25s ease;
   }
-  .sc__dots button.is-active {
+  .sc__dots button.is-active::after {
     width: 24px;
     background: var(--ink);
   }
   @media (prefers-reduced-motion: reduce) {
     .sc__slide,
     .sc__glow,
-    .sc__dots button {
+    .sc__dots button::after {
       transition: none;
     }
   }

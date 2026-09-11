@@ -16,6 +16,7 @@ npm run assets:shots   # re-download store screenshots (honours shotOrder in app
 npm run assets:og      # regenerate OG cards after a name or tagline change
 npm run assets:icons   # regenerate favicon and touch icons
 npm run check:links    # every external link answers
+npm run check:budget   # own client JS ≤ 3 KB gzip
 ```
 
 ## Deploy

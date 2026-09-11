@@ -13,7 +13,8 @@
     "assets:shots": "node scripts/fetch-shots.mjs",
     "assets:icons": "node scripts/icons.mjs",
     "assets:og": "node scripts/og.mjs",
-    "check:links": "node scripts/check-links.mjs"
+    "check:links": "node scripts/check-links.mjs",
+    "check:budget": "node scripts/check-budget.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

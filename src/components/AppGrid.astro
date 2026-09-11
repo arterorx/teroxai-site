@@ -1,5 +1,6 @@
 ---
 import AppCard from './AppCard.astro';
+import Reveal from './Reveal.astro';
 import type { Locale } from '../i18n/config';
 import type { App } from '../lib/apps';
 
@@ -11,7 +12,13 @@ const { apps, lang }: Props = Astro.props;
 ---
 
 <div class="ag">
-  {apps.map((app) => <AppCard app={app} lang={lang} />)}
+  {
+    apps.map((app, i) => (
+      <Reveal delay={i % 4}>
+        <AppCard app={app} lang={lang} />
+      </Reveal>
+    ))
+  }
 </div>
 
 <style>
@@ -19,6 +26,9 @@ const { apps, lang }: Props = Astro.props;
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(4, 1fr);
+  }
+  .ag > :global(.reveal) {
+    display: grid;
   }
   @media (max-width: 900px) {
     .ag {

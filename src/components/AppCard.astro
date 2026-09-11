@@ -18,9 +18,11 @@ const icon = iconModule.default;
 const c = app[lang];
 ---
 
-<a class="ac" href={localePath(lang, `apps/${app.slug}`)}>
-  <Image src={icon} alt="" width={96} height={96} densities={[1, 2]} class="ac__icon" />
-  <span class="ac__name">{c.name}</span>
+<a class="ac" href={localePath(lang, `apps/${app.slug}`)} style={`--accent:${app.accent}`}>
+  <span class="ac__iconwrap" transition:name={`app-icon-${app.slug}`}>
+    <Image src={icon} alt="" width={128} height={128} densities={[1, 2]} class="ac__icon" />
+  </span>
+  <span class="ac__name" transition:name={`app-name-${app.slug}`}>{c.name}</span>
   <span class="ac__tag">{c.tagline}</span>
   <span class="ac__meta">
     {ui.platforms[platformKey(app.platforms)]}
@@ -30,28 +32,51 @@ const c = app[lang];
 
 <style>
   .ac {
+    position: relative;
     display: grid;
     gap: 0.35rem;
     background: var(--card);
     border-radius: var(--radius);
-    padding: 1.25rem;
+    padding: 1.5rem 1.25rem 1.25rem;
     color: var(--ink);
     text-decoration: none;
-    transition: transform 0.15s ease;
+    overflow: hidden;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  /* Accent bar along the top edge; grows on hover without shifting content. */
+  .ac::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: var(--accent);
+    transition: height 0.2s ease;
   }
   .ac:hover {
     transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgb(0 0 0 / 0.08);
+  }
+  .ac:hover::before {
+    height: 5px;
   }
   @media (prefers-reduced-motion: reduce) {
-    .ac {
+    .ac,
+    .ac::before {
       transition: none;
     }
   }
-  .ac__icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 13px;
+  .ac__iconwrap {
+    display: block;
+    width: 64px;
+    height: 64px;
     margin-bottom: 0.5rem;
+  }
+  .ac__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 15px;
   }
   .ac__name {
     font-weight: 650;

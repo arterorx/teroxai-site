@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppGrid from './AppGrid.astro';
 import PostList from './PostList.astro';
+import Reveal from './Reveal.astro';
 import { clusterFor, localePath, type Locale } from '../i18n/config';
 import { APPS, liveApps } from '../lib/apps';
 import { homeCopy } from '../i18n/home';
@@ -39,6 +40,7 @@ const ui = t(lang);
     <p><a href={localePath(lang, 'blog')}>{ui.allPosts}</a></p>
   </section>
 
+  <Reveal>
   <section class="wrap section about">
     <Image src={armen} alt="Armen Ter-Oganezov" width={160} height={160} densities={[1, 2]} class="about__photo" />
     <div>
@@ -51,6 +53,7 @@ const ui = t(lang);
       </p>
     </div>
   </section>
+  </Reveal>
 </BaseLayout>
 
 <style>

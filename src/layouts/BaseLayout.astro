@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import { DEFAULT_LOCALE, LOCALES, LOCALE_TAGS, type Alternate, type Locale } from '../i18n/config';
 import { SITE_NAME, SITE_URL, OWNER, SAME_AS } from '../lib/site';
 import { t } from '../i18n/ui';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -81,6 +82,8 @@ const globalLd = [
       alternates={alternates}
       jsonLd={[...globalLd, ...jsonLd]}
     />
+    <ClientRouter />
+    <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>
     <a class="skip" href="#main">{t(lang).skip}</a>
@@ -89,5 +92,8 @@ const globalLd = [
       <slot />
     </main>
     <Footer lang={lang} />
+    <script>
+      import '../scripts/reveal.ts';
+    </script>
   </body>
 </html>

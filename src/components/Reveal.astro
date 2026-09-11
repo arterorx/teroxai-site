@@ -1,0 +1,14 @@
+---
+/* Wraps a block that rises and fades in when scrolled into view. `delay` is an
+   index: the nth sibling waits n × 80 ms, so grids ripple instead of popping.
+   Without JavaScript (no .js class on <html>) the block is simply visible. */
+interface Props {
+  delay?: number;
+  class?: string;
+}
+const { delay = 0, class: cls }: Props = Astro.props;
+---
+
+<div data-reveal class:list={['reveal', cls]} style={delay ? `--reveal-delay:${delay * 80}ms` : undefined}>
+  <slot />
+</div>

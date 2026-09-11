@@ -5,6 +5,7 @@ const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)')
 
 const revealAll = () => {
   const items = document.querySelectorAll<HTMLElement>('[data-reveal]:not(.is-in)');
+  if (items.length === 0) return;
   if (reduceMotion() || !('IntersectionObserver' in window)) {
     items.forEach((el) => el.classList.add('is-in'));
     return;

@@ -482,7 +482,8 @@
     "status": "live",
     "platforms": [
       "ios",
-      "ipados"
+      "ipados",
+      "macos"
     ],
     "priceModel": "one-time",
     "site": "https://roomkeep.app",
@@ -545,7 +546,7 @@
         },
         {
           "q": "Where is my inventory stored?",
-          "a": "On your device. No server, no account, no network requests. iCloud sync between your own devices is optional and part of Pro. Free covers one property, one room and thirty items; Pro is $29.99 once, not a subscription."
+          "a": "On your device. No server, no account, no network requests. iCloud sync between your own devices is optional and part of Pro. Free covers one property, one room and thirty items; Pro is $29.99 once, not a subscription, and one purchase covers iPhone, iPad and Mac."
         }
       ]
     },
@@ -592,7 +593,7 @@
         },
         {
           "q": "Wo liegt mein Inventar?",
-          "a": "Auf deinem Gerät. Kein Server, kein Konto, keine Netzwerkzugriffe. iCloud-Abgleich zwischen deinen eigenen Geräten ist optional und Teil von Pro. Kostenlos sind ein Objekt, ein Raum und dreißig Gegenstände; Pro kostet einmalig 29,99 $, kein Abo."
+          "a": "Auf deinem Gerät. Kein Server, kein Konto, keine Netzwerkzugriffe. iCloud-Abgleich zwischen deinen eigenen Geräten ist optional und Teil von Pro. Kostenlos sind ein Objekt, ein Raum und dreißig Gegenstände; Pro kostet einmalig 29,99 $, kein Abo, und ein Kauf gilt für iPhone, iPad und Mac."
         }
       ]
     }

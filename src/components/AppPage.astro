@@ -56,6 +56,19 @@ const jsonLd = [
       ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: rating.rating, ratingCount: rating.ratingCount } }
       : {}),
   },
+  ...(c.faq
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: c.faq.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        },
+      ]
+    : []),
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -134,6 +147,27 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  {
+    c.faq && (
+      <section class="wrap section" style={theme} aria-labelledby="faq-title">
+        <h2 id="faq-title">{ui.faq}</h2>
+        <div class="faq">
+          {c.faq.map((f, i) => (
+            <Reveal delay={i % 3}>
+              <details class="faq__item" open={i === 0}>
+                <summary>
+                  <span class="faq__q">{f.q}</span>
+                  <i class="faq__chev" aria-hidden="true"></i>
+                </summary>
+                <p>{f.a}</p>
+              </details>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+    )
+  }
 
   <section class="wrap section">
     <p class="muted">
@@ -264,6 +298,49 @@ const jsonLd = [
     border-radius: 4px;
     background: var(--accent);
     margin-bottom: 0.75rem;
+  }
+  /* Questions and answers: native details, no script. The first one starts
+     open so the section reads as content, not as a row of closed boxes. */
+  .faq {
+    max-width: 44rem;
+    border-top: 1px solid var(--rule);
+  }
+  .faq__item {
+    border-bottom: 1px solid var(--rule);
+  }
+  .faq__item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+  }
+  .faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq__item summary:hover .faq__q {
+    color: var(--link-accent);
+  }
+  .faq__chev {
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+    margin-right: 4px;
+  }
+  .faq__item[open] .faq__chev {
+    transform: rotate(-135deg);
+  }
+  .faq__item p {
+    margin: 0 0 1.25rem;
+    color: var(--ink-2);
+    max-width: 62ch;
   }
   /* Screenshot strip: snap scrolling, no script. */
   .strip {

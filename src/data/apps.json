@@ -50,6 +50,28 @@
           "title": "No account, no server",
           "text": "Everything stays on your device. One purchase covers iPhone, iPad and Mac."
         }
+      ],
+      "faq": [
+        {
+          "q": "What does a cut list optimizer do?",
+          "a": "You type the parts you need: width, height, quantity. SawKit fits them onto full sheets with the least waste and numbers the cuts in the order to make them. It runs twelve packing strategies over your list and keeps the one that wastes least."
+        },
+        {
+          "q": "Does it work with plywood, MDF and melamine?",
+          "a": "Yes, with any sheet stock. Standard sheets are built in: 4 by 8 ft, 5 by 5 baltic birch, 2440 by 1220, 2500 by 1250 and 2800 by 2070 mm. Add your own sizes with the price you actually pay and the shopping list totals itself."
+        },
+        {
+          "q": "Can I type sizes in fractional inches?",
+          "a": "Yes. 15 3/16, 3/4\", 4' 6\" and 385mm all work. A unit written on a number wins over the project setting, so imported hardware drops into a metric project without any converting."
+        },
+        {
+          "q": "Does the plan account for the saw blade?",
+          "a": "Yes. Kerf and edge trim are part of the calculation. The default is 1/8 inch, or 3 mm in a metric project. Every cut runs edge to edge across the piece on the machine, so the plan works on a table saw, a panel saw or a track saw."
+        },
+        {
+          "q": "What is free and what costs money?",
+          "a": "Free covers up to 10 parts, 3 projects and one kind of stock. Full access is $24.99 once, not a subscription, and one purchase works on iPhone, iPad and Mac. There is no account and no server."
+        }
       ]
     },
     "de": {
@@ -78,6 +100,28 @@
         {
           "title": "Kein Konto, kein Server",
           "text": "Alles bleibt auf deinem Gerät. Ein Kauf gilt für iPhone, iPad und Mac."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Was macht ein Zuschnittoptimierer?",
+          "a": "Du tippst die Teile ein, die du brauchst: Breite, Höhe, Stückzahl. SawKit verteilt sie mit dem geringsten Verschnitt auf ganze Platten und nummeriert die Schnitte in der Reihenfolge, in der du sie machst. Zwölf Packstrategien laufen über deine Liste, die sparsamste bleibt."
+        },
+        {
+          "q": "Geht das mit Sperrholz, MDF und Melamin?",
+          "a": "Ja, mit jedem Plattenmaterial. Gängige Formate sind schon drin: 2440 mal 1220, 2500 mal 1250 und 2800 mal 2070 mm, dazu 4 mal 8 Fuß und Birke 5 mal 5. Eigene Formate legst du mit deinem tatsächlichen Preis an, die Einkaufsliste rechnet sich dann selbst zusammen."
+        },
+        {
+          "q": "Kann ich Maße in Zoll und Brüchen eingeben?",
+          "a": "Ja. 15 3/16, 3/4\", 4' 6\" und 385mm funktionieren alle. Eine Einheit direkt an der Zahl gewinnt gegen die Projekteinstellung. Importierte Beschläge landen so ohne Umrechnen in einem metrischen Projekt."
+        },
+        {
+          "q": "Rechnet der Plan das Sägeblatt mit ein?",
+          "a": "Ja. Schnittbreite und Randbeschnitt gehören zur Berechnung. Voreingestellt sind 1/8 Zoll, in einem metrischen Projekt 3 mm. Jeder Schnitt läuft von Kante zu Kante durch das Stück auf der Maschine, deshalb passt der Plan für Tischsäge, Plattensäge und Tauchsäge."
+        },
+        {
+          "q": "Was ist kostenlos, was kostet?",
+          "a": "Kostenlos sind bis zu 10 Teile, 3 Projekte und eine Materialart. Der volle Umfang kostet einmalig 24,99 $, kein Abo, und ein Kauf gilt für iPhone, iPad und Mac. Es gibt kein Konto und keinen Server."
         }
       ]
     }
@@ -121,6 +165,28 @@
           "title": "Lives in the menu bar",
           "text": "A popover with the rows you need and nothing else. macOS 14 or later, any UVC webcam."
         }
+      ],
+      "faq": [
+        {
+          "q": "Why does my webcam forget its settings on the Mac?",
+          "a": "Most USB webcams reset exposure, white balance and focus when they reconnect: after sleep, after switching a hub, after a touch of the cable. CamDial saves your settings as a preset and writes them back to the camera itself every time it comes back."
+        },
+        {
+          "q": "Does CamDial work with the built-in FaceTime camera?",
+          "a": "No, and no other app can either. The built-in FaceTime camera and the Studio Display camera do not expose hardware controls to apps on macOS. CamDial is for USB webcams."
+        },
+        {
+          "q": "Which webcams work?",
+          "a": "Any standard USB video camera, the UVC kind: Logitech C920, C922 and Brio, Elgato Facecam, Razer Kiyo, Anker, NexiGo, and the no-name camera on your monitor. The controls show the ranges your camera reports about itself, in kelvins and fractions of a second."
+        },
+        {
+          "q": "Does it change the picture in Zoom, Teams and Google Meet?",
+          "a": "Yes. Settings are written to the camera, not to a virtual camera, so every app sees the same picture. A per-app rule can switch to a preset when your meeting app comes to the front."
+        },
+        {
+          "q": "What does it need and what does it cost?",
+          "a": "macOS 14 or later. Free to download, with a one-time Pro unlock. It lives in the menu bar as a popover with the rows you need and nothing else."
+        }
       ]
     },
     "de": {
@@ -141,6 +207,28 @@
         {
           "title": "Wohnt in der Menüleiste",
           "text": "Ein Popover mit den Zeilen, die du brauchst, und sonst nichts. macOS 14 oder neuer, jede UVC-Webcam."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Warum vergisst meine Webcam am Mac ihre Einstellungen?",
+          "a": "Die meisten USB-Webcams setzen Belichtung, Weißabgleich und Fokus zurück, sobald sie neu verbunden werden: nach dem Ruhezustand, nach einem Hub-Wechsel, nach einem Griff ans Kabel. CamDial speichert deine Einstellungen als Preset und schreibt sie bei jeder Rückkehr wieder auf die Kamera."
+        },
+        {
+          "q": "Funktioniert CamDial mit der eingebauten FaceTime-Kamera?",
+          "a": "Nein, und keine andere App kann das. Die eingebaute FaceTime-Kamera und die Kamera des Studio Display geben unter macOS keine Hardware-Regler an Apps frei. CamDial ist für USB-Webcams."
+        },
+        {
+          "q": "Welche Webcams gehen?",
+          "a": "Jede normale USB-Videokamera nach UVC-Standard: Logitech C920, C922 und Brio, Elgato Facecam, Razer Kiyo, Anker, NexiGo und die namenlose Kamera am Monitor. Die Regler zeigen die Bereiche, die deine Kamera selbst meldet, in Kelvin und Bruchteilen einer Sekunde."
+        },
+        {
+          "q": "Ändert sich das Bild auch in Zoom, Teams und Google Meet?",
+          "a": "Ja. Die Einstellungen landen auf der Kamera, nicht in einer virtuellen Kamera, deshalb sehen alle Apps dasselbe Bild. Eine Regel pro App kann auf ein Preset umschalten, sobald deine Meeting-App nach vorn kommt."
+        },
+        {
+          "q": "Was braucht es und was kostet es?",
+          "a": "macOS 14 oder neuer. Der Download ist kostenlos, Pro wird einmalig freigeschaltet. Die App sitzt in der Menüleiste als Popover mit den Zeilen, die du brauchst, und sonst nichts."
         }
       ]
     }
@@ -190,6 +278,28 @@
           "title": "Gentle warning",
           "text": "A minute before sleep you get one click to extend, sleep now, or cancel."
         }
+      ],
+      "faq": [
+        {
+          "q": "How do I make my Mac go to sleep after a set time?",
+          "a": "Start Sleep Timer from the menu bar. Pick a preset from 3 minutes to 3 hours, type a duration like \"40 min\", or set an exact time like 23:30. The countdown sits in the menu bar and the Mac sleeps when it reaches zero."
+        },
+        {
+          "q": "Can it stop music or a podcast before sleep?",
+          "a": "Yes. In the last minutes the system volume fades along a gentle curve, and Apple Music can be paused right before sleep. Anything else your Mac plays, Spotify included, stops when the Mac sleeps."
+        },
+        {
+          "q": "Can the screen go dark while the audio keeps playing?",
+          "a": "Yes. The Dim Screen action fades the display to black and leaves the audio running. Move the mouse and the screen comes back."
+        },
+        {
+          "q": "Is there a daily bedtime schedule?",
+          "a": "Yes. Pick the nights and give each one its own time: 11 on weeknights, 1 AM on Fridays, weekends left alone. It is the sleep schedule Apple removed from macOS, back in the menu bar."
+        },
+        {
+          "q": "Which macOS versions, and what does it cost?",
+          "a": "macOS 14 Sonoma and later, on Apple Silicon and Intel. $2.99 once, no subscription, no network access. A desktop widget, Siri, Shortcuts and a Control Center toggle on macOS 26 are included."
+        }
       ]
     },
     "de": {
@@ -214,6 +324,28 @@
         {
           "title": "Sanfte Vorwarnung",
           "text": "Eine Minute vor dem Ruhezustand reicht ein Klick: verlängern, jetzt schlafen oder abbrechen."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wie schicke ich meinen Mac nach einer bestimmten Zeit in den Ruhezustand?",
+          "a": "Starte Sleep Timer aus der Menüleiste. Nimm eine Vorgabe von 3 Minuten bis 3 Stunden, tippe eine Dauer wie „40 min“ oder setze eine feste Uhrzeit wie 23:30. Der Countdown sitzt in der Menüleiste, bei null geht der Mac schlafen."
+        },
+        {
+          "q": "Kann er Musik oder einen Podcast vor dem Schlafen stoppen?",
+          "a": "Ja. In den letzten Minuten sinkt die Systemlautstärke sanft ab, und Apple Music kann kurz vor dem Ruhezustand pausiert werden. Alles andere, was dein Mac abspielt, Spotify eingeschlossen, stoppt mit dem Ruhezustand."
+        },
+        {
+          "q": "Kann der Bildschirm dunkel werden, während der Ton weiterläuft?",
+          "a": "Ja. Die Aktion „Bildschirm abdunkeln“ blendet das Display auf Schwarz und lässt den Ton laufen. Maus bewegen, und der Bildschirm ist wieder da."
+        },
+        {
+          "q": "Gibt es einen täglichen Schlafenszeit-Plan?",
+          "a": "Ja. Wähle die Nächte und gib jeder ihre eigene Zeit: 23 Uhr unter der Woche, 1 Uhr am Freitag, das Wochenende bleibt frei. Es ist der Schlafplan, den Apple aus macOS entfernt hat, zurück in der Menüleiste."
+        },
+        {
+          "q": "Welche macOS-Versionen, und was kostet es?",
+          "a": "macOS 14 Sonoma und neuer, auf Apple Silicon und Intel. 2,99 $ einmalig, kein Abo, kein Netzwerkzugriff. Ein Schreibtisch-Widget, Siri, Kurzbefehle und ein Schalter im Kontrollzentrum ab macOS 26 sind dabei."
         }
       ]
     }
@@ -270,6 +402,28 @@
           "title": "No server",
           "text": "Your budget never leaves your devices."
         }
+      ],
+      "faq": [
+        {
+          "q": "What is envelope budgeting?",
+          "a": "You give every dollar a job before you spend it. Money arrives, you assign it across envelopes until nothing is left unassigned, and each envelope shows what is genuinely left. Overspend one and the app says so plainly, then carries the rest forward the way the method expects."
+        },
+        {
+          "q": "Does Fundkeep connect to my bank?",
+          "a": "No, and that is deliberate. It never asks for a bank login and has no bank integration of any kind. You type transactions, or you export a CSV from your own bank and pick the file yourself. It is read on your device and you see every row before anything is saved."
+        },
+        {
+          "q": "Can I move over from YNAB or another budgeting app?",
+          "a": "Yes, if it can export. Fundkeep reads the export, rebuilds your categories, accounts and history, then shows a reconciliation report with every difference it found. You check the numbers before you commit to them."
+        },
+        {
+          "q": "How do credit cards work?",
+          "a": "A card purchase moves money into that card's payment envelope the moment you spend it. The bill is covered before it lands, which is how the envelope method expects cards to be handled."
+        },
+        {
+          "q": "Is there a subscription?",
+          "a": "No. $39.99 once for iPhone, iPad and Mac. The first 14 days are free with nothing withheld. After that the app becomes read-only until you buy it, and CSV export keeps working. It needs iOS 26, iPadOS 26 or macOS 26 or later."
+        }
       ]
     },
     "de": {
@@ -294,6 +448,28 @@
         {
           "title": "Kein Server",
           "text": "Dein Budget verlässt deine Geräte nie."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Was ist die Umschlagmethode?",
+          "a": "Jeder Euro bekommt eine Aufgabe, bevor du ihn ausgibst. Geld kommt an, du verteilst es auf Umschläge, bis nichts mehr unzugeteilt ist, und jeder Umschlag zeigt, was wirklich noch drin ist. Überziehst du einen, sagt die App das klar und trägt den Rest so weiter, wie es die Methode vorsieht."
+        },
+        {
+          "q": "Verbindet sich Fundkeep mit meiner Bank?",
+          "a": "Nein, und zwar mit Absicht. Die App fragt nie nach einem Bank-Login und hat keinerlei Bankanbindung. Du tippst Buchungen ein oder exportierst eine CSV bei deiner Bank und wählst die Datei selbst aus. Sie wird auf deinem Gerät gelesen, und du siehst jede Zeile, bevor etwas gespeichert wird."
+        },
+        {
+          "q": "Kann ich von YNAB oder einer anderen Budget-App umziehen?",
+          "a": "Ja, wenn sie exportieren kann. Fundkeep liest den Export, baut Kategorien, Konten und Verlauf nach und zeigt dann einen Abgleichbericht mit jeder gefundenen Abweichung. Du prüfst die Zahlen, bevor du sie übernimmst."
+        },
+        {
+          "q": "Wie funktionieren Kreditkarten?",
+          "a": "Ein Kartenkauf schiebt das Geld in dem Moment in den Zahlungsumschlag dieser Karte, in dem du es ausgibst. Die Rechnung ist gedeckt, bevor sie kommt. Genau so behandelt die Umschlagmethode Karten."
+        },
+        {
+          "q": "Gibt es ein Abo?",
+          "a": "Nein. 39,99 $ einmalig für iPhone, iPad und Mac. Die ersten 14 Tage sind kostenlos, ohne Einschränkung. Danach wird die App schreibgeschützt, bis du sie kaufst, der CSV-Export funktioniert weiter. Sie braucht iOS 26, iPadOS 26 oder macOS 26 oder neuer."
         }
       ]
     }
@@ -349,6 +525,28 @@
           "title": "On your device",
           "text": "No server, no account, no network requests. Your inventory is yours."
         }
+      ],
+      "faq": [
+        {
+          "q": "Why do I need a home inventory for insurance?",
+          "a": "After a fire, a flood or a burglary the insurer asks what you owned, what it was worth and what proves it. A list written from memory misses half of it. Roomkeep records each item with a photo, a price, a room and the receipt or serial number behind it."
+        },
+        {
+          "q": "How long does it take to document a home?",
+          "a": "An evening for most homes. The camera stays open between shots, so you walk through a room and photograph what matters: electronics, jewelry, tools. Receipts and serial numbers come off paper and nameplates with the scanner."
+        },
+        {
+          "q": "Does it read receipts?",
+          "a": "Yes. Photograph a receipt and Roomkeep suggests the store, date and total off the paper. Serial numbers are read from the nameplate with a live scanner. You confirm before anything is saved."
+        },
+        {
+          "q": "What does the insurer get?",
+          "a": "A PDF report, a spreadsheet, or a complete archive with every photo. The archive is readable without Roomkeep. A readiness dashboard shows how much of your catalog has photos, prices and proof before you ever need it."
+        },
+        {
+          "q": "Where is my inventory stored?",
+          "a": "On your device. No server, no account, no network requests. iCloud sync between your own devices is optional and part of Pro. Free covers one property, one room and thirty items; Pro is $29.99 once, not a subscription."
+        }
       ]
     },
     "de": {
@@ -373,6 +571,28 @@
         {
           "title": "Auf deinem Gerät",
           "text": "Kein Server, kein Konto, keine Netzwerkanfragen. Dein Inventar gehört dir."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wozu ein Hausinventar für die Versicherung?",
+          "a": "Nach einem Brand, einem Wasserschaden oder einem Einbruch fragt der Versicherer, was du besessen hast, was es wert war und was das belegt. Eine Liste aus dem Gedächtnis lässt die Hälfte aus. Roomkeep hält jeden Gegenstand mit Foto, Preis, Raum und dem Beleg oder der Seriennummer dahinter fest."
+        },
+        {
+          "q": "Wie lange dauert es, eine Wohnung zu erfassen?",
+          "a": "Für die meisten Wohnungen ein Abend. Die Kamera bleibt zwischen den Aufnahmen offen, du gehst also durch den Raum und fotografierst, was zählt: Elektronik, Schmuck, Werkzeug. Belege und Seriennummern liest der Scanner vom Papier und vom Typenschild."
+        },
+        {
+          "q": "Liest die App Kassenbons?",
+          "a": "Ja. Fotografiere den Bon, und Roomkeep schlägt Geschäft, Datum und Summe vom Papier vor. Seriennummern kommen mit dem Live-Scanner vom Typenschild. Du bestätigst, bevor etwas gespeichert wird."
+        },
+        {
+          "q": "Was bekommt der Versicherer?",
+          "a": "Einen PDF-Bericht, eine Tabelle oder ein komplettes Archiv mit allen Fotos. Das Archiv ist ohne Roomkeep lesbar. Eine Übersicht zeigt vorher, wie viel deines Katalogs schon Fotos, Preise und Belege hat."
+        },
+        {
+          "q": "Wo liegt mein Inventar?",
+          "a": "Auf deinem Gerät. Kein Server, kein Konto, keine Netzwerkzugriffe. iCloud-Abgleich zwischen deinen eigenen Geräten ist optional und Teil von Pro. Kostenlos sind ein Objekt, ein Raum und dreißig Gegenstände; Pro kostet einmalig 29,99 $, kein Abo."
         }
       ]
     }

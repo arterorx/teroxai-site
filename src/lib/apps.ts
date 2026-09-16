@@ -9,6 +9,10 @@ export interface Feature {
   title: string;
   text: string;
 }
+export interface FaqItem {
+  q: string;
+  a: string;
+}
 export interface AppCopy {
   name: string;
   subtitle: string;
@@ -16,6 +20,8 @@ export interface AppCopy {
   priceLabel: string;
   intro: string;
   features: Feature[];
+  /** Questions and answers shown under the features and emitted as FAQPage schema. Optional. */
+  faq?: FaqItem[];
 }
 export interface App {
   slug: string;
@@ -67,7 +73,14 @@ const validate = (list: unknown): App[] => {
       for (const f of c.features) {
         if (!f.title || !f.text) throw new Error(`${a.slug}: ${lang} feature without title or text`);
       }
+      if (c.faq !== undefined) {
+        if (!Array.isArray(c.faq) || c.faq.length < 3) throw new Error(`${a.slug}: ${lang} faq needs at least 3 items`);
+        for (const f of c.faq) {
+          if (!f.q || !f.a) throw new Error(`${a.slug}: ${lang} faq item without q or a`);
+        }
+      }
     }
+    if ((a.en.faq === undefined) !== (a.de.faq === undefined)) throw new Error(`${a.slug}: faq must exist in both languages or neither`);
   }
   return [...(list as App[])].sort((x, y) => x.order - y.order);
 };

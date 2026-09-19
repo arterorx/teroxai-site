@@ -28,6 +28,8 @@ Jede Korrektur ging am selben oder am nächsten Tag zurück. Gewartet haben wir 
 
 Apple schrieb:
 
+![Nachricht vom App Review zu Guideline 2.4.5(iii): the app sets itself to auto-launch at startup without user consent](../../../assets/blog/app-review/rejection-1-2-4-5.png)
+
 > The app sets itself to auto-launch at startup without user consent.
 
 Auf dem ersten Bildschirm der Einführung trug sich die App mit `SMAppService.mainApp.register()` selbst als Anmeldeobjekt ein, sobald der Bildschirm erschien. Der Schalter „Launch CamDial at login“ war direkt daneben, sichtbar eingeschaltet, mit einem Klick auszuschalten. Wir dachten: sichtbar heißt ehrlich, und ehrlich heißt erlaubt.
@@ -44,6 +46,8 @@ Ein Detail hat uns eine zweite Ablehnung zum selben Punkt erspart. Der alte Buil
 
 Apple schrieb:
 
+![Nachricht vom App Review zu Guideline 5.1.1(iv): use words like Continue or Next on the button](../../../assets/blog/app-review/rejection-2-5-1-1.png)
+
 > A custom message appears before the permission request, and to proceed users press a "Allow" button. Use words like "Continue" or "Next" on the button instead.
 
 Ein eigener Bildschirm, der vor der Systemabfrage erklärt, wozu die Kamera gebraucht wird, ist in Ordnung. Unserer sagte sogar, dass alles auch ohne Kamerazugriff funktioniert. Das Problem war der Button. „Allow camera access“ auf unserem eigenen Bildschirm liest sich, als würde die Erlaubnis dort erteilt und nicht im macOS-Dialog danach.
@@ -56,6 +60,8 @@ Auch diese Formulierung kam aus unserem Briefing, und niemand hat sie gegen 5.1.
 
 Diesmal zwei Punkte. Der erste:
 
+![Nachricht vom App Review zu Guideline 2.1: a demo video with the physical hardware is needed](../../../assets/blog/app-review/rejection-3-2-1-video.png)
+
 > We need a demo video that shows a physical Apple device and the designated hardware pairing together and interacting during the use of the app.
 
 Der Prüfer hatte keine USB-Webcam und konnte die Hauptfunktion nicht testen. Für Apps, die externe Hardware brauchen, ist das eine Standardanfrage, und wir hätten sie kommen sehen müssen.
@@ -64,6 +70,8 @@ Wir haben knapp drei Minuten mit dem iPhone gedreht, nach einem Ablauf mit zwöl
 
 Der zweite Punkt:
 
+![Nachricht vom App Review zu Guideline 2.1: a demo account with an expired subscription is needed](../../../assets/blog/app-review/rejection-3-2-1-subscription.png)
+
 > We are not able to continue our review because we need access to a demo account with an expired subscription to review the entire purchase flow.
 
 CamDial hat keine Konten, keinen Login und keine Abos. Wir haben in App Store Connect nachgesehen, um sicher zu sein: null Abo-Gruppen, ein Kauf, einmalig. Unsere beste Erklärung ist, dass eine Vorlage auf die Worte „No subscription“ in unserer eigenen Beschreibung angesprungen ist. Wir haben mit diesen Fakten geantwortet, ohne Diskussion. Der Punkt wurde nicht wiederholt.
@@ -71,6 +79,8 @@ CamDial hat keine Konten, keinen Login und keine Abos. Wir haben in App Store Co
 ## Ablehnung 4: Guideline 2.1(a), „we need a populated demo mode“
 
 Apple schrieb:
+
+![Nachricht vom App Review zu Guideline 2.1(a): we need a populated demo mode](../../../assets/blog/app-review/rejection-4-2-1-a.png)
 
 > In order for us to continue the review, we need a populated demo mode that shows real content on all pages for us to review your app content and features, such as in-app purchase products.
 >

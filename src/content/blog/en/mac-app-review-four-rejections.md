@@ -28,6 +28,8 @@ Every fix went back the same day or the next. The waiting was the queue, two to 
 
 Apple wrote:
 
+![App Review message for Guideline 2.4.5(iii): the app sets itself to auto-launch at startup without user consent](../../../assets/blog/app-review/rejection-1-2-4-5.png)
+
 > The app sets itself to auto-launch at startup without user consent.
 
 On the first onboarding screen the app registered itself as a login item with `SMAppService.mainApp.register()` the moment the screen appeared. The switch "Launch CamDial at login" was right there, shown as on, one click to turn off. We thought visible meant honest, and honest meant allowed.
@@ -44,6 +46,8 @@ One detail saved us a second rejection on the same point. The old build had alre
 
 Apple wrote:
 
+![App Review message for Guideline 5.1.1(iv): use words like Continue or Next on the button](../../../assets/blog/app-review/rejection-2-5-1-1.png)
+
 > A custom message appears before the permission request, and to proceed users press a "Allow" button. Use words like "Continue" or "Next" on the button instead.
 
 A screen that explains why you need the camera, shown before the system prompt, is fine. Ours even said that everything works without camera access. The problem was the button. "Allow camera access" on our own screen reads as if permission is granted there, not in the macOS dialog that follows.
@@ -56,6 +60,8 @@ Again the wording came from our brief, and nobody held it against 5.1.1(iv). If 
 
 Two items this time. The first:
 
+![App Review message for Guideline 2.1: a demo video with the physical hardware is needed](../../../assets/blog/app-review/rejection-3-2-1-video.png)
+
 > We need a demo video that shows a physical Apple device and the designated hardware pairing together and interacting during the use of the app.
 
 The reviewer had no USB webcam, so the main feature could not be tested. For apps that need external hardware this is a standard request, and we should have seen it coming.
@@ -64,6 +70,8 @@ We filmed just under three minutes on an iPhone, following a script of twelve st
 
 The second item:
 
+![App Review message for Guideline 2.1: a demo account with an expired subscription is needed](../../../assets/blog/app-review/rejection-3-2-1-subscription.png)
+
 > We are not able to continue our review because we need access to a demo account with an expired subscription to review the entire purchase flow.
 
 CamDial has no accounts, no login and no subscriptions. We checked App Store Connect to be sure: zero subscription groups, one purchase, bought once. Our best guess is that a template fired on the words "No subscription" in our own description. We answered with those facts and no argument. It was not raised again.
@@ -71,6 +79,8 @@ CamDial has no accounts, no login and no subscriptions. We checked App Store Con
 ## Rejection 4: Guideline 2.1(a), "we need a populated demo mode"
 
 Apple wrote:
+
+![App Review message for Guideline 2.1(a): we need a populated demo mode](../../../assets/blog/app-review/rejection-4-2-1-a.png)
 
 > In order for us to continue the review, we need a populated demo mode that shows real content on all pages for us to review your app content and features, such as in-app purchase products.
 >

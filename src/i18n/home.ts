@@ -15,9 +15,9 @@ export interface HomeCopy {
 
 const home: Record<Locale, HomeCopy> = {
   en: {
-    title: 'Indie developer. {n} apps on the App Store, built with AI',
+    title: 'TeroxAI: indie developer with {n} apps on the App Store',
     description:
-      'Armen Ter-Oganezov makes Mac and iPhone utilities that do one job well, plus AI tools for creators. {n} apps on the App Store, built solo with AI agents.',
+      'TeroxAI is the studio of Armen Ter-Oganezov: Mac and iPhone utilities that do one job well, plus AI tools for creators. {n} apps, built solo with AI agents.',
     h1: 'Indie developer. {n} apps on the App Store, built with AI.',
     lede: 'Mac and iPhone utilities that do one job well, plus AI tools for creators.',
     cta: 'See the apps',
@@ -31,9 +31,9 @@ const home: Record<Locale, HomeCopy> = {
     ],
   },
   de: {
-    title: 'Indie-Entwickler. {n} Apps im App Store, gebaut mit KI',
+    title: 'TeroxAI: Indie-Entwickler mit {n} Apps im App Store',
     description:
-      'Armen Ter-Oganezov macht Mac- und iPhone-Apps, die eine Sache gut können, und KI-Werkzeuge für Kreative. {n} Apps im App Store, allein gebaut mit KI-Agenten.',
+      'TeroxAI ist das Studio von Armen Ter-Oganezov: Mac- und iPhone-Apps, die eine Sache gut können, und KI-Werkzeuge. {n} Apps, allein gebaut mit KI-Agenten.',
     h1: 'Indie-Entwickler. {n} Apps im App Store, gebaut mit KI.',
     lede: 'Mac- und iPhone-Apps, die eine Sache gut können, und KI-Werkzeuge für Kreative.',
     cta: 'Zu den Apps',

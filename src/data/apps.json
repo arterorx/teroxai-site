@@ -17,10 +17,10 @@
     "store": {
       "rating": null,
       "ratingCount": 0,
-      "version": "1.0",
+      "version": "1.1",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-10"
+      "fetchedAt": "2026-09-19"
     },
     "accent": "#C8894F",
     "en": {
@@ -131,7 +131,7 @@
     "appId": "6806860547",
     "bundleId": "app.camdial.CamDial",
     "order": 2,
-    "status": "review",
+    "status": "live",
     "platforms": [
       "macos"
     ],
@@ -143,7 +143,9 @@
       "rating": null,
       "ratingCount": 0,
       "version": "1.0",
-      "fetchedAt": "2026-09-10"
+      "price": 0,
+      "currency": "USD",
+      "fetchedAt": "2026-09-19"
     },
     "accent": "#F5A847",
     "en": {
@@ -249,10 +251,10 @@
     "store": {
       "rating": null,
       "ratingCount": 0,
-      "version": "4.3",
+      "version": "4.4",
       "price": 2.99,
       "currency": "USD",
-      "fetchedAt": "2026-09-10"
+      "fetchedAt": "2026-09-19"
     },
     "accent": "#6C4FB8",
     "en": {
@@ -368,10 +370,10 @@
     "store": {
       "rating": null,
       "ratingCount": 0,
-      "version": "1.2",
+      "version": "1.3",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-10"
+      "fetchedAt": "2026-09-19"
     },
     "accent": "#1F3A8A",
     "shotOrder": [
@@ -492,10 +494,10 @@
     "store": {
       "rating": null,
       "ratingCount": 0,
-      "version": "1.0",
+      "version": "1.1",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-10"
+      "fetchedAt": "2026-09-19"
     },
     "accent": "#D8703A",
     "shotOrder": [
@@ -614,11 +616,11 @@
     "support": null,
     "store": {
       "rating": 4.4,
-      "ratingCount": 74,
+      "ratingCount": 75,
       "version": "5.1.0",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-10"
+      "fetchedAt": "2026-09-19"
     },
     "accent": "#7C5CFF",
     "en": {
@@ -687,12 +689,12 @@
     "privacy": null,
     "support": null,
     "store": {
-      "rating": null,
-      "ratingCount": 0,
-      "version": "1.6.2",
+      "rating": 5,
+      "ratingCount": 3,
+      "version": "1.6.3",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-10"
+      "fetchedAt": "2026-09-19"
     },
     "accent": "#2E6BFF",
     "en": {
@@ -763,10 +765,10 @@
     "store": {
       "rating": null,
       "ratingCount": 0,
-      "version": "2.0.2",
+      "version": "2.0.4",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-10"
+      "fetchedAt": "2026-09-19"
     },
     "accent": "#8A2CA4",
     "shotOrder": [

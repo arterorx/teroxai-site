@@ -1,6 +1,7 @@
 ---
 import { localePath, type Locale } from '../i18n/config';
-import { CONTACT_EMAIL, OWNER, SOCIALS, CREDIT } from '../lib/site';
+import { CONTACT_EMAIL, OWNER, CREDIT } from '../lib/site';
+import SocialLinks from './SocialLinks.astro';
 import { t } from '../i18n/ui';
 
 interface Props {
@@ -17,7 +18,7 @@ const year = new Date().getFullYear();
       {ui.openTo} {ui.writeMe} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
     </p>
     <nav class="ft__links" aria-label="Footer">
-      {SOCIALS.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}
+      <SocialLinks lang={lang} look="plain" />
       <a href={localePath(lang, 'privacy')}>{ui.privacy}</a>
     </nav>
     <div class="ft__bottom">
@@ -42,6 +43,7 @@ const year = new Date().getFullYear();
   .ft__links {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 1.25rem;
   }
   .ft__links a {

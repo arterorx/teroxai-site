@@ -5,15 +5,18 @@ export const OWNER = 'Armen Ter-Oganezov';
 export const OWNER_COUNTRY = 'Germany';
 export const GITHUB_URL = 'https://github.com/arterorx';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/armen-ter-oganezov/';
-/** Set when the TikTok account exists. Empty string hides the link everywhere. */
-export const TIKTOK_URL = '';
-export const SAME_AS = [GITHUB_URL, LINKEDIN_URL, TIKTOK_URL].filter(Boolean);
-/** Social links for the footer, home and about pages. Empty URLs drop out. */
-export const SOCIALS: { href: string; label: string }[] = [
-  { href: GITHUB_URL, label: 'GitHub' },
-  { href: LINKEDIN_URL, label: 'LinkedIn' },
-  { href: TIKTOK_URL, label: 'TikTok' },
-].filter((s) => s.href);
+/** The developer page in the App Store, listing every app. */
+export const DEVELOPER_URL = 'https://apps.apple.com/developer/armen-ter-oganezov/id1723150483';
+export const SAME_AS = [GITHUB_URL, LINKEDIN_URL, DEVELOPER_URL];
+export type SocialIcon = 'github' | 'linkedin' | 'apple' | 'mail';
+/** Social links for the footer, home and about pages, rendered by SocialLinks.astro. Empty URLs drop out. */
+export const SOCIALS: { href: string; label: string; icon: SocialIcon }[] = (
+  [
+    { href: GITHUB_URL, label: 'GitHub', icon: 'github' },
+    { href: LINKEDIN_URL, label: 'LinkedIn', icon: 'linkedin' },
+    { href: DEVELOPER_URL, label: 'App Store', icon: 'apple' },
+  ] as const
+).filter((s) => s.href);
 /** Credit in the footer for the studio that builds the sites. */
 export const CREDIT = { name: 'MariaWeb', url: 'https://mariaweb.dev/' };
 /** Last review date of the legal pages. */

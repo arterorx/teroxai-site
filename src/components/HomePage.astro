@@ -10,7 +10,7 @@ import { clusterFor, localePath, type Locale } from '../i18n/config';
 import { APPS, liveApps } from '../lib/apps';
 import { homeCopy } from '../i18n/home';
 import { t } from '../i18n/ui';
-import { SOCIALS } from '../lib/site';
+import SocialLinks from './SocialLinks.astro';
 import armen from '../assets/armen.jpg';
 
 interface Props {
@@ -47,7 +47,7 @@ const firstAccent = liveApps()[0].accent;
       <p class="eyebrow">{ui.latestPosts}</p>
       <h2>Blog</h2>
       <PostList lang={lang} limit={3} />
-      <p><a href={localePath(lang, 'blog')}>{ui.allPosts}</a></p>
+      <p><a class="more" href={localePath(lang, 'blog')}>{ui.allPosts}</a></p>
     </section>
   </Reveal>
 
@@ -58,10 +58,10 @@ const firstAccent = liveApps()[0].accent;
         <p class="eyebrow">{c.aboutEyebrow}</p>
         <h2>{c.aboutH2}</h2>
         {c.aboutText.map((p) => <p class="measure">{p}</p>)}
-        <p class="about__links">
-          {SOCIALS.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}
-          <a href={localePath(lang, 'about')}>{ui.moreAbout}</a>
-        </p>
+        <div class="about__links">
+          <SocialLinks lang={lang} />
+          <a class="more" href={localePath(lang, 'about')}>{ui.moreAbout}</a>
+        </div>
       </div>
     </section>
   </Reveal>
@@ -102,8 +102,10 @@ const firstAccent = liveApps()[0].accent;
   }
   .about__links {
     display: flex;
-    gap: 1.25rem;
+    gap: 0.6rem 1.25rem;
     flex-wrap: wrap;
+    align-items: center;
+    margin-top: 1.25rem;
   }
   @media (max-width: 800px) {
     .hero {

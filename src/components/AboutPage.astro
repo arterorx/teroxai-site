@@ -4,7 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { clusterFor, type Locale } from '../i18n/config';
 import { aboutCopy } from '../i18n/about';
 import Reveal from './Reveal.astro';
-import { CONTACT_EMAIL, SOCIALS } from '../lib/site';
+import { CONTACT_EMAIL } from '../lib/site';
+import SocialLinks from './SocialLinks.astro';
 import armen from '../assets/armen.jpg';
 
 interface Props {
@@ -31,7 +32,7 @@ const c = aboutCopy[lang];
     <p>
       {c.contactText} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
     </p>
-    <p class="links">{SOCIALS.map((s) => <a href={s.href} rel="me noopener" target="_blank">{s.label}</a>)}</p>
+    <SocialLinks lang={lang} class="links" />
   </article>
 </BaseLayout>
 
@@ -48,8 +49,7 @@ const c = aboutCopy[lang];
     font-size: 1.25rem;
     color: var(--ink-2);
   }
-  .links {
-    display: flex;
-    gap: 1.25rem;
+  :global(.links) {
+    margin-top: 1rem;
   }
 </style>

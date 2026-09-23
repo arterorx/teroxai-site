@@ -40,6 +40,7 @@ const en = {
   showcaseLabel: 'Featured apps',
   showcaseGoTo: 'Show',
   websitesBy: 'Websites by',
+  developerPage: 'All apps on the App Store',
 };
 
 export type Ui = typeof en;
@@ -82,6 +83,7 @@ const de: Ui = {
   showcaseLabel: 'Ausgewählte Apps',
   showcaseGoTo: 'Zeigen',
   websitesBy: 'Websites von',
+  developerPage: 'Alle Apps im App Store',
 };
 
 const ui: Record<Locale, Ui> = { en, de };

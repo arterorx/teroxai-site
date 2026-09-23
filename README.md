@@ -1,8 +1,17 @@
 # teroxai.com
 
-Personal site of Armen Ter-Oganezov: every app, the blog, the about page. Astro, static, Cloudflare Pages.
+The source of [teroxai.com](https://teroxai.com), the site of Armen Ter-Oganezov: eight App Store apps, a blog in English and German, and an about page. Astro 7, static output, no framework on the client, about 1 KB of own JavaScript. Deployed to Cloudflare Pages.
 
-Spec: `docs/superpowers/specs/2026-09-10-teroxai-site-design.md`. Plan: `docs/superpowers/plans/2026-09-10-teroxai-site.md`.
+Shared so people can read how it is built. The texts, images, brand and app data in this repository are not licensed for reuse; the code is fine to learn from.
+
+What might be worth a look:
+
+- `src/data/apps.json` feeds every app card, app page, OG card and the JSON-LD (SoftwareApplication with offers, FAQPage). One file, no CMS.
+- `src/components/AppShowcase.astro` + `src/scripts/showcase.ts`: the home carousel, 650 bytes gzipped, with proper `aria-current` and view transitions into the app pages.
+- `scripts/`: store data from the iTunes lookup, screenshots from the store, OG cards and blog covers rendered with sharp, link and budget checks, IndexNow.
+- `src/i18n/`: the English copy defines the shape, the German copy is typed against it, so a missing key is a compile error.
+
+Lighthouse 100 on all four scores at launch.
 
 ## Commands
 
@@ -12,7 +21,7 @@ npm run dev            # http://localhost:4321
 npm test               # data and i18n tests
 npm run build          # astro check + build → dist/
 npm run data:store     # refresh ratings/versions from the App Store (also flips CamDial to live once approved)
-npm run assets:covers  # blog covers from scripts/covers.mjs (one per `cover` id in post frontmatter)
+npm run assets:covers  # blog covers (one per `cover` id in post frontmatter)
 npm run assets:shots   # re-download store screenshots (honours shotOrder in apps.json)
 npm run assets:og      # regenerate OG cards after a name or tagline change
 npm run assets:icons   # regenerate favicon and touch icons

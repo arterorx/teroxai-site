@@ -11,8 +11,10 @@ interface Props {
   lang: Locale;
   slug: string;
   alternates: Alternate[];
+  cover?: string;
 }
-const { title, description, date, lang, slug, alternates }: Props = Astro.props;
+const { title, description, date, lang, slug, alternates, cover }: Props = Astro.props;
+const coverPath = cover ? `/og/blog/${cover}.png` : undefined;
 const ui = t(lang);
 const iso = date.toISOString().slice(0, 10);
 const jsonLd = [
@@ -25,7 +27,7 @@ const jsonLd = [
     inLanguage: lang,
     url: `${SITE_URL}${localePath(lang, `blog/${slug}`)}`,
     mainEntityOfPage: `${SITE_URL}${localePath(lang, `blog/${slug}`)}`,
-    image: `${SITE_URL}/og/default.png`,
+    image: `${SITE_URL}${coverPath ?? '/og/default.png'}`,
     author: { '@id': `${SITE_URL}/#person` },
     publisher: { '@id': `${SITE_URL}/#org` },
   },
@@ -41,10 +43,11 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title={title} description={description} type="article" lang={lang} alternates={alternates} jsonLd={jsonLd}>
+<BaseLayout title={title} description={description} type="article" lang={lang} alternates={alternates} jsonLd={jsonLd} ogImage={coverPath}>
   <article class="wrap section prose">
     <p class="muted"><time datetime={iso}>{formatDate(iso, lang)}</time> · {OWNER}</p>
     <h1>{title}</h1>
+    {coverPath && <img class="cover" src={coverPath} alt="" width="1200" height="630" fetchpriority="high" />}
     <div class="post">
       <slot />
     </div>
@@ -53,6 +56,13 @@ const jsonLd = [
 </BaseLayout>
 
 <style>
+  .cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    margin: 1.5rem 0 2rem;
+  }
   .post > :global(p:first-of-type) {
     font-size: 1.2rem;
     color: var(--ink-2);

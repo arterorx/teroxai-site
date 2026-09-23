@@ -3,7 +3,9 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "engines": { "node": ">=22.18.0" },
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
@@ -14,7 +16,8 @@
     "assets:icons": "node scripts/icons.mjs",
     "assets:og": "node scripts/og.mjs",
     "check:links": "node scripts/check-links.mjs",
-    "check:budget": "node scripts/check-budget.mjs"
+    "check:budget": "node scripts/check-budget.mjs",
+    "assets:covers": "node scripts/covers.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

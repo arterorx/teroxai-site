@@ -4,6 +4,7 @@ description: 'Two years of shipping solo. The AI apps bring the downloads, one s
 date: 2026-09-10
 lang: en
 translationOf: was-geld-gebracht-hat
+cover: money
 ---
 
 I have seven apps on the App Store today and an eighth waiting for review. They fall into two groups that could not be more different, and for a long time I did not see it.

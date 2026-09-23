@@ -4,6 +4,7 @@ description: 'Zwei Jahre allein veröffentlichen. Die KI-Apps bringen die Downlo
 date: 2026-09-10
 lang: de
 translationOf: what-made-money
+cover: money
 ---
 
 Ich habe heute sieben Apps im App Store und eine achte wartet auf die Prüfung. Sie teilen sich in zwei Gruppen, die unterschiedlicher nicht sein könnten, und lange habe ich das nicht gesehen.

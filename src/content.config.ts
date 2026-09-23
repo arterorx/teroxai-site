@@ -10,6 +10,8 @@ const blog = defineCollection({
     date: z.coerce.date(),
     lang: z.enum(['en', 'de']),
     translationOf: z.string().optional(),
+    /** Cover id shared by a translation pair: public/og/blog/<cover>.png, made by scripts/covers.mjs. */
+    cover: z.string().optional(),
   }),
 });
 

@@ -20,10 +20,17 @@ const posts = limit ? all.slice(0, limit) : all;
     posts.map((p) => {
       const iso = p.data.date.toISOString().slice(0, 10);
       return (
-        <li class="card pl__item">
-          <time class="pl__date" datetime={iso}>{formatDate(iso, lang)}</time>
-          <a class="pl__title" href={localePath(lang, `blog/${slugOf(p.id)}`)}>{p.data.title}</a>
-          <p class="pl__desc">{p.data.description}</p>
+        <li class:list={['card', 'pl__item', { 'pl__item--cover': p.data.cover }]}>
+          {p.data.cover && (
+            <a class="pl__thumb" href={localePath(lang, `blog/${slugOf(p.id)}`)} tabindex="-1" aria-hidden="true">
+              <img src={`/og/blog/${p.data.cover}.png`} alt="" width="1200" height="630" loading="lazy" />
+            </a>
+          )}
+          <div class="pl__body">
+            <time class="pl__date" datetime={iso}>{formatDate(iso, lang)}</time>
+            <a class="pl__title" href={localePath(lang, `blog/${slugOf(p.id)}`)}>{p.data.title}</a>
+            <p class="pl__desc">{p.data.description}</p>
+          </div>
         </li>
       );
     })
@@ -42,6 +49,26 @@ const posts = limit ? all.slice(0, limit) : all;
     display: grid;
     gap: 0.35rem;
     transition: transform 0.2s ease;
+  }
+  .pl__item--cover {
+    grid-template-columns: 220px 1fr;
+    gap: 1.25rem;
+    align-items: center;
+  }
+  .pl__thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  .pl__body {
+    display: grid;
+    gap: 0.35rem;
+  }
+  @media (max-width: 640px) {
+    .pl__item--cover {
+      grid-template-columns: 1fr;
+    }
   }
   .pl__item:hover {
     transform: translateY(-2px);

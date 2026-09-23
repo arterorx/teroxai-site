@@ -4,6 +4,7 @@ description: 'Guidelines 2.4.5(iii), 5.1.1(iv), 2.1 und 2.1(a): was Apple schrie
 date: 2026-09-19
 lang: de
 translationOf: mac-app-review-four-rejections
+cover: app-review
 ---
 
 CamDial ist seit dem 19. September 2026 im Mac App Store. Dafür brauchte es fünf Einreichungen, vier Ablehnungen und fünfzehn Tage. Den größten Teil der Verzögerung haben wir selbst verursacht, und genau das ist der nützliche Teil.

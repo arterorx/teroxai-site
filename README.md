@@ -12,6 +12,7 @@ npm run dev            # http://localhost:4321
 npm test               # data and i18n tests
 npm run build          # astro check + build → dist/
 npm run data:store     # refresh ratings/versions from the App Store (also flips CamDial to live once approved)
+npm run assets:covers  # blog covers from scripts/covers.mjs (one per `cover` id in post frontmatter)
 npm run assets:shots   # re-download store screenshots (honours shotOrder in apps.json)
 npm run assets:og      # regenerate OG cards after a name or tagline change
 npm run assets:icons   # regenerate favicon and touch icons

@@ -50,9 +50,17 @@ Das neue Feld veröffentliche ich nicht Wort für Wort. Es ist der einzige Teil 
 
 Etwas, das kaum jemand erwähnt: In-App-Events werden von der App-Store-Suche indexiert. Wir legen sie für das Schaufenster an, aber auch, um Wörter unterzubringen, die weder in den Namen noch ins Keyword-Feld passen. `resume`, `professional`, `background`, `cinematic` kamen über Events hinein.
 
-Die Grenzen sind eng: Eventname bis 30 Zeichen, kurze Beschreibung 50, lange Beschreibung 120. Und das Event muss ein echter Anlass mit Datum sein, keine Funktionsbeschreibung. Apple hat zwei von unseren genau deshalb abgelehnt. Der Text beschrieb, was die App immer tut, nicht, was zwischen diesen Daten passiert. Berechtigte Ablehnung.
+Die Grenzen sind eng: Eventname bis 30 Zeichen, kurze Beschreibung 50, lange Beschreibung 120. Und das Event muss ein echter Anlass mit Datum sein, keine Funktionsbeschreibung. Apple hat zwei von unseren genau deshalb abgelehnt:
+
+![Nachricht aus App Store Connect zu Guideline 2.3.13: die Beschreibung des Events erklärt nicht ausreichend, was während des Events passiert](../../../assets/blog/aso/event-rejection.png)
+
+> Since event metadata must be accurate and describe the event itself, describing the app more generally or other topics outside of the in-app event is not appropriate.
+
+Der Text beschrieb, was die App immer tut, nicht, was zwischen diesen Daten passiert. Berechtigte Ablehnung.
 
 ## Was funktioniert hat: ein vietnamesischer Name
+
+![Der Eintrag der App im vietnamesischen App Store: AI Tạo Ảnh: TeroxAI, 75 Bewertungen, Grafik & Design](../../../assets/blog/aso/vietnam-listing.png)
 
 Im Juni 2026 haben wir den Namen für Vietnam lokalisiert: „AI Tạo Ảnh“, mit Keywords aus dem, was vietnamesische Nutzer wirklich tippen. Die Metadaten für 26 Sprachen gingen am 21. Juni rein.
 

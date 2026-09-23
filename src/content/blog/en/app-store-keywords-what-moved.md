@@ -50,9 +50,17 @@ I am not publishing the new field word for word. It is the one part of the metad
 
 Something few people mention: In-App Events are indexed by App Store search. We create them for the storefront, but also to get words in that fit neither the name nor the keyword field. `resume`, `professional`, `background`, `cinematic` went in through events.
 
-The limits are tight: event name up to 30 characters, short description 50, long description 120. And the event has to be an actual occasion with dates, not a feature description. Apple rejected two of ours for exactly that. The text described what the app always does, not what happens between those dates. Fair rejection.
+The limits are tight: event name up to 30 characters, short description 50, long description 120. And the event has to be an actual occasion with dates, not a feature description. Apple rejected two of ours for exactly that:
+
+![App Store Connect message for Guideline 2.3.13: the event description does not sufficiently describe what occurs during the event](../../../assets/blog/aso/event-rejection.png)
+
+> Since event metadata must be accurate and describe the event itself, describing the app more generally or other topics outside of the in-app event is not appropriate.
+
+The text described what the app always does, not what happens between those dates. Fair rejection.
 
 ## What worked: a Vietnamese name
+
+![The app's listing in the Vietnamese App Store: AI Tạo Ảnh: TeroxAI, 75 ratings, Graphics & Design](../../../assets/blog/aso/vietnam-listing.png)
 
 In June 2026 we localised the name for Vietnam: "AI Tạo Ảnh", with keywords built from what Vietnamese users actually type. Metadata for 26 locales went in on 21 June.
 

@@ -44,6 +44,10 @@ Three things are wrong with it, and all three sat there for years.
 
 **A phrase split into words.** `nano banana` is a model people search for by name. In our field it sat for months as `nano` and `banana`, separated by a comma. That is not the same phrase, and the store does not stitch it back together for you. Now it is one entry.
 
+Here is the Vietnamese field instead, which is useless to anyone competing in English. Ten characters are unused on purpose. Filling them with a word that wins nothing is how the old field got its `picture` and `free`.
+
+![The Vietnamese keyword field in App Store Connect, 90 of 100 characters used](../../../assets/blog/aso/keywords-vi.png)
+
 I am not publishing the new field word for word. It is the one part of the metadata nobody can see in the store, so there is no reason to hand it over as a list. The rule is what matters: each entry is either a phrase people type, or a single word that only makes sense next to a use case.
 
 ## Events index too

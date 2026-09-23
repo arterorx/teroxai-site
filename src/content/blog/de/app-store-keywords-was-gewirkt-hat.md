@@ -44,6 +44,10 @@ Drei Dinge daran sind falsch, und alle drei standen jahrelang da.
 
 **Eine Phrase in Einzelwörter zerlegt.** `nano banana` ist ein Modell, das Leute mit Namen suchen. In unserem Feld lag es monatelang als `nano` und `banana`, durch ein Komma getrennt. Das ist nicht dieselbe Phrase, und der Store setzt sie nicht für dich wieder zusammen. Jetzt ist es ein Eintrag.
 
+Hier stattdessen das vietnamesische Feld, das niemandem nützt, der auf Englisch konkurriert. Zehn Zeichen sind absichtlich frei. Sie mit einem Wort zu füllen, das nichts gewinnt, ist genau der Weg, auf dem `picture` und `free` ins alte Feld kamen.
+
+![Das vietnamesische Keyword-Feld in App Store Connect, 90 von 100 Zeichen belegt](../../../assets/blog/aso/keywords-vi.png)
+
 Das neue Feld veröffentliche ich nicht Wort für Wort. Es ist der einzige Teil der Metadaten, den niemand im Store sehen kann, und es gibt keinen Grund, ihn als Liste herauszugeben. Die Regel ist das Entscheidende: Jeder Eintrag ist entweder eine Phrase, die Leute tippen, oder ein einzelnes Wort, das nur neben einem Anwendungsfall Sinn ergibt.
 
 ## Events werden auch indexiert

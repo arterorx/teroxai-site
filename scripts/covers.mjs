@@ -73,9 +73,21 @@ const moneyVisual = `
     <text x="0" y="268" font-family="${SANS}" font-size="22" fill="#c9c9d1">40× the downloads</text>
   </g>`;
 
+
+/* App site: where downloads came from in one month, five bars. */
+const siteVisual = `
+  <g transform="translate(760,110)">
+    <text x="0" y="0" font-family="${SANS}" font-size="20" fill="#9a9aa2">DOWNLOADS BY SOURCE, ONE MONTH</text>
+    ${[['App Store search',27],['Our website',9],['Other apps',9],['App Store browse',7]].map(([l,v],i)=>`
+      <text x="0" y="${52+i*74}" font-family="${SANS}" font-weight="600" font-size="24" fill="#fff">${l}</text>
+      <rect x="0" y="${64+i*74}" width="340" height="16" rx="8" fill="#26262b"/>
+      <rect x="0" y="${64+i*74}" width="${Math.round(340*v/27)}" height="16" rx="8" fill="${i===1?'url(#g)':'#4a4a52'}"/>`).join('')}
+  </g>`;
+
 const covers = [
   { id: 'aso', kicker: 'APP STORE OPTIMIZATION', title: ['App Store keywords:', 'what moved rankings', 'and what did not'], visual: asoVisual },
   { id: 'app-review', kicker: 'MAC APP STORE · APP REVIEW', title: ['Four rejections', 'in 15 days: a Mac app', 'post-mortem'], visual: reviewVisual },
+  { id: 'app-site', kicker: 'ONE MAC APP, ONE WEBSITE', title: ['One evening of', 'website: what it did', 'for a small Mac app'], visual: siteVisual },
   { id: 'money', kicker: 'TWO YEARS OF SHIPPING SOLO', title: ['Seven apps: what', 'made money and', 'what did not'], visual: moneyVisual },
 ];
 

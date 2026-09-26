@@ -17,12 +17,11 @@ const year = new Date().getFullYear();
     <p class="ft__open">
       {ui.openTo} {ui.writeMe} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
     </p>
-    <nav class="ft__links" aria-label="Footer">
-      <SocialLinks lang={lang} look="plain" />
-      <a href={localePath(lang, 'privacy')}>{ui.privacy}</a>
-    </nav>
+    <SocialLinks lang={lang} look="plain" />
     <div class="ft__bottom">
-      <p class="muted ft__copy">© {year} {OWNER}</p>
+      <p class="muted ft__copy">
+        © {year} {OWNER} <span class="ft__sep" aria-hidden="true">·</span> <a href={localePath(lang, 'privacy')}>{ui.privacy}</a>
+      </p>
       <p class="muted ft__credit">
         {ui.websitesBy} <a href={CREDIT.url} rel="noopener" target="_blank">{CREDIT.name}</a>
       </p>
@@ -40,14 +39,11 @@ const year = new Date().getFullYear();
     display: grid;
     gap: 1rem;
   }
-  .ft__links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.25rem;
+  .ft__sep {
+    margin: 0 0.35rem;
   }
-  .ft__links a {
-    color: var(--ink-2);
+  .ft__copy a {
+    color: inherit;
   }
   .ft__bottom {
     display: flex;

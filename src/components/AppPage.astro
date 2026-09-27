@@ -48,6 +48,8 @@ const jsonLd = [
     url: `${SITE_URL}${localePath(lang, `apps/${app.slug}`)}`,
     image: `${SITE_URL}/og/${app.slug}.png`,
     author: { '@id': `${SITE_URL}/#person` },
+    publisher: { '@id': `${SITE_URL}/#org` },
+    brand: { '@type': 'Brand', name: 'TeroxAI' },
     ...(isLive ? { installUrl: storeUrl(app) } : {}),
     ...(isLive && app.store.price !== undefined
       ? { offers: { '@type': 'Offer', price: app.store.price, priceCurrency: app.store.currency ?? 'USD', url: storeUrl(app) } }

@@ -84,9 +84,25 @@ const siteVisual = `
       <rect x="0" y="${64+i*74}" width="${Math.round(340*v/27)}" height="16" rx="8" fill="${i===1?'url(#g)':'#4a4a52'}"/>`).join('')}
   </g>`;
 
+
+/* Review time: how long submissions waited in the queue, six buckets. */
+const reviewTimeVisual = (() => {
+  const b = [['under 6 h', 9], ['6-12 h', 5], ['12-24 h', 20], ['1-2 days', 11], ['2-4 days', 10], ['over 4 days', 6]];
+  const max = 20;
+  return `
+  <g transform="translate(760,110)">
+    <text x="0" y="0" font-family="${SANS}" font-size="20" fill="#9a9aa2">TIME IN QUEUE, 61 SUBMISSIONS</text>
+    ${b.map(([l, v], i) => `
+      <text x="0" y="${46 + i * 50}" font-family="${SANS}" font-size="20" fill="#c9c9d1">${l}</text>
+      <rect x="110" y="${30 + i * 50}" width="230" height="20" rx="10" fill="#26262b"/>
+      <rect x="110" y="${30 + i * 50}" width="${Math.round(230 * v / max)}" height="20" rx="10" fill="${i === 2 ? 'url(#g)' : '#4a4a52'}"/>`).join('')}
+  </g>`;
+})();
+
 const covers = [
   { id: 'aso', kicker: 'APP STORE OPTIMIZATION', title: ['App Store keywords:', 'what moved rankings', 'and what did not'], visual: asoVisual },
   { id: 'app-review', kicker: 'MAC APP STORE · APP REVIEW', title: ['Four rejections', 'in 15 days: a Mac app', 'post-mortem'], visual: reviewVisual },
+  { id: 'review-time', kicker: 'APP STORE CONNECT, 2026', title: ['How long App Store', 'review takes: 91', 'submissions measured'], visual: reviewTimeVisual },
   { id: 'app-site', kicker: 'ONE MAC APP, ONE WEBSITE', title: ['One evening of', 'website: what it did', 'for a small Mac app'], visual: siteVisual },
   { id: 'money', kicker: 'TWO YEARS OF SHIPPING SOLO', title: ['Seven apps: what', 'made money and', 'what did not'], visual: moneyVisual },
 ];

@@ -7,17 +7,21 @@ translationOf: app-store-review-dauer-2026
 cover: review-time
 ---
 
-Short answer, from my own submissions between April and September 2026: an app waits about 20 hours in the queue, then the review itself takes about 36 minutes. Half of all decisions arrived within a day of pressing submit. First versions take longer, and the reason is rejections, not the queue.
+Short answer on App Store review time, from my own submissions between April and September 2026: an app waits about 20 hours in the queue, then the review itself takes about 36 minutes. Half of all decisions arrived within a day of pressing submit. First versions take longer, and the reason is rejections, not the queue.
 
 I ship eight apps, iPhone and Mac, and every status change sends an email from App Store Connect. I went through all of them: 91 submissions, 61 of them with both a start of review and a decision on record. Here is what they say.
 
-## The numbers
+![Timeline of a median App Store submission: 19.6 hours waiting for review, then 36 minutes in review](../../../assets/blog/review-time/anatomy-en.png)
+
+## App Store review time in 2026: the numbers
 
 | Step | Median | Half of cases between | Nine in ten under |
 |---|---|---|---|
 | Waiting for Review, until In Review | 19.6 h | 15 and 50 h | 93 h |
 | In Review, until a decision | 36 min | 6 min and 2.2 h | 22 h |
 | Submit to decision | 24.4 h | 18 and 66 h | 143 h |
+
+![Histogram of time in the App Store review queue for 61 submissions, most between 12 and 24 hours](../../../assets/blog/review-time/queue-en.png)
 
 Twenty-seven of the 61 decisions came in less than 24 hours after submitting, and 41 in less than 48. The fastest approval took 1 hour 10 minutes from submit to done. The slowest wait in the queue was 13 days.
 
@@ -61,7 +65,7 @@ Every rejection in this set taught me one rule:
 
 The first one of these, a Mac webcam app, took 14 and a half days and four rejections from first submit to the store. I wrote that one up in detail: [Four App Review rejections in 15 days](/blog/mac-app-review-four-rejections/). Its later updates took less than two days, and the last one 15 hours 52 minutes.
 
-## iPhone and Mac
+## iOS app review time vs the Mac App Store
 
 | Platform | Submissions | Median queue |
 |---|---|---|
@@ -74,11 +78,7 @@ The Mac queue was slightly slower. The bigger difference is that the two are sep
 
 It did not look like it from here. Median time in the queue by month:
 
-| Month | Submissions | Median queue |
-|---|---|---|
-| July 2026 | 9 | 32 h |
-| August 2026 | 14 | 40 h |
-| September 2026 | 35 | 18 h |
+![Median App Store review queue by month in 2026: July 32 hours, August 40 hours, September 18 hours](../../../assets/blog/review-time/months-en.png)
 
 September was the fastest month of the year so far. August was the slowest, which fits the usual pre-release rush before a new iOS.
 
@@ -88,11 +88,11 @@ In Review started on a Monday 22 times out of 61, more than any other day. Most 
 
 Most reviews started between 13:00 and 19:00 Berlin time, which is early morning in California.
 
-## How to request an expedited review
+## How to request an expedited app review
 
 I asked for it once, on 14 September, after the third rejection of the webcam app. Things I did not expect:
 
-1. The request is a form on developer.apple.com, under Contact, topic "Request an expedited app review".
+1. The request is not in App Store Connect itself. It is a form on developer.apple.com, under Contact, topic "Request an expedited app review". People search for an "App Store Connect expedited review" button, and there is none.
 2. In 2026 the form asks only for the app name and the platform. There is no field for the reason.
 3. It was granted the same day.
 4. It carried over. When the app was rejected again, the resubmission went back into the expedited queue without a new request, and Apple's reply said so.
@@ -129,6 +129,14 @@ Almost certainly because it is in the queue. A day is normal, two days is common
 ### How do I request an expedited App Store review?
 
 Through the contact form on developer.apple.com, topic "Request an expedited app review". In 2026 it asks only for the app name and platform. Mine was granted the same day and stayed in force after a rejection.
+
+### What is the average Apple app review time?
+
+In this sample the average is skewed by a few long waits, so the median is the honest number: about 20 hours in the queue and 36 minutes of review. Apple itself says most submissions are reviewed within a day, and my data agrees for updates.
+
+### What is the App Store approval time for an update?
+
+Updates without new features or new purchases were approved fastest, from about an hour to a day. First versions took days to weeks, almost always because of a rejection.
 
 ### Does a rejection make the next review faster?
 

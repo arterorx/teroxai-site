@@ -7,17 +7,21 @@ translationOf: app-store-review-time-2026
 cover: review-time
 ---
 
-Kurze Antwort, aus meinen eigenen Einreichungen zwischen April und September 2026: Eine App wartet etwa 20 Stunden in der Warteschlange, danach dauert das eigentliche Review etwa 36 Minuten. Die Hälfte aller Entscheidungen kam innerhalb eines Tages nach dem Einreichen. Erste Versionen dauern länger, und der Grund sind Ablehnungen, nicht die Warteschlange.
+Kurze Antwort zur Dauer des App-Store-Reviews, aus meinen eigenen Einreichungen zwischen April und September 2026: Eine App wartet etwa 20 Stunden in der Warteschlange, danach dauert das eigentliche Review etwa 36 Minuten. Die Hälfte aller Entscheidungen kam innerhalb eines Tages nach dem Einreichen. Erste Versionen dauern länger, und der Grund sind Ablehnungen, nicht die Warteschlange.
 
 Ich veröffentliche acht Apps für iPhone und Mac, und jede Statusänderung schickt eine Mail aus App Store Connect. Ich habe alle durchgesehen: 91 Einreichungen, bei 61 davon sind Beginn des Reviews und Entscheidung dokumentiert. Das sagen sie.
 
-## Die Zahlen
+![Zeitachse einer Median-Einreichung im App Store: 19,6 Stunden Warteschlange, dann 36 Minuten Review](../../../assets/blog/review-time/anatomy-de.png)
+
+## App-Store-Review-Dauer 2026: die Zahlen
 
 | Schritt | Median | Hälfte der Fälle zwischen | Neun von zehn unter |
 |---|---|---|---|
 | Waiting for Review bis In Review | 19,6 h | 15 und 50 h | 93 h |
 | In Review bis zur Entscheidung | 36 min | 6 min und 2,2 h | 22 h |
 | Einreichen bis Entscheidung | 24,4 h | 18 und 66 h | 143 h |
+
+![Verteilung der Wartezeit im App-Store-Review bei 61 Einreichungen, die meisten zwischen 12 und 24 Stunden](../../../assets/blog/review-time/queue-de.png)
 
 27 der 61 Entscheidungen kamen weniger als 24 Stunden nach dem Einreichen, 41 in weniger als 48. Die schnellste Freigabe dauerte 1 Stunde 10 Minuten vom Einreichen bis zum Ergebnis. Die längste Wartezeit in der Schlange waren 13 Tage.
 
@@ -61,7 +65,7 @@ Jede Ablehnung in diesem Datensatz hat mir eine Regel beigebracht:
 
 Die erste davon, eine Webcam-App für den Mac, brauchte vom ersten Einreichen bis in den Store 14 einhalb Tage und vier Ablehnungen. Die Geschichte steht ausführlich hier: [Vier Ablehnungen im App Review in 15 Tagen](/de/blog/mac-app-review-vier-ablehnungen/). Ihre späteren Updates brauchten weniger als zwei Tage, das letzte 15 Stunden 52 Minuten.
 
-## iPhone und Mac
+## Review-Dauer bei iOS und im Mac App Store
 
 | Plattform | Einreichungen | Median Warteschlange |
 |---|---|---|
@@ -74,11 +78,7 @@ Die Mac-Schlange war etwas langsamer. Der größere Unterschied: Beides sind get
 
 Von hier aus sah es nicht so aus. Median der Wartezeit nach Monat:
 
-| Monat | Einreichungen | Median Warteschlange |
-|---|---|---|
-| Juli 2026 | 9 | 32 h |
-| August 2026 | 14 | 40 h |
-| September 2026 | 35 | 18 h |
+![Median der Warteschlange im App-Store-Review nach Monat 2026: Juli 32, August 40, September 18 Stunden](../../../assets/blog/review-time/months-de.png)
 
 Der September war bisher der schnellste Monat des Jahres. Der August der langsamste, was zum üblichen Andrang vor einem neuen iOS passt.
 
@@ -88,11 +88,11 @@ In Review begann 22 von 61 Mal an einem Montag, öfter als an jedem anderen Tag.
 
 Die meisten Reviews begannen zwischen 13 und 19 Uhr Berliner Zeit, das ist früher Morgen in Kalifornien.
 
-## So beantragst du ein beschleunigtes Review
+## So beantragst du ein beschleunigtes App-Review
 
 Ich habe es einmal beantragt, am 14. September, nach der dritten Ablehnung der Webcam-App. Was ich nicht erwartet hatte:
 
-1. Der Antrag ist ein Formular auf developer.apple.com unter Contact, Thema „Request an expedited app review“.
+1. Der Antrag steckt nicht in App Store Connect selbst. Er ist ein Formular auf developer.apple.com unter Contact, Thema „Request an expedited app review“. Viele suchen einen Knopf für beschleunigtes Review in App Store Connect, den gibt es nicht.
 2. 2026 fragt das Formular nur nach App-Name und Plattform. Es gibt kein Feld für den Grund.
 3. Es wurde am selben Tag gewährt.
 4. Es wurde übertragen. Als die App erneut abgelehnt wurde, ging die Wiedereinreichung ohne neuen Antrag zurück in die beschleunigte Schlange, und Apples Antwort sagte das auch.
@@ -129,6 +129,14 @@ Fast sicher, weil sie in der Warteschlange steht. Ein Tag ist normal, zwei Tage 
 ### Wie beantrage ich ein beschleunigtes App-Store-Review?
 
 Über das Kontaktformular auf developer.apple.com, Thema „Request an expedited app review“. 2026 fragt es nur nach App-Name und Plattform. Meines wurde am selben Tag gewährt und galt auch nach einer Ablehnung weiter.
+
+### Wie lange dauert ein App-Review im Durchschnitt?
+
+In dieser Stichprobe verzerren ein paar lange Wartezeiten den Durchschnitt, deshalb ist der Median die ehrliche Zahl: etwa 20 Stunden Warteschlange und 36 Minuten Review. Apple sagt selbst, dass die meisten Einreichungen innerhalb eines Tages geprüft werden, und für Updates stimmen meine Daten damit überein.
+
+### Wie lange dauert die Freigabe eines Updates?
+
+Updates ohne neue Funktionen und ohne neue Käufe wurden am schnellsten freigegeben, in einer Stunde bis zu einem Tag. Erste Versionen brauchten Tage bis Wochen, fast immer wegen einer Ablehnung.
 
 ### Macht eine Ablehnung das nächste Review schneller?
 

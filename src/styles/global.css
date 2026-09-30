@@ -175,16 +175,49 @@ p {
   margin-bottom: 0.35em;
 }
 .prose table {
-  border-collapse: collapse;
   width: 100%;
+  margin: 1.75em 0;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 0.95rem;
-  margin: 1.5em 0;
+  font-variant-numeric: tabular-nums;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+.prose thead th:first-child {
+  border-top-left-radius: var(--radius);
+}
+.prose thead th:last-child {
+  border-top-right-radius: var(--radius);
+}
+.prose thead th {
+  background: var(--card);
+  color: var(--ink-3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
 }
 .prose th,
 .prose td {
   text-align: left;
-  padding: 0.5rem 0.6rem;
+  padding: 0.75rem 1rem;
+  vertical-align: top;
+}
+.prose tbody td {
   border-bottom: 1px solid var(--rule);
+}
+.prose tbody tr:last-child td {
+  border-bottom: 0;
+}
+.prose tbody tr:nth-child(even) td {
+  background: #fbfbfc;
+}
+.prose tbody td:first-child {
+  font-weight: 600;
+  color: var(--ink);
 }
 .prose blockquote {
   margin: 1.5em 0;
@@ -228,7 +261,11 @@ p {
   .prose table {
     display: block;
     overflow-x: auto;
-    white-space: nowrap;
+    font-size: 0.875rem;
+  }
+  .prose th,
+  .prose td {
+    padding: 0.6rem 0.75rem;
   }
 }
 

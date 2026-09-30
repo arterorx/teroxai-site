@@ -256,11 +256,9 @@ p {
   color: #f2f2f4;
   overflow-wrap: normal;
 }
-/* Wide tables scroll inside themselves on a phone. */
+/* Tables stay full width on a phone; text wraps inside the cells. */
 @media (max-width: 640px) {
   .prose table {
-    display: block;
-    overflow-x: auto;
     font-size: 0.875rem;
   }
   .prose th,

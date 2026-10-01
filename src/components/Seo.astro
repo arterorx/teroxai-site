@@ -41,7 +41,17 @@ const ogImageUrl = new URL(ogImage, Astro.site);
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
-{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+{
+  noindex ? (
+    <meta name="robots" content="noindex" />
+  ) : (
+    <>
+      {/* Lets Google show a large image preview and a full-length snippet, in results, Discover and AI answers. */}
+      <meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <link rel="canonical" href={canonical} />
+    </>
+  )
+}
 {
   showAlternates &&
     alternates.map((a) => (

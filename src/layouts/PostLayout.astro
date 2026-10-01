@@ -12,11 +12,17 @@ interface Props {
   slug: string;
   alternates: Alternate[];
   cover?: string;
+  updated?: Date;
 }
-const { title, description, date, lang, slug, alternates, cover }: Props = Astro.props;
+const { title, description, date, lang, slug, alternates, cover, updated }: Props = Astro.props;
 const coverPath = cover ? `/og/blog/${cover}.png` : undefined;
 const ui = t(lang);
 const iso = date.toISOString().slice(0, 10);
+const isoUpdated = (updated ?? date).toISOString().slice(0, 10);
+/* Google asks for the article image in 16:9, 4:3 and 1:1. */
+const images = cover
+  ? ['16x9', '4x3', '1x1'].map((r) => `${SITE_URL}/og/blog/${cover}-${r}.png`)
+  : [`${SITE_URL}/og/default.png`];
 const jsonLd = [
   {
     '@context': 'https://schema.org',
@@ -24,11 +30,12 @@ const jsonLd = [
     headline: title,
     description,
     datePublished: iso,
+    dateModified: isoUpdated,
     inLanguage: lang,
     url: `${SITE_URL}${localePath(lang, `blog/${slug}`)}`,
     mainEntityOfPage: `${SITE_URL}${localePath(lang, `blog/${slug}`)}`,
-    image: `${SITE_URL}${coverPath ?? '/og/default.png'}`,
-    author: { '@id': `${SITE_URL}/#person` },
+    image: images,
+    author: { '@type': 'Person', '@id': `${SITE_URL}/#person`, name: OWNER, url: `${SITE_URL}/about/` },
     publisher: { '@id': `${SITE_URL}/#org` },
   },
   {
@@ -45,7 +52,14 @@ const jsonLd = [
 
 <BaseLayout title={title} description={description} type="article" lang={lang} alternates={alternates} jsonLd={jsonLd} ogImage={coverPath}>
   <article class="wrap section prose">
-    <p class="muted"><time datetime={iso}>{formatDate(iso, lang)}</time> · {OWNER}</p>
+    <p class="muted">
+      <time datetime={iso}>{formatDate(iso, lang)}</time> · {OWNER}
+      {updated && (
+        <>
+          {' '}· {ui.updated} <time datetime={isoUpdated}>{formatDate(isoUpdated, lang)}</time>
+        </>
+      )}
+    </p>
     <h1>{title}</h1>
     {coverPath && <img class="cover" src={coverPath} alt="" width="1200" height="630" fetchpriority="high" />}
     <div class="post">

@@ -17,12 +17,12 @@ const groups: { key: PlatformKey; title: string }[] = [
   { key: 'ios', title: ui.platforms.ios },
 ];
 const copy = {
-  en: { title: 'All apps', description: 'Every app by TeroxAI for Mac, iPhone and iPad, grouped by platform.' },
-  de: { title: 'Alle Apps', description: 'Alle Apps von TeroxAI für Mac, iPhone und iPad, nach Plattform sortiert.' },
+  en: { title: 'All apps', metaTitle: 'Apps for Mac, iPhone and iPad', description: 'Every app by TeroxAI for Mac, iPhone and iPad, grouped by platform.' },
+  de: { title: 'Alle Apps', metaTitle: 'Apps für Mac, iPhone und iPad', description: 'Alle Apps von TeroxAI für Mac, iPhone und iPad, nach Plattform sortiert.' },
 }[lang];
 ---
 
-<BaseLayout title={copy.title} description={copy.description} lang={lang} alternates={clusterFor('apps')}>
+<BaseLayout title={copy.metaTitle} description={copy.description} lang={lang} alternates={clusterFor('apps')}>
   <section class="wrap section">
     <h1>{copy.title}</h1>
     {

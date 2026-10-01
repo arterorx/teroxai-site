@@ -24,14 +24,19 @@ const MARK = `<g transform="translate(80,506)">
 <text x="160" y="533" font-family="${SANS}" font-weight="700" font-size="26" fill="#fff">TeroxAI</text>
 <text x="160" y="562" font-family="${SANS}" font-size="20" fill="#9a9aa2">teroxai.com/blog</text>`;
 
-const frame = (kicker, titleLines, visual) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
+/* `h` is the canvas height. The 630 px layout is centred vertically on taller
+   canvases, so one design serves the share card and the three ratios Google
+   asks for in Article markup (16:9, 4:3, 1:1). */
+const frame = (kicker, titleLines, visual, h = H) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${h}">
   <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C8894F"/><stop offset="1" stop-color="#7C5CFF"/></linearGradient></defs>
-  <rect width="${W}" height="${H}" fill="#111114"/>
+  <rect width="${W}" height="${h}" fill="#111114"/>
   <rect width="${W}" height="8" fill="url(#g)"/>
+  <g transform="translate(0,${Math.round((h - H) / 2)})">
   <text x="80" y="118" font-family="${SANS}" font-weight="600" font-size="22" fill="#9a9aa2" letter-spacing="3">${esc(kicker)}</text>
   ${titleLines.map((l, i) => `<text x="80" y="${200 + i * 66}" font-family="${SERIF}" font-size="56" fill="#fff">${esc(l)}</text>`).join('')}
   ${visual}
   ${MARK}
+  </g>
 </svg>`;
 
 /* ASO: two bars, Vietnam vs US, positions for the head query. */
@@ -107,7 +112,11 @@ const covers = [
   { id: 'money', kicker: 'TWO YEARS OF SHIPPING SOLO', title: ['Seven apps: what', 'made money and', 'what did not'], visual: moneyVisual },
 ];
 
+const RATIOS = { '16x9': 675, '4x3': 900, '1x1': 1200 };
 for (const c of covers) {
   await sharp(Buffer.from(frame(c.kicker, c.title, c.visual))).png().toFile(`${OUT}${c.id}.png`);
+  for (const [name, h] of Object.entries(RATIOS)) {
+    await sharp(Buffer.from(frame(c.kicker, c.title, c.visual, h))).png().toFile(`${OUT}${c.id}-${name}.png`);
+  }
 }
 console.log(`covers: ${covers.map((c) => c.id).join(', ')}`);

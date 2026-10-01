@@ -8,6 +8,8 @@ const blog = defineCollection({
     title: z.string().max(70),
     description: z.string().max(155),
     date: z.coerce.date(),
+    /** Set when a post is revised; becomes dateModified and the visible "Updated" line. */
+    updated: z.coerce.date().optional(),
     lang: z.enum(['en', 'de']),
     translationOf: z.string().optional(),
     /** Cover id shared by a translation pair: public/og/blog/<cover>.png, made by scripts/covers.mjs. */

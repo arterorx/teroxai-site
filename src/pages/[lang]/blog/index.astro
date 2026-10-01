@@ -9,7 +9,7 @@ export function getStaticPaths() {
 const { lang } = Astro.props;
 ---
 
-<BaseLayout title="Blog" description="Notizen übers Bauen und Verkaufen von Apps, allein, mit KI-Agenten, die das meiste tippen." lang={lang} alternates={clusterFor('blog')}>
+<BaseLayout title="Blog: Apps allein bauen und verkaufen" description="Notizen übers Bauen und Verkaufen von Apps, allein, mit KI-Agenten, die das meiste tippen." lang={lang} alternates={clusterFor('blog')}>
   <section class="wrap section">
     <h1>Blog</h1>
     <PostList lang={lang} />

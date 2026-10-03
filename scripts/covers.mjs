@@ -104,9 +104,25 @@ const reviewTimeVisual = (() => {
   </g>`;
 })();
 
+
+/* Postklar: deadlines found, on-device vs cloud. */
+const postklarVisual = `
+  <g transform="translate(760,120)">
+    <text x="0" y="0" font-family="${SANS}" font-size="20" fill="#9a9aa2">DEADLINES FOUND, 50 LETTERS</text>
+    <text x="0" y="60" font-family="${SANS}" font-weight="600" font-size="26" fill="#fff">On the iPhone</text>
+    <rect x="0" y="76" width="340" height="18" rx="9" fill="#26262b"/>
+    <rect x="0" y="76" width="136" height="18" rx="9" fill="#4a4a52"/>
+    <text x="0" y="128" font-family="${SANS}" font-size="22" fill="#c9c9d1">40 %</text>
+    <text x="0" y="200" font-family="${SANS}" font-weight="600" font-size="26" fill="#fff">In the cloud</text>
+    <rect x="0" y="216" width="340" height="18" rx="9" fill="#26262b"/>
+    <rect x="0" y="216" width="296" height="18" rx="9" fill="url(#g)"/>
+    <text x="0" y="268" font-family="${SANS}" font-size="22" fill="#c9c9d1">87 %</text>
+  </g>`;
+
 const covers = [
   { id: 'aso', kicker: 'APP STORE OPTIMIZATION', title: ['App Store keywords:', 'what moved rankings', 'and what did not'], visual: asoVisual },
   { id: 'app-review', kicker: 'MAC APP STORE · APP REVIEW', title: ['Four rejections', 'in 15 days: a Mac app', 'post-mortem'], visual: reviewVisual },
+  { id: 'postklar', kicker: 'BUILDING AN AI APP', title: ['The model understands,', 'the code counts'], visual: postklarVisual },
   { id: 'review-time', kicker: 'APP STORE CONNECT, 2026', title: ['How long App Store', 'review takes: 91', 'submissions measured'], visual: reviewTimeVisual },
   { id: 'app-site', kicker: 'ONE MAC APP, ONE WEBSITE', title: ['One evening of', 'website: what it did', 'for a small Mac app'], visual: siteVisual },
   { id: 'money', kicker: 'TWO YEARS OF SHIPPING SOLO', title: ['Seven apps: what', 'made money and', 'what did not'], visual: moneyVisual },

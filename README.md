@@ -1,6 +1,6 @@
 # teroxai.com
 
-The source of [teroxai.com](https://teroxai.com), the site of Armen Ter-Oganezov: eight App Store apps, a blog in English and German, and an about page. Astro 7, static output, no framework on the client, about 1 KB of own JavaScript. Deployed to Cloudflare Pages.
+The source of [teroxai.com](https://teroxai.com), the site of Armen Ter-Oganezov: nine App Store apps, a blog in English and German, and an about page. Astro 7, static output, no framework on the client, about 1 KB of own JavaScript. Deployed to Cloudflare Pages.
 
 Shared so people can read how it is built. The texts, images, brand and app data in this repository are not licensed for reuse; the code is fine to learn from.
 

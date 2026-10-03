@@ -20,7 +20,7 @@
       "version": "1.1",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-19"
+      "fetchedAt": "2026-10-03"
     },
     "accent": "#C8894F",
     "en": {
@@ -142,10 +142,10 @@
     "store": {
       "rating": null,
       "ratingCount": 0,
-      "version": "1.0",
+      "version": "1.0.2",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-19"
+      "fetchedAt": "2026-10-03"
     },
     "accent": "#F5A847",
     "en": {
@@ -251,10 +251,10 @@
     "store": {
       "rating": null,
       "ratingCount": 0,
-      "version": "4.4",
+      "version": "4.6",
       "price": 2.99,
       "currency": "USD",
-      "fetchedAt": "2026-09-19"
+      "fetchedAt": "2026-10-03"
     },
     "accent": "#6C4FB8",
     "en": {
@@ -370,10 +370,10 @@
     "store": {
       "rating": null,
       "ratingCount": 0,
-      "version": "1.3",
+      "version": "1.5",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-19"
+      "fetchedAt": "2026-10-03"
     },
     "accent": "#1F3A8A",
     "shotOrder": [
@@ -494,10 +494,10 @@
     "store": {
       "rating": null,
       "ratingCount": 0,
-      "version": "1.1",
+      "version": "1.2.1",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-19"
+      "fetchedAt": "2026-10-03"
     },
     "accent": "#D8703A",
     "shotOrder": [
@@ -601,10 +601,152 @@
     }
   },
   {
+    "slug": "postklar",
+    "appId": "6816644992",
+    "bundleId": "app.postklar.Postklar",
+    "order": 6,
+    "status": "live",
+    "platforms": [
+      "ios",
+      "ipados"
+    ],
+    "priceModel": "subscription",
+    "site": "https://postklar-app.web.app",
+    "privacy": "https://postklar-app.web.app/en/privacy",
+    "support": "https://postklar-app.web.app/en/support",
+    "store": {
+      "rating": null,
+      "ratingCount": 0,
+      "version": "1.0",
+      "price": 0,
+      "currency": "USD",
+      "fetchedAt": "2026-10-03"
+    },
+    "accent": "#35568F",
+    "en": {
+      "name": "Letter Explainer: Postklar",
+      "subtitle": "",
+      "tagline": "German official letters, explained in your language",
+      "priceLabel": "3 letters free, then Pro or a pack of 5",
+      "intro": "Postklar explains letters from German authorities in plain words. Take a photo of the letter or open a PDF, and you see what it says, what you have to do, by when and how much. Explanations come in eight languages.",
+      "features": [
+        {
+          "title": "Two or three plain sentences",
+          "text": "Postklar reads the letter and tells you what it is about, without the official wording."
+        },
+        {
+          "title": "Deadlines in your calendar",
+          "text": "It finds the deadline, even the one hidden in the legal notice at the end, and adds it to your calendar."
+        },
+        {
+          "title": "Every number checked",
+          "text": "Amounts, IBANs and reference numbers are compared with the letter and copied with one tap. Anything uncertain is flagged."
+        },
+        {
+          "title": "Ask and answer",
+          "text": "Ask what happens if you do not pay, or draft a reply: an objection, a payment plan, a request for more time."
+        },
+        {
+          "title": "A filing cabinet that sorts itself",
+          "text": "Each letter is filed by sender: tax office, job centre, health insurer, landlord. Searchable and synced with iCloud."
+        },
+        {
+          "title": "Private by default",
+          "text": "Letters are not stored on our servers and not used for AI training. Private mode analyses on the iPhone only. No account."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Which letters does Postklar explain?",
+          "a": "Letters from German authorities and offices: the tax office (Finanzamt), the job centre, health insurers, the broadcasting fee (Rundfunkbeitrag), landlords and similar senders. You photograph the letter or open a PDF."
+        },
+        {
+          "q": "Which languages are the explanations in?",
+          "a": "English, German, Russian, Ukrainian, Arabic, Turkish, Polish and Spanish. The letter stays German, the explanation comes in the language you pick."
+        },
+        {
+          "q": "Does it find the deadline?",
+          "a": "Yes. Postklar looks for the deadline in the letter, including the legal notice at the end (Rechtsbehelfsbelehrung), and can add it to your calendar."
+        },
+        {
+          "q": "Is it legal advice?",
+          "a": "No. Postklar explains letters, it does not replace legal advice. When a letter looks like one you should not handle alone, it says so and links to free advice services."
+        },
+        {
+          "q": "What happens to my letters?",
+          "a": "They are not stored on our servers and not used to train AI. In private mode the analysis runs only on your iPhone. There is no account and no email needed."
+        },
+        {
+          "q": "What does it cost?",
+          "a": "Three letters are free. After that there is Postklar Pro, monthly or yearly, shared with up to six family members, or a pack of five letters."
+        }
+      ]
+    },
+    "de": {
+      "name": "Behördenpost erklärt: Postklar",
+      "subtitle": "",
+      "tagline": "Post vom Amt, erklärt in deiner Sprache",
+      "priceLabel": "3 Briefe kostenlos, danach Pro oder 5er-Paket",
+      "intro": "Postklar erklärt Briefe von deutschen Behörden in einfachen Worten. Brief fotografieren oder PDF öffnen, und du siehst, was drinsteht, was du tun musst, bis wann und wie viel. Die Erklärungen gibt es in acht Sprachen.",
+      "features": [
+        {
+          "title": "Zwei, drei einfache Sätze",
+          "text": "Postklar liest den Brief und sagt dir, worum es geht, ohne Amtsdeutsch."
+        },
+        {
+          "title": "Fristen im Kalender",
+          "text": "Die Frist wird gefunden, auch die in der Rechtsbehelfsbelehrung am Ende, und in deinen Kalender eingetragen."
+        },
+        {
+          "title": "Jede Zahl abgeglichen",
+          "text": "Beträge, IBAN und Aktenzeichen werden mit dem Brief verglichen und mit einem Tipp kopiert. Unsicheres wird markiert."
+        },
+        {
+          "title": "Fragen und antworten",
+          "text": "Frag, was passiert, wenn du nicht zahlst, oder entwirf eine Antwort: Widerspruch, Ratenzahlung, Fristverlängerung."
+        },
+        {
+          "title": "Ein Ordner, der sich selbst sortiert",
+          "text": "Jeder Brief landet beim richtigen Absender: Finanzamt, Jobcenter, Krankenkasse, Vermieter. Durchsuchbar und per iCloud synchron."
+        },
+        {
+          "title": "Privat von Haus aus",
+          "text": "Briefe werden nicht auf unseren Servern gespeichert und nicht zum KI-Training genutzt. Im privaten Modus läuft alles nur auf dem iPhone. Kein Konto."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Welche Briefe erklärt Postklar?",
+          "a": "Briefe von Behörden und Ämtern: Finanzamt, Jobcenter, Krankenkasse, Rundfunkbeitrag, Vermieter und ähnliche Absender. Du fotografierst den Brief oder öffnest ein PDF."
+        },
+        {
+          "q": "In welchen Sprachen gibt es die Erklärungen?",
+          "a": "Deutsch, Englisch, Russisch, Ukrainisch, Arabisch, Türkisch, Polnisch und Spanisch. Der Brief bleibt deutsch, die Erklärung kommt in der Sprache, die du wählst."
+        },
+        {
+          "q": "Findet die App die Frist?",
+          "a": "Ja. Postklar sucht die Frist im Brief, auch in der Rechtsbehelfsbelehrung am Ende, und kann sie in deinen Kalender eintragen."
+        },
+        {
+          "q": "Ist das eine Rechtsberatung?",
+          "a": "Nein. Postklar erklärt Briefe und ersetzt keine Rechtsberatung. Wenn ein Brief so aussieht, dass du ihn nicht allein klären solltest, sagt die App das und verlinkt kostenlose Beratungsstellen."
+        },
+        {
+          "q": "Was passiert mit meinen Briefen?",
+          "a": "Sie werden nicht auf unseren Servern gespeichert und nicht zum Training von KI verwendet. Im privaten Modus läuft die Auswertung nur auf deinem iPhone. Kein Konto, keine E-Mail nötig."
+        },
+        {
+          "q": "Was kostet es?",
+          "a": "Drei Briefe sind kostenlos. Danach gibt es Postklar Pro, monatlich oder jährlich, für bis zu sechs Familienmitglieder, oder ein Paket mit fünf Briefen."
+        }
+      ]
+    }
+  },
+  {
     "slug": "ai-photo-generator",
     "appId": "6503450897",
     "bundleId": "com.web54.images.generatorai",
-    "order": 6,
+    "order": 7,
     "status": "live",
     "platforms": [
       "ios",
@@ -617,10 +759,10 @@
     "store": {
       "rating": 4.4,
       "ratingCount": 75,
-      "version": "5.1.0",
+      "version": "5.2.1",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-19"
+      "fetchedAt": "2026-10-03"
     },
     "accent": "#7C5CFF",
     "en": {
@@ -678,7 +820,7 @@
     "slug": "ai-video-generator",
     "appId": "6504455552",
     "bundleId": "com.aivideogenerator.texttovideo.aivideomaker",
-    "order": 7,
+    "order": 8,
     "status": "live",
     "platforms": [
       "ios",
@@ -689,12 +831,12 @@
     "privacy": null,
     "support": null,
     "store": {
-      "rating": 5,
-      "ratingCount": 3,
-      "version": "1.6.3",
+      "rating": 4.5,
+      "ratingCount": 13,
+      "version": "1.6.4",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-19"
+      "fetchedAt": "2026-10-03"
     },
     "accent": "#2E6BFF",
     "en": {
@@ -752,7 +894,7 @@
     "slug": "text-to-music",
     "appId": "6740177765",
     "bundleId": "com.musicai.musicgenerator.suno.ai",
-    "order": 8,
+    "order": 9,
     "status": "live",
     "platforms": [
       "ios",
@@ -763,12 +905,12 @@
     "privacy": null,
     "support": null,
     "store": {
-      "rating": null,
-      "ratingCount": 0,
-      "version": "2.0.4",
+      "rating": 5,
+      "ratingCount": 1,
+      "version": "2.0.5",
       "price": 0,
       "currency": "USD",
-      "fetchedAt": "2026-09-19"
+      "fetchedAt": "2026-10-03"
     },
     "accent": "#8A2CA4",
     "shotOrder": [

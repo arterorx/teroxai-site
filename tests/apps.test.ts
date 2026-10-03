@@ -3,11 +3,11 @@ import assert from 'node:assert/strict';
 import { APPS, liveApps, appBySlug, storeUrl, platformKey, hostedApps, subtitleOf, privacyUrl, supportUrl } from '../src/lib/apps.ts';
 import { contrast, linkColor } from '../src/lib/color.ts';
 
-test('eight apps, unique slugs and ids, ordered by the order field', () => {
-  assert.equal(APPS.length, 8);
-  assert.equal(new Set(APPS.map((a) => a.slug)).size, 8);
-  assert.equal(new Set(APPS.map((a) => a.appId)).size, 8);
-  assert.deepEqual(APPS.map((a) => a.order), [1, 2, 3, 4, 5, 6, 7, 8]);
+test('unique slugs and ids, ordered by the order field with no gaps', () => {
+  assert.ok(APPS.length >= 9);
+  assert.equal(new Set(APPS.map((a) => a.slug)).size, APPS.length);
+  assert.equal(new Set(APPS.map((a) => a.appId)).size, APPS.length);
+  assert.deepEqual(APPS.map((a) => a.order), APPS.map((_, i) => i + 1));
 });
 
 test('live apps exclude anything still in review', () => {

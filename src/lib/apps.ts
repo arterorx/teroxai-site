@@ -3,7 +3,7 @@ import type { Locale } from '../i18n/config';
 
 export type Platform = 'ios' | 'ipados' | 'macos';
 export type PlatformKey = 'ios' | 'macos' | 'both';
-export type PriceModel = 'paid' | 'one-time' | 'free-pro' | 'coins';
+export type PriceModel = 'paid' | 'one-time' | 'free-pro' | 'coins' | 'subscription';
 
 export interface Feature {
   title: string;
@@ -44,7 +44,7 @@ export interface App {
 }
 
 const STATUSES: App['status'][] = ['live', 'review'];
-const PRICE_MODELS: PriceModel[] = ['paid', 'one-time', 'free-pro', 'coins'];
+const PRICE_MODELS: PriceModel[] = ['paid', 'one-time', 'free-pro', 'coins', 'subscription'];
 const PLATFORMS: Platform[] = ['ios', 'ipados', 'macos'];
 
 const validate = (list: unknown): App[] => {

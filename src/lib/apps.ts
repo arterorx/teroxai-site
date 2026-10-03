@@ -101,6 +101,10 @@ export const platformKey = (platforms: Platform[]): PlatformKey => {
   return mac && ios ? 'both' : mac ? 'macos' : 'ios';
 };
 
+/** Label key for display: an app listed for iPhone alone says so. */
+export const platformLabelKey = (platforms: Platform[]): PlatformKey | 'iphone' =>
+  platforms.length === 1 && platforms[0] === 'ios' ? 'iphone' : platformKey(platforms);
+
 export const copy = (app: App, lang: Locale): AppCopy => app[lang];
 /** Subtitle from ASC when present, tagline otherwise. */
 export const subtitleOf = (app: App, lang: Locale): string => app[lang].subtitle || app[lang].tagline;

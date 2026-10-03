@@ -607,8 +607,7 @@
     "order": 6,
     "status": "live",
     "platforms": [
-      "ios",
-      "ipados"
+      "ios"
     ],
     "priceModel": "subscription",
     "site": "https://postklar.com",
@@ -628,7 +627,7 @@
       "subtitle": "",
       "tagline": "German official letters, explained in your language",
       "priceLabel": "3 letters free, then Pro or a pack of 5",
-      "intro": "Postklar explains letters from German authorities in plain words. Take a photo of the letter or open a PDF, and you see what it says, what you have to do, by when and how much. Explanations come in eight languages.",
+      "intro": "Postklar explains letters from German authorities in plain words. Take a photo of the letter or open a PDF, and you see what it says, what you have to do, by when and how much. Explanations come in seven languages.",
       "features": [
         {
           "title": "Two or three plain sentences",
@@ -662,7 +661,7 @@
         },
         {
           "q": "Which languages are the explanations in?",
-          "a": "English, German, Russian, Ukrainian, Arabic, Turkish, Polish and Spanish. The letter stays German, the explanation comes in the language you pick."
+          "a": "German, English, Russian, Ukrainian, Turkish, Polish and Arabic. The letter stays German, the explanation comes in the language you pick."
         },
         {
           "q": "Does it find the deadline?",
@@ -687,7 +686,7 @@
       "subtitle": "",
       "tagline": "Post vom Amt, erklärt in deiner Sprache",
       "priceLabel": "3 Briefe kostenlos, danach Pro oder 5er-Paket",
-      "intro": "Postklar erklärt Briefe von deutschen Behörden in einfachen Worten. Brief fotografieren oder PDF öffnen, und du siehst, was drinsteht, was du tun musst, bis wann und wie viel. Die Erklärungen gibt es in acht Sprachen.",
+      "intro": "Postklar erklärt Briefe von deutschen Behörden in einfachen Worten. Brief fotografieren oder PDF öffnen, und du siehst, was drinsteht, was du tun musst, bis wann und wie viel. Die Erklärungen gibt es in sieben Sprachen.",
       "features": [
         {
           "title": "Zwei, drei einfache Sätze",
@@ -721,7 +720,7 @@
         },
         {
           "q": "In welchen Sprachen gibt es die Erklärungen?",
-          "a": "Deutsch, Englisch, Russisch, Ukrainisch, Arabisch, Türkisch, Polnisch und Spanisch. Der Brief bleibt deutsch, die Erklärung kommt in der Sprache, die du wählst."
+          "a": "Deutsch, Englisch, Russisch, Ukrainisch, Türkisch, Polnisch und Arabisch. Der Brief bleibt deutsch, die Erklärung kommt in der Sprache, die du wählst."
         },
         {
           "q": "Findet die App die Frist?",

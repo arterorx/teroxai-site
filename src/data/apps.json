@@ -611,9 +611,9 @@
       "ipados"
     ],
     "priceModel": "subscription",
-    "site": "https://postklar-app.web.app",
-    "privacy": "https://postklar-app.web.app/en/privacy",
-    "support": "https://postklar-app.web.app/en/support",
+    "site": "https://postklar.com",
+    "privacy": "https://postklar.com/en/privacy",
+    "support": "https://postklar.com/en/support",
     "store": {
       "rating": null,
       "ratingCount": 0,

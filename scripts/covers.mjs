@@ -119,7 +119,20 @@ const postklarVisual = `
     <text x="0" y="268" font-family="${SANS}" font-size="22" fill="#c9c9d1">87 %</text>
   </g>`;
 
+/* Creative assets: the two new shapes with their pixel sizes. */
+const creativeVisual = `
+  <g transform="translate(760,110)">
+    <text x="0" y="0" font-family="${SANS}" font-size="20" fill="#9a9aa2">NEW SINCE 5 OCTOBER 2026</text>
+    <rect x="0" y="28" width="340" height="146" rx="14" fill="url(#g)"/>
+    <text x="170" y="96" text-anchor="middle" font-family="${SANS}" font-weight="700" font-size="28" fill="#fff">3840 × 1646</text>
+    <text x="170" y="128" text-anchor="middle" font-family="${SANS}" font-size="20" fill="#fff">page header</text>
+    <rect x="0" y="194" width="300" height="200" rx="14" fill="#26262b" stroke="#4a4a52" stroke-width="2"/>
+    <text x="150" y="288" text-anchor="middle" font-family="${SANS}" font-weight="700" font-size="28" fill="#fff">3840 × 2560</text>
+    <text x="150" y="320" text-anchor="middle" font-family="${SANS}" font-size="20" fill="#c9c9d1">search results</text>
+  </g>`;
+
 const covers = [
+  { id: 'creative-assets', kicker: 'APP STORE CONNECT', title: ['App Store creative', 'assets: sizes, API', 'upload and review'], visual: creativeVisual },
   { id: 'aso', kicker: 'APP STORE OPTIMIZATION', title: ['App Store keywords:', 'what moved rankings', 'and what did not'], visual: asoVisual },
   { id: 'app-review', kicker: 'MAC APP STORE · APP REVIEW', title: ['Four rejections', 'in 15 days: a Mac app', 'post-mortem'], visual: reviewVisual },
   { id: 'postklar', kicker: 'BUILDING AN AI APP', title: ['The model understands,', 'the code counts'], visual: postklarVisual },

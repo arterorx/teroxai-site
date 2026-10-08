@@ -2,6 +2,7 @@
 title: 'App Store creative assets: sizes, API upload and review'
 description: 'The new product page header and search results asset: exact sizes, what is banned, the ten API calls to upload them, and what we do not know yet.'
 date: 2026-10-07
+updated: 2026-10-08
 lang: en
 translationOf: app-store-creative-assets-groessen-api
 cover: creative-assets
@@ -112,6 +113,40 @@ There is one condition, and we found it by trying. You can attach an asset to a 
 So the order is fixed: upload, review, then placement.
 
 We submitted on 6 October at 22:37 Berlin time. The next evening, more than 20 hours later, the status was still Waiting for Review. For comparison, in [my data on app review times](/blog/app-store-review-time-2026/) the median wait for an app version was 20 hours. I will add the real number here when the email arrives.
+
+## Video: one file that went through
+
+Added on 8 October. For a second app, [Fundkeep](/apps/fundkeep/), we made a video for the search slot in six languages. This one I uploaded by hand in Asset Library, with the plus button. All six files were processed without an error or a warning.
+
+The file:
+
+| Property | Value |
+|---|---|
+| Frame size | 1920 × 1280, ratio 3:2 |
+| Length | 8.83 s |
+| Frame rate | 30 fps |
+| Container | MP4 |
+| Video codec | H.264, High profile, yuv420p |
+| Bitrate | about 5.6 Mbit/s |
+| File size | 6.2 MB |
+| Audio | a silent stereo AAC track, 48 kHz |
+
+I do not know whether the silent audio track matters. We did not try a file without one.
+
+You do not upload a poster frame. Apple picked one by itself, at the five second mark in all six files. I have not found a way to change it.
+
+Uploaded and processed is not the same as approved. The six videos have been waiting for review since the evening of 6 October, like the images.
+
+Video also exists in the API, as `appAssetLibraryVideos`. We have only read it there, not uploaded through it.
+
+## Four API errors from the second app
+
+Postklar went through without a single error. Fundkeep, done by a different session, did not. These are the messages and what fixed them:
+
+- `The attribute 'specId' can not be included in a 'CREATE' operation`. Do not send the size specification when you reserve an image. Apple works out the placement from the pixel size.
+- `'sourceFileChecksum' is not an attribute on the resource`. Leave the checksum out. `"uploaded": true` is the whole confirmation.
+- `STATE_ERROR.ASSET_IN_POST_PROCESSING`. You tried to submit too early. We waited about a minute.
+- `MAX_IN_REVIEW_SUBMISSIONS_PER_PLATFORM_LIMIT_REACHED`. No more than two review submissions per platform at a time. Put everything into one.
 
 ## Where it got hard
 

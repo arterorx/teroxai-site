@@ -2,6 +2,7 @@
 title: 'Creative Assets im App Store: Größen, API-Upload und Review'
 description: 'Das neue Kopfbild der Produktseite und das Bild für die Suche: genaue Größen, Verbote, die zehn API-Aufrufe für den Upload und was noch offen ist.'
 date: 2026-10-07
+updated: 2026-10-08
 lang: de
 translationOf: app-store-creative-assets-sizes-api
 cover: creative-assets
@@ -112,6 +113,40 @@ Eine Bedingung gibt es, und wir haben sie durch Ausprobieren gefunden. Man kann 
 Die Reihenfolge steht also fest: hochladen, Review, dann Platzierung.
 
 Eingereicht haben wir am 6. Oktober um 22:37 Uhr Berliner Zeit. Am Abend danach, mehr als 20 Stunden später, stand der Status weiter auf Waiting for Review. Zum Vergleich: In [meinen Daten zur Review-Dauer](/de/blog/app-store-review-dauer-2026/) lag die mittlere Wartezeit einer App-Version bei 20 Stunden. Die echte Zahl trage ich hier nach, sobald die E-Mail da ist.
+
+## Video: eine Datei, die durchging
+
+Ergänzt am 8. Oktober. Für eine zweite App, [Fundkeep](/de/apps/fundkeep/), haben wir ein Video für den Suchplatz in sechs Sprachen gemacht. Das habe ich von Hand in der Asset Library hochgeladen, über das Plus. Alle sechs Dateien wurden ohne Fehler und ohne Warnung verarbeitet.
+
+Die Datei:
+
+| Eigenschaft | Wert |
+|---|---|
+| Bildgröße | 1920 × 1280, Verhältnis 3:2 |
+| Länge | 8,83 s |
+| Bildrate | 30 fps |
+| Container | MP4 |
+| Videocodec | H.264, Profil High, yuv420p |
+| Bitrate | etwa 5,6 Mbit/s |
+| Dateigröße | 6,2 MB |
+| Ton | eine stumme Stereo-AAC-Spur, 48 kHz |
+
+Ob die stumme Tonspur eine Rolle spielt, weiß ich nicht. Eine Datei ohne haben wir nicht probiert.
+
+Ein Vorschaubild lädt man nicht hoch. Apple hat selbst eines gewählt, bei allen sechs Dateien an der Fünf-Sekunden-Marke. Einen Weg, es zu ändern, habe ich nicht gefunden.
+
+Hochgeladen und verarbeitet heißt nicht freigegeben. Die sechs Videos warten seit dem Abend des 6. Oktober auf das Review, wie die Bilder.
+
+Video gibt es auch in der API, als `appAssetLibraryVideos`. Wir haben es dort nur gelesen, nicht darüber hochgeladen.
+
+## Vier API-Fehler bei der zweiten App
+
+Postklar lief ohne einen einzigen Fehler durch. Fundkeep, von einer anderen Sitzung gemacht, nicht. Das sind die Meldungen und was geholfen hat:
+
+- `The attribute 'specId' can not be included in a 'CREATE' operation`. Beim Reservieren eines Bildes keine Größenangabe mitsenden. Apple leitet den Platz aus der Pixelgröße ab.
+- `'sourceFileChecksum' is not an attribute on the resource`. Prüfsumme weglassen. `"uploaded": true` ist die ganze Bestätigung.
+- `STATE_ERROR.ASSET_IN_POST_PROCESSING`. Zu früh eingereicht. Wir haben etwa eine Minute gewartet.
+- `MAX_IN_REVIEW_SUBMISSIONS_PER_PLATFORM_LIMIT_REACHED`. Nicht mehr als zwei Einreichungen pro Plattform gleichzeitig. Alles in eine packen.
 
 ## Wo es schwierig wurde
 

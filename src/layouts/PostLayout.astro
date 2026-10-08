@@ -29,8 +29,9 @@ const jsonLd = [
     '@type': 'BlogPosting',
     headline: title,
     description,
-    datePublished: iso,
-    dateModified: isoUpdated,
+    /* Google wants a full date-time with a time zone here, not a bare date. */
+    datePublished: `${iso}T08:00:00+02:00`,
+    dateModified: `${isoUpdated}T08:00:00+02:00`,
     inLanguage: lang,
     url: `${SITE_URL}${localePath(lang, `blog/${slug}`)}`,
     mainEntityOfPage: `${SITE_URL}${localePath(lang, `blog/${slug}`)}`,

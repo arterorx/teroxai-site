@@ -1,5 +1,5 @@
 ---
-title: 'App Store creative assets: sizes, API upload and review'
+title: 'App Store creative assets: sizes, review time and API upload (2026)'
 description: 'The new product page header and search results asset: exact sizes, what is banned, the ten API calls to upload them, and what we do not know yet.'
 date: 2026-10-07
 updated: 2026-10-09

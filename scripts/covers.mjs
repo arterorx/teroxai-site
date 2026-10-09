@@ -132,7 +132,7 @@ const creativeVisual = `
   </g>`;
 
 const covers = [
-  { id: 'creative-assets', kicker: 'APP STORE CONNECT', title: ['App Store creative', 'assets: sizes, API', 'upload and review'], visual: creativeVisual },
+  { id: 'creative-assets', kicker: 'APP STORE CONNECT, 2026', title: ['App Store creative', 'assets: sizes, review', 'time and API upload'], visual: creativeVisual },
   { id: 'aso', kicker: 'APP STORE OPTIMIZATION', title: ['App Store keywords:', 'what moved rankings', 'and what did not'], visual: asoVisual },
   { id: 'app-review', kicker: 'MAC APP STORE · APP REVIEW', title: ['Four rejections', 'in 15 days: a Mac app', 'post-mortem'], visual: reviewVisual },
   { id: 'postklar', kicker: 'BUILDING AN AI APP', title: ['The model understands,', 'the code counts'], visual: postklarVisual },

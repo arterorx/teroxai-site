@@ -1,5 +1,5 @@
 ---
-title: 'Creative Assets im App Store: Größen, API-Upload und Review'
+title: 'Creative Assets im App Store: Größen, Review-Dauer und API (2026)'
 description: 'Das neue Kopfbild der Produktseite und das Bild für die Suche: genaue Größen, Verbote, die zehn API-Aufrufe für den Upload und was noch offen ist.'
 date: 2026-10-07
 updated: 2026-10-09

@@ -2,7 +2,7 @@
 title: 'Creative Assets im App Store: Größen, API-Upload und Review'
 description: 'Das neue Kopfbild der Produktseite und das Bild für die Suche: genaue Größen, Verbote, die zehn API-Aufrufe für den Upload und was noch offen ist.'
 date: 2026-10-07
-updated: 2026-10-08
+updated: 2026-10-09
 lang: de
 translationOf: app-store-creative-assets-sizes-api
 cover: creative-assets
@@ -10,7 +10,7 @@ cover: creative-assets
 
 Seit dem 5. Oktober 2026 kann eine App im App Store zwei neue Bilder haben: ein Kopfbild oben auf der Produktseite und ein eigenes Bild in den Suchergebnissen. Apple nennt sie Creative Assets. Sie sind freiwillig, erscheinen ab iOS 27 und iPadOS 27 und werden getrennt von der App geprüft.
 
-Für [Postklar](/de/apps/postklar/) habe ich sie am Abend darauf hochgeladen: 14 Bilder in sieben Sprachen, alles über die App Store Connect API. Hier stehen die Größen, die Regeln, die genauen Schritte und eine ehrliche Liste dessen, was ich noch nicht weiß. Während ich das schreibe, warten alle 14 noch auf das Review.
+Für [Postklar](/de/apps/postklar/) habe ich sie am Abend darauf hochgeladen: 14 Bilder in sieben Sprachen, alles über die App Store Connect API. Hier stehen die Größen, die Regeln, die genauen Schritte und eine ehrliche Liste dessen, was ich noch nicht weiß. Als ich das schrieb, warteten alle 14 noch auf das Review. Nachtrag vom 9. Oktober: Die ersten Freigaben sind da, für eine zweite App. Die Zahlen stehen unten.
 
 ## Die Größen
 
@@ -92,7 +92,7 @@ Man kann dort von Hand hochladen. Wir haben alles über die API gemacht, ich hab
 7. `POST /v1/reviewSubmissions` mit Plattform `IOS` legt eine Einreichung an.
 8. `POST /v1/reviewSubmissionItems` fügt der Einreichung ein Bild hinzu. Ein Aufruf pro Datei.
 9. `PATCH /v1/reviewSubmissions/{id}` mit `"submitted": true` schickt sie ab.
-10. Nach der Freigabe: `POST /v1/appAssetLibraryPlacements` weist ein Bild einer Lokalisierung der App-Version zu. Diesen Schritt haben wir noch nicht ausgeführt.
+10. Nach der Freigabe: `POST /v1/appAssetLibraryPlacements` weist ein Bild einer Lokalisierung der App-Version zu. Für Postklar steht dieser Schritt noch aus. Fundkeep wurde am 9. Oktober über die API platziert.
 
 Ein Detail fehlt in der Dokumentation. In Schritt 8 ist für eine Einreichung, die nur Bilder enthält, nirgends benannt, wie die Beziehung zum Bild heißt. `appAssetLibraryImage` hat beim ersten Versuch funktioniert.
 
@@ -112,7 +112,33 @@ Eine Bedingung gibt es, und wir haben sie durch Ausprobieren gefunden. Man kann 
 
 Die Reihenfolge steht also fest: hochladen, Review, dann Platzierung.
 
-Eingereicht haben wir am 6. Oktober um 22:37 Uhr Berliner Zeit. Am Abend danach, mehr als 20 Stunden später, stand der Status weiter auf Waiting for Review. Zum Vergleich: In [meinen Daten zur Review-Dauer](/de/blog/app-store-review-dauer-2026/) lag die mittlere Wartezeit einer App-Version bei 20 Stunden. Die echte Zahl trage ich hier nach, sobald die E-Mail da ist.
+Eingereicht haben wir am 6. Oktober um 22:37 Uhr Berliner Zeit. Am Abend danach, mehr als 20 Stunden später, stand der Status weiter auf Waiting for Review. Zum Vergleich: In [meinen Daten zur Review-Dauer](/de/blog/app-store-review-dauer-2026/) lag die mittlere Wartezeit einer App-Version bei 20 Stunden.
+
+Nachtrag vom 9. Oktober. Der erste Schwung ist durch, für [Fundkeep](/de/apps/fundkeep/): 12 Bilder, sechs für die Suche und sechs Kopfbilder, in sechs Sprachen. Eingereicht am 6. Oktober um 20:40 UTC, freigegeben am 9. Oktober um 06:10 UTC. Das sind etwa 57,5 Stunden, fast das Dreifache der mittleren Wartezeit einer App-Version. Alle 12 wurden in derselben Sekunde freigegeben, keines wurde abgelehnt. Die Bilder von Postklar vom selben Abend und die sechs Videos warten noch.
+
+## Platzierung, und was die Preview zeigt
+
+Ergänzt am 9. Oktober, nach der Freigabe für Fundkeep. Die freigegebenen Bilder haben wir über die API platziert. Eine Sache stand im Weg: Für die App lief ein Test der Produktseitenoptimierung, und die Platzierung ging erst, nachdem der Test gestoppt war.
+
+In App Store Connect steht das Ergebnis auf der Seite der App-Version, in einem neuen Reiter namens Header and Search Results. Er hat zwei Plätze, und jeder nimmt ein Bild pro Sprache. Die Version hier ist schon im Verkauf. Eine neue Version war nicht nötig.
+
+![Der Platz Header auf der Seite der App-Version in App Store Connect, mit einem platzierten Kopfbild und dem Preview-Knopf](../../../assets/blog/creative-assets/asc-placement-header.png)
+
+![Der Platz Search Results auf derselben Seite, mit einem platzierten Suchbild](../../../assets/blog/creative-assets/asc-placement-search.png)
+
+Der Preview-Knopf öffnet eine Gerätevorschau. Hier sieht man den echten Beschnitt zum ersten Mal.
+
+![Gerätevorschau in App Store Connect: links die Produktseite mit dem Kopfbild, rechts das Suchergebnis mit dem Suchbild](../../../assets/blog/creative-assets/asc-preview-iphone.png)
+
+Was ich auf diesen zwei Bildschirmen gemessen habe, iPhone im Hochformat:
+
+- **Kopfbild.** Die volle Höhe ist zu sehen. Die Seiten werden beschnitten: etwa 8 Prozent links und 8 Prozent rechts, sichtbar bleiben also rund 84 Prozent der Breite.
+- **Kopfbild, obere Ecken.** Der Zurück-Knopf und der Teilen-Knopf liegen auf dem Bild, links und rechts. Die Fläche über dem Bild, unter der Dynamic Island, wird mit der Farbe der oberen Bildkante gefüllt.
+- **Suchbild.** Das 3:2-Bild wird ganz gezeigt, mit runden Ecken. Nichts wird abgeschnitten.
+
+Für ein Kopfbild heißt das: nichts Wichtiges in den äußeren 10 Prozent auf jeder Seite und nichts in den oberen Ecken. Unser eigener Rand war strenger als nötig.
+
+Diese Zahlen sind an einem Screenshot der Preview gemessen, für ein Gerät in einer Ausrichtung. Apple schreibt daneben, dass die Vorschau nur zur Orientierung dient. Die Preview hat auch eine iPad-Option, die habe ich noch nicht gemessen.
 
 ## Video: eine Datei, die durchging
 
@@ -152,7 +178,7 @@ Postklar lief ohne einen einzigen Fehler durch. Fundkeep, von einer anderen Sitz
 
 **Für den sicheren Bereich gibt es keine öffentlichen Zahlen.** Apple schreibt, dass Kopfbild und Suchbild je nach Gerät und Ausrichtung unterschiedlich beschnitten werden und dass das Wichtige in die Mitte gehört. Die genauen Grenzen stehen nur in Apples Vorlagen für Figma, Photoshop, Pixelmator und Sketch. Wir haben sie nicht geöffnet.
 
-Also haben wir einen eigenen Rand gesetzt: alles Wichtige in den mittleren 60 Prozent der Breite und 70 Prozent der Höhe, kein Text näher als 8 Prozent am Rand, der Hintergrund läuft bis an die Kanten und enthält dort nichts von Bedeutung. Das ist unsere Annahme, nicht Apples Regel. Den echten Beschnitt zeigt das Preview-Werkzeug in App Store Connect, sobald die Bilder platziert sind.
+Also haben wir einen eigenen Rand gesetzt: alles Wichtige in den mittleren 60 Prozent der Breite und 70 Prozent der Höhe, kein Text näher als 8 Prozent am Rand, der Hintergrund läuft bis an die Kanten und enthält dort nichts von Bedeutung. Das ist unsere Annahme, nicht Apples Regel. Den echten Beschnitt zeigt das Preview-Werkzeug in App Store Connect, sobald die Bilder platziert sind. Was es bei unserer zweiten App gezeigt hat, steht weiter unten.
 
 **Die Beschnittprüfung war falsch, bevor es die Bilder waren.** Das Skript für die Ränder hat das Browserfenster gemessen, das 87 Pixel niedriger war als die Zeichenfläche, und richtige Bilder abgelehnt. Der erste Fehler, den wir behoben haben, steckte im Prüfer.
 
@@ -162,14 +188,16 @@ Also haben wir einen eigenen Rand gesetzt: alles Wichtige in den mittleren 60 Pr
 
 **Eine Regel, die ich nicht sicher lesen kann.** Preise sind verboten. Auf unserer Karte steht groß „85,00 € zahlen bis 14.10“. Das ist der Betrag aus dem erfundenen Brief, nicht der Preis der App, und derselbe Betrag steht auf unseren freigegebenen Screenshots. Wer die Regel wörtlich liest, könnte es trotzdem ablehnen. Ich weiß es, wenn das Review durch ist.
 
+Ein Datenpunkt seitdem: Auf den Bildern von Fundkeep steht „$590.00“ in der Oberfläche der App, ein Budgetstand. Alle 12 sind durchgegangen.
+
 ## Was ich noch nicht weiß
 
-- Wie lange das Review von Creative Assets dauert.
-- Was auf einem iPhone und auf einem iPad genau abgeschnitten wird.
-- Ob der Betrag auf der Karte die Preisregel besteht.
+- Wie lange das Review von Creative Assets allgemein dauert. Ich habe einen Schwung: 57,5 Stunden.
+- Was auf einem iPad und im Querformat abgeschnitten wird. Für ein iPhone im Hochformat habe ich eine erste Messung.
+- Ob der Betrag auf der Postklar-Karte die Preisregel besteht. Ein Dollarbetrag in einem App-Screenshot hat sie bestanden.
 - Ob das alles etwas an den Downloads ändert.
 
-Dieser Artikel wird ergänzt, sobald die ersten drei Punkte beantwortet sind.
+Dieser Artikel wird ergänzt, sobald Antworten kommen.
 
 ## Kurze Liste für die eigene App
 
@@ -192,6 +220,10 @@ Dieser Artikel wird ergänzt, sobald die ersten drei Punkte beantwortet sind.
 
 Verhältnis 3:2, von 1920 × 1280 bis 3840 × 2560 Pixel, JPG oder PNG ohne Transparenz.
 
+### Wie groß ist der sichere Bereich des Kopfbilds?
+
+Apple veröffentlicht außerhalb der Designvorlagen keine Zahlen. In der Preview, auf einem iPhone im Hochformat, behielt unser 21:9-Kopfbild die volle Höhe und verlor etwa 8 Prozent auf jeder Seite. Zurück- und Teilen-Knopf verdecken die oberen Ecken. Das 3:2-Suchbild wurde ganz gezeigt.
+
 ### Kann ein Bild für Kopfbild und Suche zugleich dienen?
 
 Ja. Apple nennt es das universelle Creative Asset: 5244 × 2950 Pixel, 16:9, nur PNG. Der Preis dafür: An beiden Plätzen stehen dasselbe Bild und derselbe Text.
@@ -199,6 +231,10 @@ Ja. Apple nennt es das universelle Creative Asset: 5244 × 2950 Pixel, 16:9, nur
 ### Brauchen Creative Assets eine neue App-Version?
 
 Nein. Sie gehen in eine eigene Einreichung. Die App braucht eine freigegebene Version, und ein Bild muss freigegeben sein, bevor es platziert werden kann.
+
+### Wie lange dauert das Review von Creative Assets?
+
+Unser erster Schwung brauchte etwa 57,5 Stunden: 12 Bilder, eingereicht am 6. Oktober 2026 und freigegeben am 9. Oktober. Das ist ein Datenpunkt aus der ersten Woche der Funktion, keine Regel.
 
 ### Sind Creative Assets Pflicht?
 

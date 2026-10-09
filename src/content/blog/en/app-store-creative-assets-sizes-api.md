@@ -2,7 +2,7 @@
 title: 'App Store creative assets: sizes, API upload and review'
 description: 'The new product page header and search results asset: exact sizes, what is banned, the ten API calls to upload them, and what we do not know yet.'
 date: 2026-10-07
-updated: 2026-10-08
+updated: 2026-10-09
 lang: en
 translationOf: app-store-creative-assets-groessen-api
 cover: creative-assets
@@ -10,7 +10,7 @@ cover: creative-assets
 
 Since 5 October 2026 an app on the App Store can have two new pictures: a header at the top of its product page and its own image in search results. Apple calls them creative assets. They are optional, they show on iOS 27 and iPadOS 27, and they are reviewed separately from the app.
 
-I uploaded them for [Postklar](/apps/postklar/) the next evening: 14 images in seven languages, all through the App Store Connect API. This article has the sizes, the rules, the exact upload steps and an honest list of what I do not know yet. As I write this, all 14 are still waiting for review.
+I uploaded them for [Postklar](/apps/postklar/) the next evening: 14 images in seven languages, all through the App Store Connect API. This article has the sizes, the rules, the exact upload steps and an honest list of what I do not know yet. When I wrote this, all 14 were still waiting for review. Update, 9 October: the first approvals are in, for a second app. The numbers are below.
 
 ## The sizes
 
@@ -92,7 +92,7 @@ You can upload there by hand. We did everything through the API, and I only watc
 7. `POST /v1/reviewSubmissions` with platform `IOS` creates a review submission.
 8. `POST /v1/reviewSubmissionItems` adds one image to the submission. One call per file.
 9. `PATCH /v1/reviewSubmissions/{id}` with `"submitted": true` sends it.
-10. After approval: `POST /v1/appAssetLibraryPlacements` assigns an image to a localization of the app version. We have not run this step yet.
+10. After approval: `POST /v1/appAssetLibraryPlacements` assigns an image to a localization of the app version. For Postklar this step is still ahead. Fundkeep was placed through the API on 9 October.
 
 One detail is missing in the documentation. In step 8 the relationship that points to the image is not named anywhere for a submission that contains only assets. `appAssetLibraryImage` worked on the first try.
 
@@ -112,7 +112,33 @@ There is one condition, and we found it by trying. You can attach an asset to a 
 
 So the order is fixed: upload, review, then placement.
 
-We submitted on 6 October at 22:37 Berlin time. The next evening, more than 20 hours later, the status was still Waiting for Review. For comparison, in [my data on app review times](/blog/app-store-review-time-2026/) the median wait for an app version was 20 hours. I will add the real number here when the email arrives.
+We submitted on 6 October at 22:37 Berlin time. The next evening, more than 20 hours later, the status was still Waiting for Review. For comparison, in [my data on app review times](/blog/app-store-review-time-2026/) the median wait for an app version was 20 hours.
+
+Update, 9 October. The first batch is through, for [Fundkeep](/apps/fundkeep/): 12 images, six for search and six headers, in six languages. Submitted on 6 October at 20:40 UTC, approved on 9 October at 06:10 UTC. That is about 57.5 hours, almost three times the median for an app version. All 12 were approved in the same second and none was rejected. The Postklar images from the same evening and the six videos are still waiting.
+
+## Placement, and what the Preview shows
+
+Added on 9 October, after the Fundkeep approval. We placed the approved images through the API. One thing got in the way: a product page optimization test was running for the app, and placement did not work until the test was stopped.
+
+In App Store Connect the result is on the app version page, in a new tab called Header and Search Results. It has two slots, and each takes one asset per language. The version here is already on sale. No new version was needed.
+
+![The Header slot on the app version page in App Store Connect, with one header asset placed and the Preview button](../../../assets/blog/creative-assets/asc-placement-header.png)
+
+![The Search Results slot on the same page, with one search results asset placed](../../../assets/blog/creative-assets/asc-placement-search.png)
+
+The Preview button opens a device preview. This is the first place where you see the real crop.
+
+![Device Preview in App Store Connect: the product page with the header on the left, the search result with the search image on the right](../../../assets/blog/creative-assets/asc-preview-iphone.png)
+
+What I measured on these two screens, iPhone in portrait:
+
+- **Header.** The full height is shown. The sides are cut: about 8 percent on the left and 8 percent on the right, so roughly 84 percent of the width stays visible.
+- **Header, top corners.** The back button and the share button sit on top of the image, left and right. The area above the image, under the Dynamic Island, is filled with the colour of the image's top edge.
+- **Search image.** The 3:2 image is shown whole, with rounded corners. Nothing is cut.
+
+So for a header: nothing important in the outer 10 percent on each side, and nothing in the top corners. Our own margin was stricter than it had to be.
+
+These numbers are measured from a screenshot of the Preview, for one device in one orientation. Apple writes next to it that the preview is for reference only. The Preview also has an iPad option, and I have not measured that yet.
 
 ## Video: one file that went through
 
@@ -152,7 +178,7 @@ Postklar went through without a single error. Fundkeep, done by a different sess
 
 **The safe area has no public numbers.** Apple says the header and the search image are cropped differently on different devices and orientations, and that the important part belongs in the centre. The exact borders are only inside Apple's templates for Figma, Photoshop, Pixelmator and Sketch. We did not open them.
 
-So we set our own margin: everything important inside the middle 60 percent of the width and 70 percent of the height, no text closer than 8 percent to an edge, background running to the edges with nothing that matters in it. That is our guess, not Apple's rule. The Preview tool in App Store Connect will show the real crop once the images are placed.
+So we set our own margin: everything important inside the middle 60 percent of the width and 70 percent of the height, no text closer than 8 percent to an edge, background running to the edges with nothing that matters in it. That is our guess, not Apple's rule. The Preview tool in App Store Connect shows the real crop once the images are placed. What it showed for our second app is further down.
 
 **The crop check was wrong before the images were.** The script that checks margins measured the browser window, which was 87 pixels shorter than the canvas, and rejected correct images. The first bug we fixed was in the checker.
 
@@ -162,14 +188,16 @@ So we set our own margin: everything important inside the middle 60 percent of t
 
 **A rule I can not read with certainty.** Prices are banned. Our card says "Pay 85,00 € by 14.10" in large type. That is the amount from the invented letter, not the price of the app, and the same amount is on our approved screenshots. A reviewer who reads the rule literally could still reject it. I will know when the review is done.
 
+One data point since then: the Fundkeep images show "$590.00" inside the app's interface, a budget balance. All 12 passed.
+
 ## What I do not know yet
 
-- How long the review of creative assets takes.
-- What exactly is cropped on an iPhone and on an iPad.
-- Whether the amount on the card passes the price rule.
+- How long the review of creative assets takes in general. I have one batch: 57.5 hours.
+- What is cropped on an iPad and in landscape. For an iPhone in portrait I have a first measurement.
+- Whether the amount on the Postklar card passes the price rule. A dollar amount inside an app screenshot did.
 - Whether any of this changes downloads.
 
-This article will be updated when the first three are answered.
+This article is updated as the answers come in.
 
 ## A short list for your own app
 
@@ -192,6 +220,10 @@ This article will be updated when the first three are answered.
 
 Ratio 3:2, from 1920 × 1280 up to 3840 × 2560 pixels, JPG or PNG without transparency.
 
+### What is the safe area of the product page header?
+
+Apple publishes no numbers outside its design templates. In the Preview tool, on an iPhone in portrait, our 21:9 header kept its full height and lost about 8 percent on each side. The back and share buttons cover the top corners. The 3:2 search image was shown whole.
+
 ### Can one image be used for both the header and search?
 
 Yes. Apple calls it the universal creative asset: 5244 × 2950 pixels, 16:9, PNG only. The price is that both places show the same picture and the same text.
@@ -199,6 +231,10 @@ Yes. Apple calls it the universal creative asset: 5244 × 2950 pixels, 16:9, PNG
 ### Do creative assets need a new app version?
 
 No. They go into a review submission of their own. The app needs an approved version, and an asset has to be approved before it can be placed.
+
+### How long does the review of creative assets take?
+
+Our first batch took about 57.5 hours: 12 images submitted on 6 October 2026 and approved on 9 October. That is one data point from the first week of the feature, not a rule.
 
 ### Are creative assets required?
 

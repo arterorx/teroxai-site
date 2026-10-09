@@ -10,7 +10,7 @@ cover: creative-assets
 
 Since 5 October 2026 an app on the App Store can have two new pictures: a header at the top of its product page and its own image in search results. Apple calls them creative assets. They are optional, they show on iOS 27 and iPadOS 27, and they are reviewed separately from the app.
 
-I uploaded them for [Postklar](/apps/postklar/) the next evening: 14 images in seven languages, all through the App Store Connect API. This article has the sizes, the rules, the exact upload steps and an honest list of what I do not know yet. When I wrote this, all 14 were still waiting for review. Update, 9 October: the first approvals are in, for a second app. The numbers are below.
+I uploaded them for [Postklar](/apps/postklar/) the next evening: 14 images in seven languages, all through the App Store Connect API. This article has the sizes, the rules, the exact upload steps and an honest list of what I do not know yet. When I wrote this, all 14 were still waiting for review. Update, 9 October: all of them are approved, together with the images of six other apps. 69 images, no rejections. The numbers are below.
 
 ## The sizes
 
@@ -92,7 +92,7 @@ You can upload there by hand. We did everything through the API, and I only watc
 7. `POST /v1/reviewSubmissions` with platform `IOS` creates a review submission.
 8. `POST /v1/reviewSubmissionItems` adds one image to the submission. One call per file.
 9. `PATCH /v1/reviewSubmissions/{id}` with `"submitted": true` sends it.
-10. After approval: `POST /v1/appAssetLibraryPlacements` assigns an image to a localization of the app version. For Postklar this step is still ahead. Fundkeep was placed through the API on 9 October.
+10. After approval: `POST /v1/appAssetLibraryPlacements` assigns an image to a localization of the app version. You send a `placementType` and two relationships, `appStoreVersionLocalization` and `image`. The answer comes back with the state `ACTIVE` right away.
 
 One detail is missing in the documentation. In step 8 the relationship that points to the image is not named anywhere for a submission that contains only assets. `appAssetLibraryImage` worked on the first try.
 
@@ -114,11 +114,37 @@ So the order is fixed: upload, review, then placement.
 
 We submitted on 6 October at 22:37 Berlin time. The next evening, more than 20 hours later, the status was still Waiting for Review. For comparison, in [my data on app review times](/blog/app-store-review-time-2026/) the median wait for an app version was 20 hours.
 
-Update, 9 October. The first batch is through, for [Fundkeep](/apps/fundkeep/): 12 images, six for search and six headers, in six languages. Submitted on 6 October at 20:40 UTC, approved on 9 October at 06:10 UTC. That is about 57.5 hours, almost three times the median for an app version. All 12 were approved in the same second and none was rejected. The Postklar images from the same evening and the six videos are still waiting.
+Update, 9 October. Everything we submitted as an image is approved: 69 images in seven apps, and not one rejection.
+
+| App | Images | Submitted, UTC | Approved, UTC | Hours |
+|---|---|---|---|---|
+| Fundkeep | 12 | 6 Oct, 20:40 | 9 Oct, 06:10 | 57.5 |
+| SawKit | 16 | 6 Oct, 20:40 | 9 Oct, 16:07 | 67.5 |
+| Roomkeep | 18 | 6 Oct, 20:40 | 9 Oct, 16:15 | 67.6 |
+| Postklar | 14 | 6 Oct, 20:37 | 9 Oct, 16:15 | 67.6 |
+| AI Photo Generator | 3 | 7 Oct, 17:32 | 9 Oct, 16:28 | 46.9 |
+| AI Video Generator | 3 | 7 Oct, 17:32 | 9 Oct, 16:25 | 46.9 |
+| Text to Music | 3 | 7 Oct, 17:32 | 9 Oct, 15:42 | 46.2 |
+
+Three things stand out.
+
+The wait was 46 to 68 hours, with a middle value of 57.5. That is about three times the median for an app version.
+
+Submitting earlier did not help. The batches from 6 October waited around 68 hours, the ones from 7 October around 47, and almost all of them were approved in one wave on the afternoon of 9 October. Four submissions that went out within three minutes of each other were approved ten hours apart.
+
+Inside one submission every file is approved in the same second.
+
+A note on the numbers: the API has no field for the approval time. This is the time of the last change on an approved image, which is identical for all files of one submission.
+
+Video is another story. The six Fundkeep videos went in on 6 October at 20:22 UTC, eighteen minutes before the images of the same app. After more than 70 hours they are still waiting.
 
 ## Placement, and what the Preview shows
 
-Added on 9 October, after the Fundkeep approval. We placed the approved images through the API. One thing got in the way: a product page optimization test was running for the app, and placement did not work until the test was stopped.
+Added on 9 October, after the Fundkeep approval. We placed the approved images through the API. All seven apps are placed now, each on a version that was already on sale.
+
+One thing got in the way for Fundkeep. A product page optimization test was running, and the API answered `STATE_ERROR.EXPERIMENT_IN_PROGRESS`: "Creating a placement is not permitted while AppStoreVersion has a running experiment". After the test was stopped, it went through.
+
+One file can serve several languages. Postklar has 14 files and 16 placements, because British English uses the American pair.
 
 In App Store Connect the result is on the app version page, in a new tab called Header and Search Results. It has two slots, and each takes one asset per language. The version here is already on sale. No new version was needed.
 
@@ -161,7 +187,7 @@ I do not know whether the silent audio track matters. We did not try a file with
 
 You do not upload a poster frame. Apple picked one by itself, at the five second mark in all six files. I have not found a way to change it.
 
-Uploaded and processed is not the same as approved. The six videos have been waiting for review since the evening of 6 October, like the images.
+Uploaded and processed is not the same as approved. The six videos have been waiting for review since the evening of 6 October. The images from the same evening are approved.
 
 Video also exists in the API, as `appAssetLibraryVideos`. We have only read it there, not uploaded through it.
 
@@ -188,13 +214,12 @@ So we set our own margin: everything important inside the middle 60 percent of t
 
 **A rule I can not read with certainty.** Prices are banned. Our card says "Pay 85,00 € by 14.10" in large type. That is the amount from the invented letter, not the price of the app, and the same amount is on our approved screenshots. A reviewer who reads the rule literally could still reject it. I will know when the review is done.
 
-One data point since then: the Fundkeep images show "$590.00" inside the app's interface, a budget balance. All 12 passed.
+Update, 9 October: it passed. All 14 Postklar images were approved, with the amount on every one of them. The Fundkeep images show "$590.00" inside the app's interface, a budget balance, and they passed too. So an amount that belongs to the content on screen, a letter or a budget, got through review. I would still not put the price of the app itself on an asset.
 
 ## What I do not know yet
 
-- How long the review of creative assets takes in general. I have one batch: 57.5 hours.
+- How long the review of a video takes. Ours have waited more than 70 hours.
 - What is cropped on an iPad and in landscape. For an iPhone in portrait I have a first measurement.
-- Whether the amount on the Postklar card passes the price rule. A dollar amount inside an app screenshot did.
 - Whether any of this changes downloads.
 
 This article is updated as the answers come in.
@@ -234,7 +259,7 @@ No. They go into a review submission of their own. The app needs an approved ver
 
 ### How long does the review of creative assets take?
 
-Our first batch took about 57.5 hours: 12 images submitted on 6 October 2026 and approved on 9 October. That is one data point from the first week of the feature, not a rule.
+Between 46 and 68 hours for us: seven submissions with 69 images, sent on 6 and 7 October 2026 and all approved on 9 October. None was rejected. That is the first week of the feature, not a rule. Videos sent at the same time were still waiting after 70 hours.
 
 ### Are creative assets required?
 

@@ -10,7 +10,7 @@ cover: creative-assets
 
 Seit dem 5. Oktober 2026 kann eine App im App Store zwei neue Bilder haben: ein Kopfbild oben auf der Produktseite und ein eigenes Bild in den Suchergebnissen. Apple nennt sie Creative Assets. Sie sind freiwillig, erscheinen ab iOS 27 und iPadOS 27 und werden getrennt von der App geprüft.
 
-Für [Postklar](/de/apps/postklar/) habe ich sie am Abend darauf hochgeladen: 14 Bilder in sieben Sprachen, alles über die App Store Connect API. Hier stehen die Größen, die Regeln, die genauen Schritte und eine ehrliche Liste dessen, was ich noch nicht weiß. Als ich das schrieb, warteten alle 14 noch auf das Review. Nachtrag vom 9. Oktober: Die ersten Freigaben sind da, für eine zweite App. Die Zahlen stehen unten.
+Für [Postklar](/de/apps/postklar/) habe ich sie am Abend darauf hochgeladen: 14 Bilder in sieben Sprachen, alles über die App Store Connect API. Hier stehen die Größen, die Regeln, die genauen Schritte und eine ehrliche Liste dessen, was ich noch nicht weiß. Als ich das schrieb, warteten alle 14 noch auf das Review. Nachtrag vom 9. Oktober: Alle sind freigegeben, zusammen mit den Bildern von sechs weiteren Apps. 69 Bilder, keine Ablehnung. Die Zahlen stehen unten.
 
 ## Die Größen
 
@@ -92,7 +92,7 @@ Man kann dort von Hand hochladen. Wir haben alles über die API gemacht, ich hab
 7. `POST /v1/reviewSubmissions` mit Plattform `IOS` legt eine Einreichung an.
 8. `POST /v1/reviewSubmissionItems` fügt der Einreichung ein Bild hinzu. Ein Aufruf pro Datei.
 9. `PATCH /v1/reviewSubmissions/{id}` mit `"submitted": true` schickt sie ab.
-10. Nach der Freigabe: `POST /v1/appAssetLibraryPlacements` weist ein Bild einer Lokalisierung der App-Version zu. Für Postklar steht dieser Schritt noch aus. Fundkeep wurde am 9. Oktober über die API platziert.
+10. Nach der Freigabe: `POST /v1/appAssetLibraryPlacements` weist ein Bild einer Lokalisierung der App-Version zu. Man sendet einen `placementType` und zwei Beziehungen, `appStoreVersionLocalization` und `image`. Die Antwort kommt sofort mit dem Status `ACTIVE` zurück.
 
 Ein Detail fehlt in der Dokumentation. In Schritt 8 ist für eine Einreichung, die nur Bilder enthält, nirgends benannt, wie die Beziehung zum Bild heißt. `appAssetLibraryImage` hat beim ersten Versuch funktioniert.
 
@@ -114,11 +114,37 @@ Die Reihenfolge steht also fest: hochladen, Review, dann Platzierung.
 
 Eingereicht haben wir am 6. Oktober um 22:37 Uhr Berliner Zeit. Am Abend danach, mehr als 20 Stunden später, stand der Status weiter auf Waiting for Review. Zum Vergleich: In [meinen Daten zur Review-Dauer](/de/blog/app-store-review-dauer-2026/) lag die mittlere Wartezeit einer App-Version bei 20 Stunden.
 
-Nachtrag vom 9. Oktober. Der erste Schwung ist durch, für [Fundkeep](/de/apps/fundkeep/): 12 Bilder, sechs für die Suche und sechs Kopfbilder, in sechs Sprachen. Eingereicht am 6. Oktober um 20:40 UTC, freigegeben am 9. Oktober um 06:10 UTC. Das sind etwa 57,5 Stunden, fast das Dreifache der mittleren Wartezeit einer App-Version. Alle 12 wurden in derselben Sekunde freigegeben, keines wurde abgelehnt. Die Bilder von Postklar vom selben Abend und die sechs Videos warten noch.
+Nachtrag vom 9. Oktober. Alles, was wir als Bild eingereicht haben, ist freigegeben: 69 Bilder in sieben Apps, und keine einzige Ablehnung.
+
+| App | Bilder | Eingereicht, UTC | Freigegeben, UTC | Stunden |
+|---|---|---|---|---|
+| Fundkeep | 12 | 6. Okt., 20:40 | 9. Okt., 06:10 | 57,5 |
+| SawKit | 16 | 6. Okt., 20:40 | 9. Okt., 16:07 | 67,5 |
+| Roomkeep | 18 | 6. Okt., 20:40 | 9. Okt., 16:15 | 67,6 |
+| Postklar | 14 | 6. Okt., 20:37 | 9. Okt., 16:15 | 67,6 |
+| AI Photo Generator | 3 | 7. Okt., 17:32 | 9. Okt., 16:28 | 46,9 |
+| AI Video Generator | 3 | 7. Okt., 17:32 | 9. Okt., 16:25 | 46,9 |
+| Text to Music | 3 | 7. Okt., 17:32 | 9. Okt., 15:42 | 46,2 |
+
+Drei Dinge fallen auf.
+
+Die Wartezeit lag zwischen 46 und 68 Stunden, der mittlere Wert bei 57,5. Das ist etwa das Dreifache der mittleren Wartezeit einer App-Version.
+
+Früher einreichen hat nicht geholfen. Die Einreichungen vom 6. Oktober warteten rund 68 Stunden, die vom 7. Oktober rund 47, und fast alle wurden in einer Welle am Nachmittag des 9. Oktober freigegeben. Vier Einreichungen, die innerhalb von drei Minuten rausgingen, wurden mit zehn Stunden Abstand freigegeben.
+
+Innerhalb einer Einreichung werden alle Dateien in derselben Sekunde freigegeben.
+
+Eine Anmerkung zu den Zahlen: Die API hat kein Feld für den Zeitpunkt der Freigabe. Das hier ist der Zeitpunkt der letzten Änderung an einem freigegebenen Bild, und der ist bei allen Dateien einer Einreichung gleich.
+
+Video ist eine andere Geschichte. Die sechs Videos von Fundkeep gingen am 6. Oktober um 20:22 UTC raus, achtzehn Minuten vor den Bildern derselben App. Nach mehr als 70 Stunden warten sie immer noch.
 
 ## Platzierung, und was die Preview zeigt
 
-Ergänzt am 9. Oktober, nach der Freigabe für Fundkeep. Die freigegebenen Bilder haben wir über die API platziert. Eine Sache stand im Weg: Für die App lief ein Test der Produktseitenoptimierung, und die Platzierung ging erst, nachdem der Test gestoppt war.
+Ergänzt am 9. Oktober, nach der Freigabe für Fundkeep. Die freigegebenen Bilder haben wir über die API platziert. Inzwischen sind alle sieben Apps platziert, jede auf einer Version, die schon im Verkauf war.
+
+Bei Fundkeep stand eine Sache im Weg. Es lief ein Test der Produktseitenoptimierung, und die API antwortete mit `STATE_ERROR.EXPERIMENT_IN_PROGRESS`: „Creating a placement is not permitted while AppStoreVersion has a running experiment“. Nach dem Stoppen des Tests ging es durch.
+
+Eine Datei kann mehrere Sprachen bedienen. Postklar hat 14 Dateien und 16 Platzierungen, weil britisches Englisch das amerikanische Paar nutzt.
 
 In App Store Connect steht das Ergebnis auf der Seite der App-Version, in einem neuen Reiter namens Header and Search Results. Er hat zwei Plätze, und jeder nimmt ein Bild pro Sprache. Die Version hier ist schon im Verkauf. Eine neue Version war nicht nötig.
 
@@ -161,7 +187,7 @@ Ob die stumme Tonspur eine Rolle spielt, weiß ich nicht. Eine Datei ohne haben 
 
 Ein Vorschaubild lädt man nicht hoch. Apple hat selbst eines gewählt, bei allen sechs Dateien an der Fünf-Sekunden-Marke. Einen Weg, es zu ändern, habe ich nicht gefunden.
 
-Hochgeladen und verarbeitet heißt nicht freigegeben. Die sechs Videos warten seit dem Abend des 6. Oktober auf das Review, wie die Bilder.
+Hochgeladen und verarbeitet heißt nicht freigegeben. Die sechs Videos warten seit dem Abend des 6. Oktober auf das Review. Die Bilder vom selben Abend sind freigegeben.
 
 Video gibt es auch in der API, als `appAssetLibraryVideos`. Wir haben es dort nur gelesen, nicht darüber hochgeladen.
 
@@ -188,13 +214,12 @@ Also haben wir einen eigenen Rand gesetzt: alles Wichtige in den mittleren 60 Pr
 
 **Eine Regel, die ich nicht sicher lesen kann.** Preise sind verboten. Auf unserer Karte steht groß „85,00 € zahlen bis 14.10“. Das ist der Betrag aus dem erfundenen Brief, nicht der Preis der App, und derselbe Betrag steht auf unseren freigegebenen Screenshots. Wer die Regel wörtlich liest, könnte es trotzdem ablehnen. Ich weiß es, wenn das Review durch ist.
 
-Ein Datenpunkt seitdem: Auf den Bildern von Fundkeep steht „$590.00“ in der Oberfläche der App, ein Budgetstand. Alle 12 sind durchgegangen.
+Nachtrag vom 9. Oktober: Es ist durchgegangen. Alle 14 Bilder von Postklar wurden freigegeben, und der Betrag steht auf jedem davon. Auf den Bildern von Fundkeep steht „$590.00“ in der Oberfläche der App, ein Budgetstand, und auch die sind durch. Ein Betrag, der zum gezeigten Inhalt gehört, zu einem Brief oder einem Budget, hat das Review also bestanden. Den Preis der App selbst würde ich trotzdem nicht auf ein Bild setzen.
 
 ## Was ich noch nicht weiß
 
-- Wie lange das Review von Creative Assets allgemein dauert. Ich habe einen Schwung: 57,5 Stunden.
+- Wie lange das Review eines Videos dauert. Unsere warten seit mehr als 70 Stunden.
 - Was auf einem iPad und im Querformat abgeschnitten wird. Für ein iPhone im Hochformat habe ich eine erste Messung.
-- Ob der Betrag auf der Postklar-Karte die Preisregel besteht. Ein Dollarbetrag in einem App-Screenshot hat sie bestanden.
 - Ob das alles etwas an den Downloads ändert.
 
 Dieser Artikel wird ergänzt, sobald Antworten kommen.
@@ -234,7 +259,7 @@ Nein. Sie gehen in eine eigene Einreichung. Die App braucht eine freigegebene Ve
 
 ### Wie lange dauert das Review von Creative Assets?
 
-Unser erster Schwung brauchte etwa 57,5 Stunden: 12 Bilder, eingereicht am 6. Oktober 2026 und freigegeben am 9. Oktober. Das ist ein Datenpunkt aus der ersten Woche der Funktion, keine Regel.
+Bei uns zwischen 46 und 68 Stunden: sieben Einreichungen mit 69 Bildern, abgeschickt am 6. und 7. Oktober 2026 und alle am 9. Oktober freigegeben. Keine wurde abgelehnt. Das ist die erste Woche der Funktion, keine Regel. Videos vom selben Abend warteten nach 70 Stunden noch.
 
 ### Sind Creative Assets Pflicht?
 

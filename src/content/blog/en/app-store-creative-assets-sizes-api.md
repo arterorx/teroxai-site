@@ -1,6 +1,6 @@
 ---
 title: 'App Store creative assets: sizes, review time and API upload (2026)'
-description: 'The new product page header and search results asset: exact sizes, what is banned, the ten API calls to upload them, and what we do not know yet.'
+description: 'Exact sizes, the real crop on iPhone, review time for 69 approved images and the API steps for the new App Store header and search image.'
 date: 2026-10-07
 updated: 2026-10-09
 lang: en

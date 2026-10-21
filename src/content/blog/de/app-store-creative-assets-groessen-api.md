@@ -2,7 +2,7 @@
 title: 'Creative Assets im App Store: Größen, Review-Dauer und API (2026)'
 description: 'Genaue Größen, der echte Beschnitt auf dem iPhone, die Review-Dauer für 69 Bilder und die API-Schritte für Kopfbild und Suchbild im App Store.'
 date: 2026-10-07
-updated: 2026-10-09
+updated: 2026-10-14
 lang: de
 translationOf: app-store-creative-assets-sizes-api
 cover: creative-assets
@@ -136,7 +136,7 @@ Innerhalb einer Einreichung werden alle Dateien in derselben Sekunde freigegeben
 
 Eine Anmerkung zu den Zahlen: Die API hat kein Feld für den Zeitpunkt der Freigabe. Das hier ist der Zeitpunkt der letzten Änderung an einem freigegebenen Bild, und der ist bei allen Dateien einer Einreichung gleich.
 
-Video ist eine andere Geschichte. Die sechs Videos von Fundkeep gingen am 6. Oktober um 20:22 UTC raus, achtzehn Minuten vor den Bildern derselben App. Nach mehr als 70 Stunden warten sie immer noch.
+Video ist eine andere Geschichte. Die sechs Videos von Fundkeep gingen am 6. Oktober um 20:22 UTC raus, achtzehn Minuten vor den Bildern derselben App. Freigegeben wurden sie am 12. Oktober um 18:23 UTC: nach 142 Stunden, fast sechs Tagen, und damit etwa doppelt so lange wie die Bilder. Keine Ablehnung.
 
 ## Platzierung, und was die Preview zeigt
 
@@ -187,7 +187,7 @@ Ob die stumme Tonspur eine Rolle spielt, weiß ich nicht. Eine Datei ohne haben 
 
 Ein Vorschaubild lädt man nicht hoch. Apple hat selbst eines gewählt, bei allen sechs Dateien an der Fünf-Sekunden-Marke. Einen Weg, es zu ändern, habe ich nicht gefunden.
 
-Hochgeladen und verarbeitet heißt nicht freigegeben. Die sechs Videos warten seit dem Abend des 6. Oktober auf das Review. Die Bilder vom selben Abend sind freigegeben.
+Hochgeladen und verarbeitet heißt nicht freigegeben. Die sechs Videos wurden erst am 12. Oktober freigegeben, nach 142 Stunden.
 
 Video gibt es auch in der API, als `appAssetLibraryVideos`. Wir haben es dort nur gelesen, nicht darüber hochgeladen.
 
@@ -216,9 +216,18 @@ Also haben wir einen eigenen Rand gesetzt: alles Wichtige in den mittleren 60 Pr
 
 Nachtrag vom 9. Oktober: Es ist durchgegangen. Alle 14 Bilder von Postklar wurden freigegeben, und der Betrag steht auf jedem davon. Auf den Bildern von Fundkeep steht „$590.00“ in der Oberfläche der App, ein Budgetstand, und auch die sind durch. Ein Betrag, der zum gezeigten Inhalt gehört, zu einem Brief oder einem Budget, hat das Review also bestanden. Den Preis der App selbst würde ich trotzdem nicht auf ein Bild setzen.
 
+## Was andere Entwickler berichtet haben
+
+Unter meinem Beitrag auf Reddit haben andere Entwickler Dinge ergänzt, die ich selbst nicht gesehen hatte. Geprüft habe ich sie nicht.
+
+- **Der sichere Bereich in Apples Vorlage.** Einer hat die Photoshop-Vorlage geöffnet: Der sichere Bereich des Kopfbilds ist 1920 × 824 Pixel in der Mitte. Das ist die halbe Breite und die halbe Höhe, viel strenger als das, was ich in der iPhone-Preview gemessen habe. Vermutlich deckt er auch das iPad und Platzierungen in Empfehlungen ab.
+- **Preview vor der Freigabe.** Die Preview funktioniert direkt nach dem Hochladen, mit einem Beispiel-Suchergebnis und einer Beispiel-Produktseite. Auf das Review muss man nicht warten.
+- **Längere Wartezeit.** Ein Entwickler hat fünf Tage auf seine Bilder gewartet.
+- **A/B-Tests gehen erneut ins Review.** Wer ein freigegebenes Bild in einen Test der Produktseitenoptimierung setzt, schickt den Test noch einmal ins Review. Bei einem Entwickler dauerte das ein bis zwei Tage. Sein Rat: die Bilder zwei oder drei Tage vor dem geplanten Teststart vorbereiten.
+
 ## Was ich noch nicht weiß
 
-- Wie lange das Review eines Videos dauert. Unsere warten seit mehr als 70 Stunden.
+- Ob das Review von Videos immer so langsam ist. Meine brauchten 142 Stunden, und das ist eine Einreichung.
 - Was auf einem iPad und im Querformat abgeschnitten wird. Für ein iPhone im Hochformat habe ich eine erste Messung.
 - Ob das alles etwas an den Downloads ändert.
 
@@ -259,7 +268,7 @@ Nein. Sie gehen in eine eigene Einreichung. Die App braucht eine freigegebene Ve
 
 ### Wie lange dauert das Review von Creative Assets?
 
-Bei uns zwischen 46 und 68 Stunden: sieben Einreichungen mit 69 Bildern, abgeschickt am 6. und 7. Oktober 2026 und alle am 9. Oktober freigegeben. Keine wurde abgelehnt. Das ist die erste Woche der Funktion, keine Regel. Videos vom selben Abend warteten nach 70 Stunden noch.
+Bei uns zwischen 46 und 68 Stunden: sieben Einreichungen mit 69 Bildern, abgeschickt am 6. und 7. Oktober 2026 und alle am 9. Oktober freigegeben. Keine wurde abgelehnt. Das ist die erste Woche der Funktion, keine Regel. Videos vom selben Abend brauchten 142 Stunden.
 
 ### Sind Creative Assets Pflicht?
 

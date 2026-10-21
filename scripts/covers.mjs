@@ -131,7 +131,20 @@ const creativeVisual = `
     <text x="150" y="320" text-anchor="middle" font-family="${SANS}" font-size="20" fill="#c9c9d1">search results</text>
   </g>`;
 
+/* Mac sleep timer: the one Terminal line, and a moon. */
+const sleepVisual = `
+  <g transform="translate(760,140)">
+    <text x="0" y="0" font-family="${SANS}" font-size="20" fill="#9a9aa2">WHAT I TYPED EVERY NIGHT</text>
+    <rect x="0" y="30" width="360" height="150" rx="16" fill="#1c1c22" stroke="#33333b" stroke-width="2"/>
+    <circle cx="26" cy="54" r="6" fill="#ff5f57"/><circle cx="46" cy="54" r="6" fill="#febc2e"/><circle cx="66" cy="54" r="6" fill="#28c840"/>
+    <text x="22" y="110" font-family="Menlo, monospace" font-size="21" fill="#c9c9d1">sleep 3600 &amp;&amp;</text>
+    <text x="22" y="146" font-family="Menlo, monospace" font-size="21" fill="#fff">pmset sleepnow</text>
+    <path d="M318 230 a48 48 0 1 0 40 74 a38 38 0 1 1 -40 -74 z" fill="url(#g)"/>
+    <text x="0" y="262" font-family="${SANS}" font-size="22" fill="#c9c9d1">2.1 in 2024, 4.6 today</text>
+  </g>`;
+
 const covers = [
+  { id: 'mac-sleep-timer', kicker: 'MY FIRST APP', title: ['No sleep timer on', 'my Mac, so I', 'built one'], visual: sleepVisual },
   { id: 'creative-assets', kicker: 'APP STORE CONNECT, 2026', title: ['App Store creative', 'assets: sizes, review', 'time and API upload'], visual: creativeVisual },
   { id: 'aso', kicker: 'APP STORE OPTIMIZATION', title: ['App Store keywords:', 'what moved rankings', 'and what did not'], visual: asoVisual },
   { id: 'app-review', kicker: 'MAC APP STORE · APP REVIEW', title: ['Four rejections', 'in 15 days: a Mac app', 'post-mortem'], visual: reviewVisual },

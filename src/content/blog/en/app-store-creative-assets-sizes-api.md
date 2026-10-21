@@ -2,7 +2,7 @@
 title: 'App Store creative assets: sizes, review time and API upload (2026)'
 description: 'Exact sizes, the real crop on iPhone, review time for 69 approved images and the API steps for the new App Store header and search image.'
 date: 2026-10-07
-updated: 2026-10-09
+updated: 2026-10-14
 lang: en
 translationOf: app-store-creative-assets-groessen-api
 cover: creative-assets
@@ -136,7 +136,7 @@ Inside one submission every file is approved in the same second.
 
 A note on the numbers: the API has no field for the approval time. This is the time of the last change on an approved image, which is identical for all files of one submission.
 
-Video is another story. The six Fundkeep videos went in on 6 October at 20:22 UTC, eighteen minutes before the images of the same app. After more than 70 hours they are still waiting.
+Video is another story. The six Fundkeep videos went in on 6 October at 20:22 UTC, eighteen minutes before the images of the same app. They were approved on 12 October at 18:23 UTC: 142 hours, almost six days, and about twice as long as the images. No rejections.
 
 ## Placement, and what the Preview shows
 
@@ -187,7 +187,7 @@ I do not know whether the silent audio track matters. We did not try a file with
 
 You do not upload a poster frame. Apple picked one by itself, at the five second mark in all six files. I have not found a way to change it.
 
-Uploaded and processed is not the same as approved. The six videos have been waiting for review since the evening of 6 October. The images from the same evening are approved.
+Uploaded and processed is not the same as approved. The six videos were approved only on 12 October, after 142 hours.
 
 Video also exists in the API, as `appAssetLibraryVideos`. We have only read it there, not uploaded through it.
 
@@ -216,9 +216,18 @@ So we set our own margin: everything important inside the middle 60 percent of t
 
 Update, 9 October: it passed. All 14 Postklar images were approved, with the amount on every one of them. The Fundkeep images show "$590.00" inside the app's interface, a budget balance, and they passed too. So an amount that belongs to the content on screen, a letter or a budget, got through review. I would still not put the price of the app itself on an asset.
 
+## What other developers reported
+
+Under my post on Reddit, other developers added things I had not seen myself. I have not checked them.
+
+- **The safe area in Apple's template.** One opened the Photoshop template: the safe area of the header is 1920 × 824 pixels in the centre. That is half the width and half the height, much stricter than what I measured in the iPhone preview, so it probably covers the iPad and featured placements too.
+- **Preview before approval.** The Preview works right after upload, with a dummy search result and product page. No need to wait for review.
+- **A longer wait.** One developer waited five days for the images.
+- **A/B tests go back to review.** If you put an approved asset into a product page optimization test, the test is reviewed again. For one developer that took one to two days. His advice: prepare the assets two or three days before the test should start.
+
 ## What I do not know yet
 
-- How long the review of a video takes. Ours have waited more than 70 hours.
+- Whether video review is always this slow. Mine took 142 hours, and that is one batch.
 - What is cropped on an iPad and in landscape. For an iPhone in portrait I have a first measurement.
 - Whether any of this changes downloads.
 
@@ -259,7 +268,7 @@ No. They go into a review submission of their own. The app needs an approved ver
 
 ### How long does the review of creative assets take?
 
-Between 46 and 68 hours for us: seven submissions with 69 images, sent on 6 and 7 October 2026 and all approved on 9 October. None was rejected. That is the first week of the feature, not a rule. Videos sent at the same time were still waiting after 70 hours.
+Between 46 and 68 hours for us: seven submissions with 69 images, sent on 6 and 7 October 2026 and all approved on 9 October. None was rejected. That is the first week of the feature, not a rule. Videos sent the same evening took 142 hours.
 
 ### Are creative assets required?
 

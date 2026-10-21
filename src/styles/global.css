@@ -308,3 +308,57 @@ p {
     animation: none !important;
   }
 }
+
+/* App Store card inside an article: written as plain HTML in the Markdown
+   (class "cta"), so a post can point to the store without a component. */
+.prose .cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.75em 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  background: var(--card);
+}
+.prose .cta img {
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+}
+.prose .cta__icon {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  border-radius: 14px;
+}
+.prose .cta__text {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.35;
+}
+.prose .cta__text strong {
+  display: block;
+  color: var(--ink);
+}
+.prose .cta__text span {
+  color: var(--ink-3);
+  font-size: 0.92em;
+}
+.prose .cta__badge {
+  flex: none;
+  line-height: 0;
+  text-decoration: none;
+}
+.prose .cta__badge img {
+  width: auto;
+  height: 44px;
+}
+@media (max-width: 560px) {
+  .prose .cta {
+    flex-wrap: wrap;
+  }
+  .prose .cta__badge {
+    width: 100%;
+  }
+}

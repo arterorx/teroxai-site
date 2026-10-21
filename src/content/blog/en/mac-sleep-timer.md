@@ -15,6 +15,8 @@ sleep 3600 && pmset sleepnow
 
 Wait an hour, then put the Mac to sleep. It works, but every single night, half asleep, typing a command into a black window. The Mac has no sleep timer. Apple even removed the old sleep schedule from the settings. So in 2024 I built one, and it became my first app: [Sleep Timer](/apps/sleep-timer/), [$2.99 once on the Mac App Store](https://apps.apple.com/app/id6502469655).
 
+<div class="cta"><img class="cta__icon" src="/cta/sleep-timer.png" alt="" width="64" height="64"><div class="cta__text"><strong>Sleep Timer: Menu Bar &amp; Widget</strong><span>$2.99 once, no subscription. macOS 14 or later.</span></div><a class="cta__badge" href="https://apps.apple.com/app/id6502469655" rel="noopener" target="_blank"><img src="/cta/mac-app-store-en.svg" alt="Download on the Mac App Store" width="172" height="44"></a></div>
+
 This is how it went from a week-long side project to version 4.6, and at the end, the free ways to do the same thing if you do not want an app at all.
 
 ## Version one: a week in Flutter
@@ -62,6 +64,8 @@ In the App Store the change is easier to see. Until June the product page got a 
 ![Product page views of Sleep Timer in the App Store, January to October 2026: low until June, clearly higher from July](../../../assets/blog/mac-sleep-timer/asc-page-views.png)
 
 Sales grew with it, noticeably. I keep the money figures to myself, as in every article here.
+
+<div class="cta"><img class="cta__icon" src="/cta/sleep-timer.png" alt="" width="64" height="64"><div class="cta__text"><strong>Sleep Timer: Menu Bar &amp; Widget</strong><span>$2.99 once, no subscription. macOS 14 or later.</span></div><a class="cta__badge" href="https://apps.apple.com/app/id6502469655" rel="noopener" target="_blank"><img src="/cta/mac-app-store-en.svg" alt="Download on the Mac App Store" width="172" height="44"></a></div>
 
 ## If you do not want an app
 

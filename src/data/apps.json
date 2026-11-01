@@ -967,5 +967,126 @@
         }
       ]
     }
+  },
+  {
+    "slug": "bone-caster",
+    "appId": "6821275353",
+    "bundleId": "com.artero.bonecaster",
+    "order": 10,
+    "kind": "game",
+    "status": "live",
+    "platforms": [
+      "ios",
+      "ipados",
+      "macos"
+    ],
+    "priceModel": "free-pro",
+    "site": null,
+    "privacy": "https://bonecaster.kargorage.workers.dev/privacy.html",
+    "support": "https://bonecaster.kargorage.workers.dev/support",
+    "store": {
+      "rating": null,
+      "ratingCount": 0,
+      "version": "1.0",
+      "price": 0,
+      "currency": "USD",
+      "fetchedAt": "2026-11-01"
+    },
+    "accent": "#E0642A",
+    "shotOrder": [
+      1,
+      3,
+      2
+    ],
+    "en": {
+      "name": "Bone Caster: Dice Roguelike",
+      "subtitle": "",
+      "tagline": "A dice roguelike in the winter taiga",
+      "priceLabel": "Free to try, one purchase for the full game",
+      "intro": "Bone Caster is a dice roguelike set in the winter taiga. You are a shaman with five casting bones: roll, hold, reroll, paint their sides with powers and appease eight spirits before the night is over. A run takes 15 to 20 minutes, with no ads, no energy and no internet.",
+      "features": [
+        {
+          "title": "Roll, hold, reroll",
+          "text": "Cast five bones, keep the ones you like and reroll the rest twice. Build hands like Twins, Trine and Great Omen to beat each spirit's score."
+        },
+        {
+          "title": "Paint your own dice",
+          "text": "Between spirits, paint any side of any bone. Raven doubles its neighbour, Ice stays frozen for the next cast, Moon counts as any number."
+        },
+        {
+          "title": "25 amulets, real builds",
+          "text": "Amulets feed on your hands, your painted faces and each other. Buy, sell and swap them in the shop to shape the run."
+        },
+        {
+          "title": "A run fits in a break",
+          "text": "15 to 20 minutes from the first cast to the last spirit, saved after every action. On iPhone, iPad and Mac, with touch, mouse or keyboard."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is Bone Caster free?",
+          "a": "The first four of the eight spirits are free, with as many runs as you like. One in-app purchase unlocks the full game: spirits five to eight, victories, shaman kits and six winters. Nothing else is sold."
+        },
+        {
+          "q": "Does it need an internet connection?",
+          "a": "No. Bone Caster works fully offline, needs no account and collects no data. There are no ads, no energy and no timers."
+        },
+        {
+          "q": "Which devices does it run on?",
+          "a": "iPhone, iPad and Mac. The full-game purchase covers all three, and you can play in portrait or landscape."
+        },
+        {
+          "q": "How long is a run?",
+          "a": "About 15 to 20 minutes. The run is saved after every action, so you can close the game at any time and continue later."
+        }
+      ]
+    },
+    "de": {
+      "name": "Bone Caster: Dice Roguelike",
+      "subtitle": "",
+      "tagline": "Ein Würfel-Roguelike in der winterlichen Taiga",
+      "priceLabel": "Kostenlos testen, ein Kauf für das ganze Spiel",
+      "intro": "Bone Caster ist ein Würfel-Roguelike in der winterlichen Taiga. Du bist ein Schamane mit fünf Wurfknochen: würfeln, halten, neu würfeln, die Seiten mit Kräften bemalen und acht Geister besänftigen, bevor die Nacht vorbei ist. Eine Runde dauert 15 bis 20 Minuten, ohne Werbung, ohne Energie und ohne Internet.",
+      "features": [
+        {
+          "title": "Würfeln, halten, neu würfeln",
+          "text": "Wirf fünf Knochen, behalte die guten und würfle den Rest zweimal neu. Bilde Hände wie Twins, Trine und Great Omen, um die Punktzahl jedes Geistes zu schlagen."
+        },
+        {
+          "title": "Bemale deine Würfel",
+          "text": "Zwischen den Geistern bemalst du jede Seite jedes Knochens. Raven verdoppelt den Nachbarn, Ice bleibt für den nächsten Wurf liegen, Moon zählt als jede Zahl."
+        },
+        {
+          "title": "25 Amulette, echte Builds",
+          "text": "Amulette leben von deinen Händen, den bemalten Seiten und voneinander. Kaufe, verkaufe und tausche sie im Laden, um die Runde zu formen."
+        },
+        {
+          "title": "Eine Runde passt in eine Pause",
+          "text": "15 bis 20 Minuten vom ersten Wurf bis zum letzten Geist, nach jeder Aktion gespeichert. Auf iPhone, iPad und Mac, mit Touch, Maus oder Tastatur."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Ist Bone Caster kostenlos?",
+          "a": "Die ersten vier der acht Geister sind kostenlos, mit beliebig vielen Runden. Ein In-App-Kauf schaltet das ganze Spiel frei: die Geister fünf bis acht, Siege, Schamanen-Ausrüstungen und sechs Winter. Sonst wird nichts verkauft."
+        },
+        {
+          "q": "Braucht das Spiel eine Internetverbindung?",
+          "a": "Nein. Bone Caster läuft komplett offline, braucht kein Konto und sammelt keine Daten. Es gibt keine Werbung, keine Energie und keine Timer."
+        },
+        {
+          "q": "Auf welchen Geräten läuft es?",
+          "a": "Auf iPhone, iPad und Mac. Der Kauf des ganzen Spiels gilt für alle drei, gespielt wird im Hoch- oder Querformat."
+        },
+        {
+          "q": "Wie lange dauert eine Runde?",
+          "a": "Etwa 15 bis 20 Minuten. Die Runde wird nach jeder Aktion gespeichert, du kannst also jederzeit aufhören und später weitermachen."
+        },
+        {
+          "q": "Gibt es das Spiel auf Deutsch?",
+          "a": "Noch nicht. Bone Caster ist derzeit nur auf Englisch."
+        }
+      ]
+    }
   }
 ]

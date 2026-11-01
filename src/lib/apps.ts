@@ -37,6 +37,8 @@ export interface App {
   store: { rating: number | null; ratingCount: number; version: string; price?: number; currency?: string; fetchedAt: string };
   /** Brand colour taken from the icon, #rrggbb. Drives gradients, glows, marks. */
   accent: string;
+  /** "game" puts the title in the Games section and under /games/. Absent = an app. */
+  kind?: 'game';
   /** Which store screenshot becomes shot-1, shot-2, shot-3 (1-based). Absent = store order. */
   shotOrder?: number[];
   en: AppCopy;
@@ -60,6 +62,7 @@ const validate = (list: unknown): App[] => {
     for (const p of a.platforms) {
       if (!PLATFORMS.includes(p)) throw new Error(`${a.slug}: unknown platform ${p}`);
     }
+    if (a.kind !== undefined && a.kind !== 'game') throw new Error(`${a.slug}: kind must be "game" or absent`);
     if (typeof a.accent !== 'string' || !/^#[0-9a-f]{6}$/i.test(a.accent)) throw new Error(`${a.slug}: accent must be #rrggbb`);
     if (a.shotOrder !== undefined) {
       const sorted = [...a.shotOrder].sort();
@@ -89,6 +92,12 @@ const validate = (list: unknown): App[] => {
 export const APPS: App[] = validate(raw);
 
 export const liveApps = (): App[] => APPS.filter((a) => a.status === 'live');
+export const isGame = (app: App): boolean => app.kind === 'game';
+/** Apps without the games, for the app grid, the showcase and the app count. */
+export const appsOnly = (): App[] => APPS.filter((a) => !isGame(a));
+export const games = (): App[] => APPS.filter(isGame);
+/** 'apps/<slug>' or 'games/<slug>', ready for localePath. */
+export const pagePath = (app: App): string => `${isGame(app) ? 'games' : 'apps'}/${app.slug}`;
 export const appBySlug = (slug: string): App | undefined => APPS.find((a) => a.slug === slug);
 /** Apps whose privacy and support pages live on this site. */
 export const hostedApps = (): App[] => APPS.filter((a) => a.privacy === null);

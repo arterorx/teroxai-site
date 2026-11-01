@@ -7,7 +7,7 @@ import HeroParticles from './HeroParticles.astro';
 import PostList from './PostList.astro';
 import Reveal from './Reveal.astro';
 import { clusterFor, localePath, type Locale } from '../i18n/config';
-import { APPS, liveApps } from '../lib/apps';
+import { appsOnly } from '../lib/apps';
 import { homeCopy } from '../i18n/home';
 import { t } from '../i18n/ui';
 import SocialLinks from './SocialLinks.astro';
@@ -17,10 +17,11 @@ interface Props {
   lang: Locale;
 }
 const { lang }: Props = Astro.props;
-const n = liveApps().length;
+const live = appsOnly().filter((a) => a.status === 'live');
+const n = live.length;
 const c = homeCopy(lang, n);
 const ui = t(lang);
-const firstAccent = liveApps()[0].accent;
+const firstAccent = live[0].accent;
 ---
 
 <BaseLayout title={c.title} description={c.description} suffix={false} lang={lang} alternates={clusterFor()}>
@@ -39,7 +40,7 @@ const firstAccent = liveApps()[0].accent;
       <p class="eyebrow">{c.appsEyebrow}</p>
       <h2>{c.appsH2}</h2>
     </Reveal>
-    <AppGrid apps={APPS} lang={lang} />
+    <AppGrid apps={appsOnly()} lang={lang} />
   </section>
 
   <Reveal>

@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { clusterFor, localePath, type Locale } from '../i18n/config';
+import { games, pagePath } from '../lib/apps';
 
 interface Props {
   lang: Locale;
@@ -10,10 +13,12 @@ const { lang }: Props = Astro.props;
 const copy = {
   en: {
     title: 'Games',
-    description: 'Games from TeroxAI for iPhone and Mac. Three are on the way and still locked.',
+    description: 'Games from TeroxAI for iPhone, iPad and Mac. Bone Caster is out, two more are still locked.',
     hud: 'Select game',
-    slots: '3 slots',
-    lead: 'Three games are on the way. All of them are still locked.',
+    slots: (n: number) => `${n} / 3 unlocked`,
+    lead: ['Three games are on the way. All of them are still locked.', 'The first game is out. Two more are still locked.', 'Two games are out. One more is still locked.', 'All three games are out.'],
+    play: 'Play',
+    platforms: 'iPhone · iPad · Mac',
     locked: 'Locked',
     soon: 'Coming soon',
     cardLabel: 'Locked game, coming soon',
@@ -21,10 +26,12 @@ const copy = {
   },
   de: {
     title: 'Spiele',
-    description: 'Spiele von TeroxAI für iPhone und Mac. Drei sind unterwegs und noch gesperrt.',
+    description: 'Spiele von TeroxAI für iPhone, iPad und Mac. Bone Caster ist da, zwei weitere sind noch gesperrt.',
     hud: 'Spiel wählen',
-    slots: '3 Plätze',
-    lead: 'Drei Spiele sind unterwegs. Alle sind noch gesperrt.',
+    slots: (n: number) => `${n} / 3 freigeschaltet`,
+    lead: ['Drei Spiele sind unterwegs. Alle sind noch gesperrt.', 'Das erste Spiel ist da. Zwei weitere sind noch gesperrt.', 'Zwei Spiele sind da. Eines ist noch gesperrt.', 'Alle drei Spiele sind da.'],
+    play: 'Spielen',
+    platforms: 'iPhone · iPad · Mac',
     locked: 'Gesperrt',
     soon: 'Demnächst',
     cardLabel: 'Gesperrtes Spiel, demnächst',
@@ -32,9 +39,12 @@ const copy = {
   },
 }[lang];
 
-/* One entry per slot. A released game replaces its locked slot with a card
-   that links to the game's own page. */
-const slots = [1, 2, 3];
+/* Three slots. Released games (kind "game" in apps.json) fill them from the
+   left with a card that links to the game's own page; the rest stay locked. */
+const icons = import.meta.glob<{ default: ImageMetadata }>('../assets/apps/*/icon.png', { eager: true });
+const released = games().filter((g) => g.status === 'live').slice(0, 3);
+const slots = [1, 2, 3].map((n) => ({ n, game: released[n - 1] }));
+const shortName = (name: string) => name.split(':')[0];
 ---
 
 <BaseLayout title={copy.title} description={copy.description} lang={lang} alternates={clusterFor('games')}>
@@ -43,14 +53,30 @@ const slots = [1, 2, 3];
     <div class="wrap gm__in">
       <p class="gm__hud">
         <span>{copy.hud}<i class="gm__cursor" aria-hidden="true"></i></span>
-        <span>{copy.slots}</span>
+        <span>{copy.slots(released.length)}</span>
       </p>
       <h1 class="gm__title">{copy.title}</h1>
-      <p class="gm__lead">{copy.lead}</p>
+      <p class="gm__lead">{copy.lead[released.length]}</p>
 
       <ul class="gm__deck" role="list">
         {
-          slots.map((n) => (
+          slots.map(({ n, game }) =>
+            game ? (
+              <li class="gm__card gm__card--open" style={`--i:${n - 1};--ga:${game.accent}`}>
+                <a class="gm__link" href={localePath(lang, pagePath(game))}>
+                  <span class="gm__no">{String(n).padStart(2, '0')}</span>
+                  <span class="gm__art">
+                    <Image src={icons[`../assets/apps/${game.slug}/icon.png`].default} alt="" width={160} height={160} densities={[1, 2]} class="gm__icon" />
+                  </span>
+                  <span class="gm__name">{shortName(game[lang].name)}</span>
+                  <span class="gm__tag">{game[lang].tagline}</span>
+                  <span class="gm__play">
+                    {copy.play}
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+                  </span>
+                </a>
+              </li>
+            ) : (
             <li class="gm__card" style={`--i:${n - 1}`} aria-label={copy.cardLabel}>
               <span class="gm__no" aria-hidden="true">{String(n).padStart(2, '0')}</span>
               <span class="gm__q" aria-hidden="true" data-q="?">?</span>
@@ -62,11 +88,12 @@ const slots = [1, 2, 3];
                 {copy.locked}
               </span>
             </li>
-          ))
+            ),
+          )
         }
       </ul>
 
-      <p class="gm__soon"><span>{copy.soon}</span></p>
+      {released.length < 3 && <p class="gm__soon"><span>{copy.soon}</span></p>}
       <p class="gm__back"><a href={localePath(lang, 'apps')}>{copy.back}</a></p>
     </div>
   </section>
@@ -254,6 +281,95 @@ const slots = [1, 2, 3];
     color: #ff8a80;
   }
 
+  /* A released game: the card lights up in the game's colour and opens its page. */
+  .gm__card--open {
+    cursor: pointer;
+    padding: 0;
+    background:
+      radial-gradient(90% 60% at 50% 38%, color-mix(in srgb, var(--ga) 32%, transparent), transparent 70%),
+      linear-gradient(160deg, #22202a, #111016);
+    box-shadow:
+      inset 0 0 0 1.5px color-mix(in srgb, var(--ga) 85%, transparent),
+      0 0 34px color-mix(in srgb, var(--ga) 30%, transparent),
+      0 24px 50px rgb(0 0 0 / 0.55);
+  }
+  .gm__link {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: clamp(0.6rem, 2vw, 1.1rem);
+    color: #fff;
+    text-decoration: none;
+  }
+  .gm__card--open .gm__no {
+    color: color-mix(in srgb, var(--ga) 80%, white);
+  }
+  .gm__art {
+    width: 62%;
+    aspect-ratio: 1;
+    border-radius: 22%;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+    animation: gm-float 4s ease-in-out infinite;
+  }
+  .gm__icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+  }
+  .gm__name {
+    margin-top: 0.4em;
+    font-family: var(--serif);
+    font-size: clamp(0.95rem, 2.8vw, 1.6rem);
+    line-height: 1.1;
+  }
+  .gm__tag {
+    font-size: clamp(0.62rem, 1.6vw, 0.82rem);
+    line-height: 1.3;
+    color: #b9b9c6;
+    max-width: 22ch;
+  }
+  .gm__play {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    margin-top: 0.5em;
+    padding: 0.45em 0.9em;
+    border-radius: 999px;
+    background: var(--ga);
+    color: #160c06;
+    font: 700 clamp(0.62rem, 1.6vw, 0.8rem)/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .gm__card--open:active {
+    animation: none;
+  }
+  @media (hover: hover) {
+    .gm__card--open:hover {
+      box-shadow:
+        inset 0 0 0 2px var(--ga),
+        0 0 0 1px color-mix(in srgb, var(--ga) 50%, transparent),
+        0 30px 70px color-mix(in srgb, var(--ga) 45%, transparent);
+    }
+  }
+  @keyframes gm-float {
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  @media (max-width: 560px) {
+    .gm__tag {
+      display: none;
+    }
+  }
+
   .gm__soon {
     margin: clamp(3rem, 9vw, 5rem) 0 0;
     font: 600 0.85rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -345,7 +461,8 @@ const slots = [1, 2, 3];
     .gm__q,
     .gm__soon span,
     .gm__card:active,
-    .gm__card:hover .gm__q::before {
+    .gm__card:hover .gm__q::before,
+    .gm__art {
       animation: none;
     }
     .gm__card {

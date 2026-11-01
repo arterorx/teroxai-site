@@ -1,0 +1,11 @@
+---
+import AppPage from '../../components/AppPage.astro';
+import { games } from '../../lib/apps';
+
+export function getStaticPaths() {
+  return games().map((app) => ({ params: { slug: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+---
+
+<AppPage app={app} lang="en" />

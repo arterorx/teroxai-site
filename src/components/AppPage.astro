@@ -129,7 +129,7 @@ const jsonLd = [
 
   <section class="wrap section" style={theme}>
     <h2>{ui.features}</h2>
-    <div class="feats">
+    <div class:list={['feats', { 'feats--four': c.features.length === 4 }]}>
       {c.features.map((f, i) => (
         <Reveal delay={i % 3}>
           <div class="card feat">
@@ -290,6 +290,15 @@ const jsonLd = [
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
+  /* Four features sit in one row, so no row is left half empty. */
+  .feats--four {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1000px) {
+    .feats--four {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   .feat {
     height: 100%;
   }
@@ -397,7 +406,8 @@ const jsonLd = [
       grid-template-columns: 1fr;
       min-height: 0;
     }
-    .feats {
+    .feats,
+    .feats--four {
       grid-template-columns: 1fr;
     }
     .glow {

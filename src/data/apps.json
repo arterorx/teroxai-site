@@ -47,6 +47,10 @@
           "text": "Every pass runs edge to edge, so the plan works on a table saw or a panel saw."
         },
         {
+          "title": "Lumber and edge banding",
+          "text": "Plan rails, battens and trim from full lengths too, and add edge banding to any side of a part. The part is cut smaller by the banding."
+        },
+        {
           "title": "No account, no server",
           "text": "Everything stays on your device. One purchase covers iPhone, iPad and Mac."
         }
@@ -96,6 +100,10 @@
         {
           "title": "Schnittfolge zum Nacharbeiten",
           "text": "Jeder Schnitt läuft von Kante zu Kante, damit der Plan an Tischsäge und Plattensäge funktioniert."
+        },
+        {
+          "title": "Leisten und Kantenband",
+          "text": "Plane auch Leisten, Latten und Profile aus ganzen Längen und gib jeder Seite eines Teils ein Kantenband. Das Teil wird um das Band kleiner geschnitten."
         },
         {
           "title": "Kein Konto, kein Server",

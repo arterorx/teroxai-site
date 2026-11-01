@@ -73,6 +73,8 @@ const validate = (list: unknown): App[] => {
       if (!c || !c.name || !c.tagline || !c.intro || !Array.isArray(c.features) || c.features.length < 3) {
         throw new Error(`${a.slug}: incomplete ${lang} copy`);
       }
+      /* The feature grid has three columns, or four in one row: any other count leaves holes. */
+      if (![3, 4, 6, 9].includes(c.features.length)) throw new Error(`${a.slug}: ${lang} needs 3, 4, 6 or 9 features, has ${c.features.length}`);
       for (const f of c.features) {
         if (!f.title || !f.text) throw new Error(`${a.slug}: ${lang} feature without title or text`);
       }

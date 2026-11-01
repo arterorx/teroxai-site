@@ -9,9 +9,15 @@ interface Props {
   lang: Locale;
 }
 const { apps, lang }: Props = Astro.props;
+
+/* Rows are always full. Up to five apps sit in one row; larger sets use the
+   widest of 3, 5 or 4 columns that divides the count. On tablets the grid has
+   two columns, and an odd last card spans both. */
+const n = apps.length;
+const cols = n <= 5 ? n : n % 3 === 0 ? 3 : n % 5 === 0 ? 5 : n % 4 === 0 ? 4 : 3;
 ---
 
-<div class="ag">
+<div class:list={['ag', { 'ag--odd': n % 2 === 1 }]} style={`--cols:${cols}`}>
   {
     apps.map((app, i) => (
       <Reveal delay={i % 4}>
@@ -25,7 +31,9 @@ const { apps, lang }: Props = Astro.props;
   .ag {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(var(--cols), 1fr);
+    /* Two or three cards should not stretch across the whole page. */
+    max-width: calc(var(--cols) * 380px);
   }
   .ag > :global(.reveal) {
     display: grid;
@@ -33,6 +41,10 @@ const { apps, lang }: Props = Astro.props;
   @media (max-width: 900px) {
     .ag {
       grid-template-columns: repeat(2, 1fr);
+      max-width: none;
+    }
+    .ag--odd > :global(.reveal:last-child) {
+      grid-column: span 2;
     }
   }
   @media (max-width: 480px) {

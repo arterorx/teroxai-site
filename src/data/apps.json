@@ -750,10 +750,120 @@
     }
   },
   {
+    "slug": "voice-notes",
+    "appId": "6821429432",
+    "bundleId": "com.artero.localtranscribe",
+    "order": 7,
+    "status": "live",
+    "platforms": [
+      "ios",
+      "ipados"
+    ],
+    "priceModel": "free-pro",
+    "site": null,
+    "privacy": "https://localtranscribe.kargorage.workers.dev/privacy",
+    "support": "https://localtranscribe.kargorage.workers.dev/support",
+    "store": {
+      "rating": null,
+      "ratingCount": 0,
+      "version": "1.0",
+      "price": 0,
+      "currency": "USD",
+      "fetchedAt": "2026-11-01"
+    },
+    "accent": "#D9502F",
+    "en": {
+      "name": "Voice Notes: Local Transcribe",
+      "subtitle": "",
+      "tagline": "Voice to text, right on your iPhone",
+      "priceLabel": "Three transcriptions free, then pay once",
+      "intro": "Local Transcribe turns what you say into text on your iPhone or iPad. Record a lecture, an interview or a thought, or share a voice message to it, and read it instead of listening. Transcription runs on the device, even in Airplane Mode. No account, no cloud, no subscription.",
+      "features": [
+        {
+          "title": "Record without worry",
+          "text": "One tap starts a recording, in the app, from the Lock Screen widget or with the Action button. Audio is saved while you speak, so a long recording survives a crash."
+        },
+        {
+          "title": "Tap a paragraph to hear it",
+          "text": "Notes read like a document, with a title and clear paragraphs. Tap any paragraph to play exactly that part of the recording."
+        },
+        {
+          "title": "Voice messages as text",
+          "text": "Share a voice message or an audio file to the app and read it. Works with m4a, mp3, wav, opus and ogg."
+        },
+        {
+          "title": "Stays on your device",
+          "text": "German and English transcription runs entirely on the iPhone. Nothing is uploaded, and there is no account or tracking."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Does Local Transcribe work offline?",
+          "a": "Yes. Apple's speech model is downloaded once by the system, and after that transcription works without a connection, even in Airplane Mode."
+        },
+        {
+          "q": "Which languages can it transcribe?",
+          "a": "German and English."
+        },
+        {
+          "q": "What does it cost?",
+          "a": "The app is free to download and your first three transcriptions are free at any length. After that one purchase unlocks unlimited transcription. Recording, playback and saving audio stay free. There is no subscription."
+        },
+        {
+          "q": "Which devices does it need?",
+          "a": "An iPhone or iPad with iOS 26 or later."
+        }
+      ]
+    },
+    "de": {
+      "name": "Voice Notes: Local Transcribe",
+      "subtitle": "",
+      "tagline": "Sprache zu Text, direkt auf dem iPhone",
+      "priceLabel": "Drei Transkriptionen gratis, dann einmal zahlen",
+      "intro": "Local Transcribe macht aus Gesprochenem Text, direkt auf iPhone oder iPad. Nimm eine Vorlesung, ein Interview oder einen Gedanken auf oder teile eine Sprachnachricht mit der App und lies sie, statt sie anzuhören. Die Transkription läuft auf dem Gerät, sogar im Flugmodus. Kein Konto, keine Cloud, kein Abo.",
+      "features": [
+        {
+          "title": "Aufnehmen ohne Sorge",
+          "text": "Ein Tipp startet die Aufnahme, in der App, über das Widget auf dem Sperrbildschirm oder mit der Aktionstaste. Der Ton wird schon beim Sprechen gesichert, eine lange Aufnahme übersteht also einen Absturz."
+        },
+        {
+          "title": "Absatz antippen, Stelle hören",
+          "text": "Notizen lesen sich wie ein Dokument, mit Titel und klaren Absätzen. Tippe auf einen Absatz, und genau diese Stelle der Aufnahme wird abgespielt."
+        },
+        {
+          "title": "Sprachnachrichten als Text",
+          "text": "Teile eine Sprachnachricht oder eine Audiodatei mit der App und lies sie. Funktioniert mit m4a, mp3, wav, opus und ogg."
+        },
+        {
+          "title": "Bleibt auf deinem Gerät",
+          "text": "Deutsch und Englisch werden komplett auf dem iPhone transkribiert. Nichts wird hochgeladen, es gibt kein Konto und kein Tracking."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Funktioniert Local Transcribe offline?",
+          "a": "Ja. Das Sprachmodell von Apple lädt das System einmal herunter, danach transkribiert die App ohne Verbindung, sogar im Flugmodus."
+        },
+        {
+          "q": "Welche Sprachen erkennt die App?",
+          "a": "Deutsch und Englisch."
+        },
+        {
+          "q": "Was kostet die App?",
+          "a": "Der Download ist kostenlos, und die ersten drei Transkriptionen sind gratis, egal wie lang. Danach schaltet ein einmaliger Kauf unbegrenzte Transkription frei. Aufnehmen, Abspielen und Speichern bleiben kostenlos. Ein Abo gibt es nicht."
+        },
+        {
+          "q": "Welche Geräte braucht man?",
+          "a": "Ein iPhone oder iPad mit iOS 26 oder neuer."
+        }
+      ]
+    }
+  },
+  {
     "slug": "ai-photo-generator",
     "appId": "6503450897",
     "bundleId": "com.web54.images.generatorai",
-    "order": 7,
+    "order": 8,
     "status": "live",
     "platforms": [
       "ios",
@@ -827,7 +937,7 @@
     "slug": "ai-video-generator",
     "appId": "6504455552",
     "bundleId": "com.aivideogenerator.texttovideo.aivideomaker",
-    "order": 8,
+    "order": 9,
     "status": "live",
     "platforms": [
       "ios",
@@ -901,7 +1011,7 @@
     "slug": "text-to-music",
     "appId": "6740177765",
     "bundleId": "com.musicai.musicgenerator.suno.ai",
-    "order": 9,
+    "order": 10,
     "status": "live",
     "platforms": [
       "ios",
@@ -980,7 +1090,7 @@
     "slug": "bone-caster",
     "appId": "6821275353",
     "bundleId": "com.artero.bonecaster",
-    "order": 10,
+    "order": 11,
     "kind": "game",
     "status": "live",
     "platforms": [

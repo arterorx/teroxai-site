@@ -143,7 +143,17 @@ const sleepVisual = `
     <text x="0" y="262" font-family="${SANS}" font-size="22" fill="#c9c9d1">2.1 in 2024, 4.6 today</text>
   </g>`;
 
+/* Roblox: the game icon resting on a tilted Roblox-style tile. The icon is
+   composited after rendering (see `image` below). */
+const robloxVisual = `
+  <g transform="translate(985,395) rotate(15)">
+    <rect x="-135" y="-135" width="270" height="270" rx="26" fill="#f2f2f5"/>
+    <rect x="-34" y="-34" width="68" height="68" rx="6" fill="#111114"/>
+  </g>
+  <text x="760" y="118" font-family="${SANS}" font-size="20" fill="#9a9aa2">12,700 VISITS IN FIVE DAYS</text>`;
+
 const covers = [
+  { id: 'roblox', kicker: 'ROBLOX, 2026', title: ['How I made a', 'Roblox game with AI', 'in two days'], visual: robloxVisual, image: { file: 'scripts/cover-assets/roblox-icon.png', size: 230, left: 800, top: 150 } },
   { id: 'mac-sleep-timer', kicker: 'MY FIRST APP', title: ['No sleep timer on', 'my Mac, so I', 'built one'], visual: sleepVisual },
   { id: 'creative-assets', kicker: 'APP STORE CONNECT, 2026', title: ['App Store creative', 'assets: sizes, review', 'time and API upload'], visual: creativeVisual },
   { id: 'aso', kicker: 'APP STORE OPTIMIZATION', title: ['App Store keywords:', 'what moved rankings', 'and what did not'], visual: asoVisual },
@@ -155,10 +165,22 @@ const covers = [
 ];
 
 const RATIOS = { '16x9': 675, '4x3': 900, '1x1': 1200 };
+/* Optional raster on top of the SVG, with rounded corners, kept in place on
+   taller canvases by the same vertical offset the frame uses. */
+const render = async (c, h) => {
+  let img = sharp(Buffer.from(frame(c.kicker, c.title, c.visual, h))).png();
+  if (c.image) {
+    const { file, size, left, top } = c.image;
+    const mask = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}"><rect width="${size}" height="${size}" rx="${Math.round(size * 0.22)}"/></svg>`);
+    const icon = await sharp(`${ROOT}${file}`).resize(size, size).composite([{ input: mask, blend: 'dest-in' }]).png().toBuffer();
+    img = sharp(await img.toBuffer()).composite([{ input: icon, left, top: top + Math.round((h - H) / 2) }]).png();
+  }
+  return img;
+};
 for (const c of covers) {
-  await sharp(Buffer.from(frame(c.kicker, c.title, c.visual))).png().toFile(`${OUT}${c.id}.png`);
+  await (await render(c, H)).toFile(`${OUT}${c.id}.png`);
   for (const [name, h] of Object.entries(RATIOS)) {
-    await sharp(Buffer.from(frame(c.kicker, c.title, c.visual, h))).png().toFile(`${OUT}${c.id}-${name}.png`);
+    await (await render(c, h)).toFile(`${OUT}${c.id}-${name}.png`);
   }
 }
 console.log(`covers: ${covers.map((c) => c.id).join(', ')}`);

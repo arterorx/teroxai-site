@@ -1206,5 +1206,126 @@
         }
       ]
     }
+  },
+  {
+    "slug": "lampfall",
+    "appId": "6821423492",
+    "bundleId": "com.artero.lampfall",
+    "order": 12,
+    "kind": "game",
+    "status": "live",
+    "platforms": [
+      "ios",
+      "ipados",
+      "macos"
+    ],
+    "priceModel": "free-pro",
+    "site": null,
+    "privacy": "https://lampfall.kargorage.workers.dev/privacy.html",
+    "support": "https://lampfall.kargorage.workers.dev/support",
+    "store": {
+      "rating": null,
+      "ratingCount": 0,
+      "version": "1.0",
+      "price": 0,
+      "currency": "USD",
+      "fetchedAt": "2026-11-02"
+    },
+    "accent": "#D9952B",
+    "shotOrder": [
+      1,
+      3,
+      2
+    ],
+    "en": {
+      "name": "Lampfall: Turn-Based Roguelike",
+      "subtitle": "",
+      "tagline": "Your lamp oil is your turn counter",
+      "priceLabel": "First five floors free, one purchase for the full game",
+      "intro": "Lampfall is a turn-based dungeon crawler you play with one finger. The lamp of Greywick Light has gone dark, the keeper is missing, and you go down through the flooded floors under the tower with a lantern, a boat hook and a key. Every slab you lift burns oil, and every fight shows its ending before you strike.",
+      "features": [
+        {
+          "title": "Every slab burns oil",
+          "text": "Each floor is a grid of closed slabs, and lifting one costs oil. Turn the lamp up to see more, at twice the burn. When the oil runs out, every step costs blood."
+        },
+        {
+          "title": "Nothing hidden in a fight",
+          "text": "Before you strike, the game shows exactly how the fight ends, down to \"You die\". No dice behind the curtain."
+        },
+        {
+          "title": "Four bosses, four duels",
+          "text": "Every fifth floor is a duel. The boss shows its next move, you answer: strike, burn oil for a heavy blow, brace, flare or step back."
+        },
+        {
+          "title": "A different run every time",
+          "text": "15 relics, shrines that offer a trade, amulets that give and take. Nothing makes you stronger between runs, you just get better."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is Lampfall free?",
+          "a": "The first five floors and the first boss are free. One purchase unlocks the whole game on iPhone, iPad and Mac. There are no ads, no energy and no timers."
+        },
+        {
+          "q": "Does it work offline?",
+          "a": "Yes. Lampfall plays offline, saves after every move and collects no data."
+        },
+        {
+          "q": "Which devices does it run on?",
+          "a": "iPhone, iPad and Mac. One purchase covers all three, and the game is made to be played with one finger."
+        },
+        {
+          "q": "Is it hard?",
+          "a": "Fights are fully predictable: the game shows the outcome before you commit. The challenge is managing your oil. After the bottom there are ten deeper difficulties."
+        }
+      ]
+    },
+    "de": {
+      "name": "Lampfall: Turn-Based Roguelike",
+      "subtitle": "",
+      "tagline": "Dein Lampenöl ist dein Zugzähler",
+      "priceLabel": "Erste fünf Etagen gratis, ein Kauf für das ganze Spiel",
+      "intro": "Lampfall ist ein rundenbasierter Dungeon-Crawler, den du mit einem Finger spielst. Die Lampe von Greywick Light ist erloschen, der Wärter verschwunden, und du steigst mit Laterne, Bootshaken und Schlüssel durch die gefluteten Etagen unter dem Turm. Jede Platte, die du hebst, verbrennt Öl, und jeder Kampf zeigt sein Ende, bevor du zuschlägst.",
+      "features": [
+        {
+          "title": "Jede Platte kostet Öl",
+          "text": "Jede Etage ist ein Raster aus geschlossenen Platten, und jede, die du hebst, kostet Öl. Dreh die Lampe auf, um mehr zu sehen, bei doppeltem Verbrauch. Ist das Öl leer, kostet jeder Schritt Blut."
+        },
+        {
+          "title": "Im Kampf ist nichts versteckt",
+          "text": "Bevor du zuschlägst, zeigt das Spiel genau, wie der Kampf endet, bis hin zu „Du stirbst“. Kein Würfel hinter dem Vorhang."
+        },
+        {
+          "title": "Vier Bosse, vier Duelle",
+          "text": "Jede fünfte Etage ist ein Duell. Der Boss zeigt seinen nächsten Zug, du antwortest: zuschlagen, Öl für einen schweren Schlag verbrennen, abwehren, aufleuchten oder zurückweichen."
+        },
+        {
+          "title": "Jede Runde anders",
+          "text": "15 Relikte, Schreine mit einem Tausch, Amulette, die geben und nehmen. Zwischen den Runden wirst du nicht stärker, nur besser."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Ist Lampfall kostenlos?",
+          "a": "Die ersten fünf Etagen und der erste Boss sind kostenlos. Ein Kauf schaltet das ganze Spiel auf iPhone, iPad und Mac frei. Es gibt keine Werbung, keine Energie und keine Timer."
+        },
+        {
+          "q": "Funktioniert es offline?",
+          "a": "Ja. Lampfall läuft offline, speichert nach jedem Zug und sammelt keine Daten."
+        },
+        {
+          "q": "Auf welchen Geräten läuft es?",
+          "a": "Auf iPhone, iPad und Mac. Ein Kauf gilt für alle drei, und das Spiel ist für einen Finger gemacht."
+        },
+        {
+          "q": "Ist es schwer?",
+          "a": "Kämpfe sind komplett vorhersehbar, das Spiel zeigt das Ergebnis, bevor du dich festlegst. Die Herausforderung ist das Öl. Nach dem Grund warten zehn tiefere Schwierigkeitsstufen."
+        },
+        {
+          "q": "Gibt es das Spiel auf Deutsch?",
+          "a": "Noch nicht. Lampfall ist derzeit nur auf Englisch."
+        }
+      ]
+    }
   }
 ]
